@@ -30,6 +30,20 @@ npm run dev
 - `components/` - React komponenty
 - `lib/` - Data a utility funkce
 
+## Aktualizace na GitHub
+
+Pro nahrání změn na GitHub použijte skript:
+```powershell
+.\update-github.ps1
+```
+
+Nebo ručně:
+```bash
+git add .
+git commit -m "Popis změn"
+git push origin main
+```
+
 ## Poznámky
 
 - Obrázky z původního webu je potřeba přidat do projektu nebo aktualizovat URL v komponentách
