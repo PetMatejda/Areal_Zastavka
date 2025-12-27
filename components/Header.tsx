@@ -59,6 +59,12 @@ export default function Header() {
               O nás
             </button>
             <button
+              onClick={() => scrollToSection("provozni-rad")}
+              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+            >
+              Provozní řád
+            </button>
+            <button
               onClick={() => scrollToSection("kontakt")}
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
             >
@@ -102,6 +108,12 @@ export default function Header() {
               className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
             >
               O nás
+            </button>
+            <button
+              onClick={() => scrollToSection("provozni-rad")}
+              className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
+            >
+              Provozní řád
             </button>
             <button
               onClick={() => scrollToSection("kontakt")}

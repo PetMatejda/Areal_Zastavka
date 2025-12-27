@@ -62,6 +62,15 @@ export default function Footer() {
               </button>
               <button
                 onClick={() => {
+                  const element = document.getElementById("provozni-rad");
+                  element?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="block hover:text-white transition-colors"
+              >
+                Provozní řád
+              </button>
+              <button
+                onClick={() => {
                   const element = document.getElementById("kontakt");
                   element?.scrollIntoView({ behavior: "smooth" });
                 }}
