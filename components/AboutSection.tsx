@@ -87,7 +87,6 @@ export default function AboutSection() {
             ];
             
             const displaySrc = getImageSource(index);
-            const isLocalImage = src.startsWith("/images/");
             
             return (
               <div key={index} className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg bg-gray-100">
