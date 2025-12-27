@@ -69,18 +69,30 @@ export default function AboutSection() {
               "Měcholupský Park - Interiér",
             ];
             
+            // Pro lokální obrázky použijeme standardní img tag, pro externí Next.js Image
+            const isLocalImage = src.startsWith("/images/");
             const displaySrc = imageErrors[index] ? galleryPlaceholders[index] : src;
             
             return (
               <div key={index} className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
-                <Image
-                  src={displaySrc}
-                  alt={altTexts[index]}
-                  fill
-                  className="object-cover"
-                  unoptimized
-                  onError={() => handleImageError(index)}
-                />
+                {isLocalImage && !imageErrors[index] ? (
+                  <img
+                    src={displaySrc}
+                    alt={altTexts[index]}
+                    className="w-full h-full object-cover"
+                    onError={() => handleImageError(index)}
+                    loading="lazy"
+                  />
+                ) : (
+                  <Image
+                    src={displaySrc}
+                    alt={altTexts[index]}
+                    fill
+                    className="object-cover"
+                    unoptimized
+                    onError={() => handleImageError(index)}
+                  />
+                )}
               </div>
             );
           })}
