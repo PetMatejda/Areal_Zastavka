@@ -68,9 +68,7 @@ export default function ServiceCatalog() {
                       alt="Měcholupský Park - Jídlo"
                       fill
                       className="object-cover"
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                      }}
+                      unoptimized
                     />
                   </motion.div>
                 )}

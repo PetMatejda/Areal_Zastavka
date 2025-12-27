@@ -24,10 +24,7 @@ export default function Hero() {
           fill
           className="object-cover opacity-30"
           priority
-          onError={(e) => {
-            // Fallback pokud obrázek není dostupný
-            e.currentTarget.style.display = 'none';
-          }}
+          unoptimized
         />
         {/* Fallback gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-orange-50"></div>

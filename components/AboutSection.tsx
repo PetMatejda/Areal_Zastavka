@@ -38,9 +38,7 @@ export default function AboutSection() {
               alt="Areál Zastávka"
               fill
               className="object-cover"
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-              }}
+              unoptimized
             />
           </div>
           <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
@@ -49,9 +47,7 @@ export default function AboutSection() {
               alt="Měcholupský Park - Interiér"
               fill
               className="object-cover"
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-              }}
+              unoptimized
             />
           </div>
         </motion.div>

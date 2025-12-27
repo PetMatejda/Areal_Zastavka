@@ -28,12 +28,13 @@ export default function Header() {
             transition={{ duration: 0.5 }}
             className="flex items-center gap-3"
           >
-            <div className="relative w-10 h-10">
+            <div className="relative w-10 h-10 hidden md:block">
               <Image
                 src={getImageSrc("arealLogo")}
                 alt="Areál Zastávka Logo"
                 fill
                 className="object-contain"
+                unoptimized
                 onError={(e) => {
                   // Fallback to text if logo not available
                   e.currentTarget.style.display = 'none';
