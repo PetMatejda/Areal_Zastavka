@@ -26,6 +26,7 @@ export default function AboutSection() {
     });
   };
 
+  // Zkusíme načíst lokální obrázky, pokud nejsou dostupné, použijeme placeholdery
   const imageSources = [
     "/images/areal/areal-zastavka.jpg",
     "/images/areal/hala-6-5.jpg",
@@ -33,6 +34,14 @@ export default function AboutSection() {
     "/images/areal/budova-hneda.jpg",
     getImageSrc("restaurantInterior"),
   ];
+  
+  // Pro každý obrázek zkontrolujeme, zda má chybu, a použijeme placeholder
+  const getImageSource = (index: number) => {
+    if (imageErrors[index]) {
+      return galleryPlaceholders[index];
+    }
+    return imageSources[index];
+  };
 
   return (
     <section id="o-nas" className="py-20 bg-white">
@@ -69,30 +78,24 @@ export default function AboutSection() {
               "Měcholupský Park - Interiér",
             ];
             
-            // Pro lokální obrázky použijeme standardní img tag, pro externí Next.js Image
+            const displaySrc = getImageSource(index);
             const isLocalImage = src.startsWith("/images/");
-            const displaySrc = imageErrors[index] ? galleryPlaceholders[index] : src;
             
             return (
-              <div key={index} className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
-                {isLocalImage && !imageErrors[index] ? (
-                  <img
-                    src={displaySrc}
-                    alt={altTexts[index]}
-                    className="w-full h-full object-cover"
-                    onError={() => handleImageError(index)}
-                    loading="lazy"
-                  />
-                ) : (
-                  <Image
-                    src={displaySrc}
-                    alt={altTexts[index]}
-                    fill
-                    className="object-cover"
-                    unoptimized
-                    onError={() => handleImageError(index)}
-                  />
-                )}
+              <div key={index} className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg bg-gray-100">
+                <Image
+                  src={displaySrc}
+                  alt={altTexts[index]}
+                  fill
+                  className="object-cover"
+                  unoptimized
+                  onError={() => {
+                    if (!imageErrors[index]) {
+                      handleImageError(index);
+                    }
+                  }}
+                  priority={index === 0}
+                />
               </div>
             );
           })}
