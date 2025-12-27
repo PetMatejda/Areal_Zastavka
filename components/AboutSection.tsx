@@ -1,11 +1,39 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Building2, Users, Target } from "lucide-react";
 import { getImageSrc } from "@/lib/images";
 
+// Různé placeholdery pro každou pozici v galerii
+const galleryPlaceholders = [
+  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80", // Kancelářské budovy
+  "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1920&q=80", // Průmyslový areál
+  "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80", // Moderní kanceláře
+  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80", // Business park
+  "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=1920&q=80", // Interiér
+];
+
 export default function AboutSection() {
+  const [imageErrors, setImageErrors] = useState<boolean[]>([false, false, false, false, false]);
+
+  const handleImageError = (index: number) => {
+    setImageErrors(prev => {
+      const newErrors = [...prev];
+      newErrors[index] = true;
+      return newErrors;
+    });
+  };
+
+  const imageSources = [
+    "/images/areal/areal-zastavka.jpg",
+    "/images/areal/hala-6-5.jpg",
+    "/images/areal/budova-terakota.jpg",
+    "/images/areal/budova-hneda.jpg",
+    getImageSrc("restaurantInterior"),
+  ];
+
   return (
     <section id="o-nas" className="py-20 bg-white">
       <div className="container mx-auto px-4">
@@ -32,73 +60,30 @@ export default function AboutSection() {
           transition={{ duration: 0.6 }}
           className="mb-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
         >
-          {/* Letecký pohled na areál */}
-          <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src="/images/areal/areal-zastavka.jpg"
-              alt="Areál Zastávka - letecký pohled"
-              fill
-              className="object-cover"
-              unoptimized
-              onError={(e) => {
-                // Fallback na placeholder pokud obrázek není dostupný
-                e.currentTarget.src = getImageSrc("arealMain");
-              }}
-            />
-          </div>
-          
-          {/* Budova HALA 6.5 - Balloon Light Praha */}
-          <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src="/images/areal/hala-6-5.jpg"
-              alt="HALA 6.5 - Balloon Light Praha s.r.o."
-              fill
-              className="object-cover"
-              unoptimized
-              onError={(e) => {
-                e.currentTarget.src = getImageSrc("arealMain");
-              }}
-            />
-          </div>
-          
-          {/* Budova s terakotovou fasádou */}
-          <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src="/images/areal/budova-terakota.jpg"
-              alt="Areál Zastávka - budova s terakotovou fasádou"
-              fill
-              className="object-cover"
-              unoptimized
-              onError={(e) => {
-                e.currentTarget.src = getImageSrc("arealMain");
-              }}
-            />
-          </div>
-          
-          {/* Budova se světle hnědou fasádou */}
-          <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src="/images/areal/budova-hneda.jpg"
-              alt="Areál Zastávka - budova se světle hnědou fasádou"
-              fill
-              className="object-cover"
-              unoptimized
-              onError={(e) => {
-                e.currentTarget.src = getImageSrc("arealMain");
-              }}
-            />
-          </div>
-          
-          {/* Měcholupský Park - Interiér */}
-          <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
-            <Image
-              src={getImageSrc("restaurantInterior")}
-              alt="Měcholupský Park - Interiér"
-              fill
-              className="object-cover"
-              unoptimized
-            />
-          </div>
+          {imageSources.map((src, index) => {
+            const altTexts = [
+              "Areál Zastávka - letecký pohled",
+              "HALA 6.5 - Balloon Light Praha s.r.o.",
+              "Areál Zastávka - budova s terakotovou fasádou",
+              "Areál Zastávka - budova se světle hnědou fasádou",
+              "Měcholupský Park - Interiér",
+            ];
+            
+            const displaySrc = imageErrors[index] ? galleryPlaceholders[index] : src;
+            
+            return (
+              <div key={index} className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
+                <Image
+                  src={displaySrc}
+                  alt={altTexts[index]}
+                  fill
+                  className="object-cover"
+                  unoptimized
+                  onError={() => handleImageError(index)}
+                />
+              </div>
+            );
+          })}
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">

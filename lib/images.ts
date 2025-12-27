@@ -7,6 +7,11 @@ const placeholderImages = {
   restaurant: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&q=80",
   food: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920&q=80",
   interior: "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=1920&q=80",
+  // Různé placeholdery pro galerii areálu
+  areal1: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80", // Kancelářské budovy
+  areal2: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1920&q=80", // Průmyslový areál
+  areal3: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80", // Moderní kanceláře
+  areal4: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80", // Business park
 };
 
 export const imageSources = {
