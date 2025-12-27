@@ -30,8 +30,9 @@ export default function AboutSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 grid md:grid-cols-2 gap-6 max-w-5xl mx-auto"
+          className="mb-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
         >
+          {/* Letecký pohled na areál */}
           <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
             <Image
               src="/images/areal/areal-zastavka.jpg"
@@ -45,6 +46,50 @@ export default function AboutSection() {
               }}
             />
           </div>
+          
+          {/* Budova HALA 6.5 - Balloon Light Praha */}
+          <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
+            <Image
+              src="/images/areal/hala-6-5.jpg"
+              alt="HALA 6.5 - Balloon Light Praha s.r.o."
+              fill
+              className="object-cover"
+              unoptimized
+              onError={(e) => {
+                e.currentTarget.src = getImageSrc("arealMain");
+              }}
+            />
+          </div>
+          
+          {/* Budova s terakotovou fasádou */}
+          <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
+            <Image
+              src="/images/areal/budova-terakota.jpg"
+              alt="Areál Zastávka - budova s terakotovou fasádou"
+              fill
+              className="object-cover"
+              unoptimized
+              onError={(e) => {
+                e.currentTarget.src = getImageSrc("arealMain");
+              }}
+            />
+          </div>
+          
+          {/* Budova se světle hnědou fasádou */}
+          <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
+            <Image
+              src="/images/areal/budova-hneda.jpg"
+              alt="Areál Zastávka - budova se světle hnědou fasádou"
+              fill
+              className="object-cover"
+              unoptimized
+              onError={(e) => {
+                e.currentTarget.src = getImageSrc("arealMain");
+              }}
+            />
+          </div>
+          
+          {/* Měcholupský Park - Interiér */}
           <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
             <Image
               src={getImageSrc("restaurantInterior")}

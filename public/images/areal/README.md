@@ -1,10 +1,18 @@
 # Obrázky Areálu Zastávka
 
-## Instrukce pro nahrání obrázku
+## Instrukce pro nahrání obrázků
 
-1. Uložte obrázek areálu do této složky s názvem: `areal-zastavka.jpg`
-2. Podporované formáty: JPG, PNG, WebP
-3. Doporučené rozměry: minimálně 1920x1080px pro lepší kvalitu
+Uložte obrázky areálu do této složky s následujícími názvy:
 
-Po nahrání obrázku bude automaticky zobrazen v sekci "O nás" na webu.
+1. **areal-zastavka.jpg** - Letecký pohled na areál (již přidán)
+2. **hala-6-5.jpg** - Budova HALA 6.5 s žlutou fasádou (Balloon Light Praha s.r.o.)
+3. **budova-terakota.jpg** - Budova s červeno-oranžovou (terakotovou) fasádou
+4. **budova-hneda.jpg** - Budova se světle hnědou/tanovou fasádou
+
+## Technické požadavky:
+- Podporované formáty: JPG, PNG, WebP
+- Doporučené rozměry: minimálně 1920x1080px pro lepší kvalitu
+- Optimální poměr stran: 16:9 nebo 4:3
+
+Po nahrání obrázků budou automaticky zobrazeny v sekci "O nás" na webu v galerii.
 
