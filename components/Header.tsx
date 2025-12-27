@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
+import { getImageSrc } from "@/lib/images";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,8 +26,20 @@ export default function Header() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex items-center"
+            className="flex items-center gap-3"
           >
+            <div className="relative w-10 h-10">
+              <Image
+                src={getImageSrc("arealLogo")}
+                alt="Areál Zastávka Logo"
+                fill
+                className="object-contain"
+                onError={(e) => {
+                  // Fallback to text if logo not available
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
+            </div>
             <h1 className="text-2xl font-bold text-gray-900">Areál Zastávka</h1>
           </motion.div>
 

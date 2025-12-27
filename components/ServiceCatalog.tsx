@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { serviceCategories } from "@/lib/data";
+import { getImageSrc } from "@/lib/images";
 import { Utensils, Rocket, ShieldCheck, Heart } from "lucide-react";
 import { ServiceCategory } from "@/lib/data";
 
@@ -51,6 +53,27 @@ export default function ServiceCatalog() {
                     {category.name}
                   </h3>
                 </div>
+
+                {/* Category Image for Gastro & Eventy */}
+                {category.name === "Gastro & Eventy" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="mb-8 relative h-64 rounded-xl overflow-hidden shadow-lg"
+                  >
+                    <Image
+                      src={getImageSrc("restaurantFood")}
+                      alt="Měcholupský Park - Jídlo"
+                      fill
+                      className="object-cover"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                      }}
+                    />
+                  </motion.div>
+                )}
 
                 {/* Service Items Grid */}
                 <div className="grid md:grid-cols-3 gap-6">

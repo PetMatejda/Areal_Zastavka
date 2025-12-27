@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { heroOffer } from "@/lib/data";
+import { getImageSrc } from "@/lib/images";
 import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
@@ -13,9 +15,23 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-orange-50 pt-20">
-      {/* Background Image Placeholder - can be replaced with actual image */}
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1920')] bg-cover bg-center opacity-20"></div>
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-orange-50 pt-20 overflow-hidden">
+      {/* Background Image from Měcholupský Park */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={getImageSrc("restaurantMain")}
+          alt="Měcholupský Park - Restaurace"
+          fill
+          className="object-cover opacity-30"
+          priority
+          onError={(e) => {
+            // Fallback pokud obrázek není dostupný
+            e.currentTarget.style.display = 'none';
+          }}
+        />
+        {/* Fallback gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-orange-50"></div>
+      </div>
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div

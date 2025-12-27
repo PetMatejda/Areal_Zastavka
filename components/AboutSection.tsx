@@ -1,7 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Building2, Users, Target } from "lucide-react";
+import { getImageSrc } from "@/lib/images";
 
 export default function AboutSection() {
   return (
@@ -20,6 +22,38 @@ export default function AboutSection() {
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Jsme více než jen pronajímatel kancelářských prostor. Jsme váš partner pro všechny služby, které vaše firma a zaměstnanci potřebují.
           </p>
+        </motion.div>
+
+        {/* Image Gallery */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-16 grid md:grid-cols-2 gap-6 max-w-5xl mx-auto"
+        >
+          <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
+            <Image
+              src={getImageSrc("arealMain")}
+              alt="Areál Zastávka"
+              fill
+              className="object-cover"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+              }}
+            />
+          </div>
+          <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
+            <Image
+              src={getImageSrc("restaurantInterior")}
+              alt="Měcholupský Park - Interiér"
+              fill
+              className="object-cover"
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+              }}
+            />
+          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
