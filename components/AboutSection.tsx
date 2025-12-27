@@ -27,20 +27,28 @@ export default function AboutSection() {
   };
 
   // Zkusíme načíst lokální obrázky, pokud nejsou dostupné, použijeme placeholdery
-  const imageSources = [
+  const localImageSources = [
     "/images/areal/areal-zastavka.jpg",
     "/images/areal/hala-6-5.jpg",
     "/images/areal/budova-terakota.jpg",
     "/images/areal/budova-hneda.jpg",
-    getImageSrc("restaurantInterior"),
   ];
   
   // Pro každý obrázek zkontrolujeme, zda má chybu, a použijeme placeholder
+  // Pro lokální obrázky zkusíme načíst, pokud selžou, použijeme placeholder
   const getImageSource = (index: number) => {
+    // Pokud už máme chybu, použijeme placeholder
     if (imageErrors[index]) {
       return galleryPlaceholders[index];
     }
-    return imageSources[index];
+    
+    // Pro lokální obrázky (index 0-3) zkusíme načíst, pokud selžou, použijeme placeholder
+    if (index < localImageSources.length) {
+      return localImageSources[index];
+    }
+    
+    // Pro poslední obrázek (restaurant) použijeme externí zdroj
+    return getImageSrc("restaurantInterior");
   };
 
   return (
@@ -69,7 +77,7 @@ export default function AboutSection() {
           transition={{ duration: 0.6 }}
           className="mb-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
         >
-          {imageSources.map((src, index) => {
+          {[0, 1, 2, 3, 4].map((index) => {
             const altTexts = [
               "Areál Zastávka - letecký pohled",
               "HALA 6.5 - Balloon Light Praha s.r.o.",
