@@ -2,14 +2,22 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { getImageSrc } from "@/lib/images";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const scrollToSection = (id: string) => {
+    if (pathname !== "/") {
+      // Pokud nejsme na hlavní stránce, přesměrujeme tam a pak scrollujeme
+      window.location.href = `/#${id}`;
+      return;
+    }
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -41,7 +49,9 @@ export default function Header() {
                 }}
               />
             </div>
-            <h1 className="text-2xl font-bold text-gray-900">Areál Zastávka</h1>
+            <Link href="/" className="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
+              Areál Zastávka
+            </Link>
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -58,12 +68,12 @@ export default function Header() {
             >
               O nás
             </button>
-            <button
-              onClick={() => scrollToSection("provozni-rad")}
+            <Link
+              href="/provozni-rad"
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
             >
               Provozní řád
-            </button>
+            </Link>
             <button
               onClick={() => scrollToSection("kontakt")}
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
@@ -109,12 +119,13 @@ export default function Header() {
             >
               O nás
             </button>
-            <button
-              onClick={() => scrollToSection("provozni-rad")}
+            <Link
+              href="/provozni-rad"
+              onClick={() => setIsMenuOpen(false)}
               className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
             >
               Provozní řád
-            </button>
+            </Link>
             <button
               onClick={() => scrollToSection("kontakt")}
               className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"

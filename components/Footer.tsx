@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function Footer() {
@@ -60,15 +61,12 @@ export default function Footer() {
               >
                 O nás
               </button>
-              <button
-                onClick={() => {
-                  const element = document.getElementById("provozni-rad");
-                  element?.scrollIntoView({ behavior: "smooth" });
-                }}
+              <Link
+                href="/provozni-rad"
                 className="block hover:text-white transition-colors"
               >
                 Provozní řád
-              </button>
+              </Link>
               <button
                 onClick={() => {
                   const element = document.getElementById("kontakt");

@@ -7,7 +7,7 @@ export default function OperationalRules() {
   const pdfUrl = "https://www.arealzastavka.cz/static/media/Provozn%C3%AD%20%C5%99%C3%A1d%20are%C3%A1lu%20032025.85ec1e43eec86593a7a4.pdf";
 
   return (
-    <section id="provozni-rad" className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
