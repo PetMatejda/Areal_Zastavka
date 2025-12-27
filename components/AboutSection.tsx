@@ -34,11 +34,15 @@ export default function AboutSection() {
         >
           <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
             <Image
-              src={getImageSrc("arealMain")}
-              alt="Areál Zastávka"
+              src="/images/areal/areal-zastavka.jpg"
+              alt="Areál Zastávka - letecký pohled"
               fill
               className="object-cover"
               unoptimized
+              onError={(e) => {
+                // Fallback na placeholder pokud obrázek není dostupný
+                e.currentTarget.src = getImageSrc("arealMain");
+              }}
             />
           </div>
           <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg">
