@@ -14,6 +14,18 @@ const iconMap: Record<string, React.ComponentType<{ size?: number; className?: s
   Heart,
 };
 
+// Funkce pro získání obrázku pro kategorii
+function getCategoryImage(categoryName: string): string {
+  const categoryImages: Record<string, string> = {
+    "Gastro & Eventy": getImageSrc("restaurantFood"),
+    "Růst & Technologie": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80", // Technologie, tým
+    "Provoz & Bezpečí": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=80", // Bezpečnost, stavebnictví
+    "Lifestyle & Volný čas": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80", // Sport, volný čas
+  };
+  
+  return categoryImages[categoryName] || getImageSrc("restaurantFood");
+}
+
 export default function ServiceCatalog() {
   return (
     <section id="sluzby" className="py-20 bg-gray-50">
@@ -54,24 +66,22 @@ export default function ServiceCatalog() {
                   </h3>
                 </div>
 
-                {/* Category Image for Gastro & Eventy */}
-                {category.name === "Gastro & Eventy" && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mb-8 relative h-64 rounded-xl overflow-hidden shadow-lg"
-                  >
-                    <Image
-                      src={getImageSrc("restaurantFood")}
-                      alt="Měcholupský Park - Jídlo"
-                      fill
-                      className="object-cover"
-                      unoptimized
-                    />
-                  </motion.div>
-                )}
+                {/* Category Image */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="mb-8 relative h-64 rounded-xl overflow-hidden shadow-lg"
+                >
+                  <Image
+                    src={getCategoryImage(category.name)}
+                    alt={category.name}
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                </motion.div>
 
                 {/* Service Items Grid */}
                 <div className="grid md:grid-cols-3 gap-6">
