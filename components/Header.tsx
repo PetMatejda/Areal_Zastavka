@@ -30,29 +30,28 @@ export default function Header() {
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex items-center gap-3"
-          >
-            <div className="relative w-10 h-10 hidden md:block">
+          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="relative h-12 w-auto"
+            >
               <Image
-                src={getImageSrc("arealLogo")}
+                src="/images/logo.png"
                 alt="Areál Zastávka Logo"
-                fill
-                className="object-contain"
+                width={200}
+                height={48}
+                className="object-contain h-12 w-auto"
                 unoptimized
+                priority
                 onError={(e) => {
                   // Fallback to text if logo not available
                   e.currentTarget.style.display = 'none';
                 }}
               />
-            </div>
-            <Link href="/" className="text-2xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
-              Areál Zastávka
-            </Link>
-          </motion.div>
+            </motion.div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
