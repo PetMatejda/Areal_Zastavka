@@ -84,6 +84,12 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
+            <Link
+              href="/volne-prostory"
+              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+            >
+              Volné prostory
+            </Link>
             <button
               onClick={() => scrollToSection("sluzby")}
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
@@ -135,6 +141,13 @@ export default function Header() {
             exit={{ opacity: 0, y: -20 }}
             className="md:hidden mt-4 pb-4 space-y-4"
           >
+            <Link
+              href="/volne-prostory"
+              onClick={() => setIsMenuOpen(false)}
+              className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
+            >
+              Volné prostory
+            </Link>
             <button
               onClick={() => scrollToSection("sluzby")}
               className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
