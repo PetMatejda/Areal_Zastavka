@@ -1,29 +1,36 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function Footer() {
+  const [logoError, setLogoError] = useState(false);
+  
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
-            <Link href="/" className="inline-block mb-4">
-              <Image
-                src="/images/logo.png"
-                alt="Areál Zastávka Logo"
-                width={180}
-                height={43}
-                className="object-contain h-auto w-auto"
-                unoptimized
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
-            </Link>
+            {!logoError ? (
+              <Link href="/" className="inline-block mb-4">
+                <Image
+                  src="/images/logo.png"
+                  alt="Areál Zastávka Logo"
+                  width={180}
+                  height={43}
+                  className="object-contain h-auto w-auto"
+                  unoptimized
+                  onError={() => {
+                    setLogoError(true);
+                  }}
+                />
+              </Link>
+            ) : (
+              <h3 className="text-2xl font-bold mb-4">Areál Zastávka</h3>
+            )}
             <p className="text-gray-400 mt-4">
               Váš servisní hub pro firmy a jejich zaměstnance. Všechny služby na jednom místě.
             </p>

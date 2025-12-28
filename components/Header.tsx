@@ -10,6 +10,7 @@ import { getImageSrc } from "@/lib/images";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [logoError, setLogoError] = useState(false);
   const pathname = usePathname();
 
   const scrollToSection = (id: string) => {
@@ -35,21 +36,28 @@ export default function Header() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="relative h-12 w-auto"
+              className="flex items-center"
             >
-              <Image
-                src="/images/logo.png"
-                alt="Areál Zastávka Logo"
-                width={200}
-                height={48}
-                className="object-contain h-12 w-auto"
-                unoptimized
-                priority
-                onError={(e) => {
-                  // Fallback to text if logo not available
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
+              {!logoError ? (
+                <div className="relative h-12 w-auto">
+                  <Image
+                    src="/images/logo.png"
+                    alt="Areál Zastávka Logo"
+                    width={200}
+                    height={48}
+                    className="object-contain h-12 w-auto"
+                    unoptimized
+                    priority
+                    onError={() => {
+                      setLogoError(true);
+                    }}
+                  />
+                </div>
+              ) : (
+                <h1 className="text-2xl font-bold text-gray-900">
+                  Areál Zastávka
+                </h1>
+              )}
             </motion.div>
           </Link>
 
