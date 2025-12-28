@@ -47,9 +47,10 @@ export default function ServiceCatalog() {
           </p>
         </motion.div>
 
-        <div className="space-y-16">
-          {serviceCategories.map((category: ServiceCategory, categoryIndex: number) => {
-            const IconComponent = iconMap[category.icon] || Utensils;
+        <div className="space-y-20">
+          {/* Hlavní kategorie - Pronájem */}
+          {serviceCategories.slice(0, 1).map((category: ServiceCategory, categoryIndex: number) => {
+            const IconComponent = iconMap[category.icon] || Building;
             return (
               <motion.div
                 key={categoryIndex}
@@ -86,7 +87,7 @@ export default function ServiceCatalog() {
                 </motion.div>
 
                 {/* Service Items Grid */}
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                   {category.items.map((item, itemIndex) => (
                     <motion.div
                       key={itemIndex}
@@ -96,6 +97,88 @@ export default function ServiceCatalog() {
                       transition={{ delay: (categoryIndex * 0.1) + (itemIndex * 0.1), duration: 0.5 }}
                       whileHover={{ y: -5 }}
                       className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all cursor-pointer border border-gray-100"
+                    >
+                      <h4 className="text-xl font-bold text-gray-900 mb-3">
+                        {item.title}
+                      </h4>
+                      <p className="text-gray-600 leading-relaxed">
+                        {item.description}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            );
+          })}
+
+          {/* Rozšiřující služby - Oddělovač */}
+          <div className="relative py-8">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-300"></div>
+            </div>
+            <div className="relative flex justify-center">
+              <div className="bg-gray-50 px-6 py-3 rounded-lg border border-gray-200">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-700 text-center">
+                  Rozšiřující služby
+                </h3>
+                <p className="text-sm text-gray-600 text-center mt-1">
+                  Pro naše klienty a jejich zaměstnance
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Rozšiřující kategorie */}
+          {serviceCategories.slice(1).map((category: ServiceCategory, categoryIndex: number) => {
+            const IconComponent = iconMap[category.icon] || Utensils;
+            const adjustedIndex = categoryIndex + 1; // Pro správné delay
+            return (
+              <motion.div
+                key={adjustedIndex}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: adjustedIndex * 0.1, duration: 0.6 }}
+                className="bg-white rounded-xl p-8 shadow-md border border-gray-200"
+              >
+                {/* Category Header */}
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="flex items-center justify-center w-12 h-12 bg-blue-600 rounded-lg">
+                    <IconComponent size={24} className="text-white" />
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
+                    {category.name}
+                  </h3>
+                </div>
+
+                {/* Category Image */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="mb-8 relative h-64 rounded-xl overflow-hidden shadow-lg"
+                >
+                  <Image
+                    src={getCategoryImage(category.name)}
+                    alt={category.name}
+                    fill
+                    className="object-cover"
+                    unoptimized
+                  />
+                </motion.div>
+
+                {/* Service Items Grid */}
+                <div className="grid md:grid-cols-3 gap-6">
+                  {category.items.map((item, itemIndex) => (
+                    <motion.div
+                      key={itemIndex}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: (adjustedIndex * 0.1) + (itemIndex * 0.1), duration: 0.5 }}
+                      whileHover={{ y: -5 }}
+                      className="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer border border-gray-100"
                     >
                       <h4 className="text-xl font-bold text-gray-900 mb-3">
                         {item.title}
