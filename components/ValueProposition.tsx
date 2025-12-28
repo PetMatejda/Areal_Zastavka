@@ -50,7 +50,8 @@ export default function ValueProposition() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2, duration: 0.6 }}
-                className="text-center p-8 rounded-xl bg-gradient-to-br from-blue-50 to-white border border-blue-100 hover:shadow-lg transition-shadow"
+                whileHover={{ scale: 1.05, y: -8 }}
+                className="text-center p-8 rounded-xl bg-white border-2 border-blue-100 shadow-lg hover:shadow-2xl hover:border-blue-300 transition-all"
               >
                 <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-6">
                   <Icon size={32} className="text-white" />

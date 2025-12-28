@@ -98,7 +98,7 @@ export default function ServiceCatalog() {
                       viewport={{ once: true }}
                       transition={{ delay: (categoryIndex * 0.1) + (itemIndex * 0.1), duration: 0.5 }}
                       whileHover={{ y: -5 }}
-                      className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all cursor-pointer border border-gray-100"
+                      className="bg-white p-6 rounded-xl shadow-lg border-2 border-gray-200 hover:shadow-2xl hover:border-blue-300 transition-all cursor-pointer"
                     >
                       <h4 className="text-xl font-bold text-gray-900 mb-3">
                         {item.title}
@@ -180,7 +180,7 @@ export default function ServiceCatalog() {
                       viewport={{ once: true }}
                       transition={{ delay: (adjustedIndex * 0.1) + (itemIndex * 0.1), duration: 0.5 }}
                       whileHover={{ y: -5 }}
-                      className="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer border border-gray-100"
+                      className="bg-white p-6 rounded-xl shadow-lg border-2 border-gray-200 hover:shadow-2xl hover:border-blue-300 transition-all cursor-pointer"
                     >
                       <h4 className="text-xl font-bold text-gray-900 mb-3">
                         {item.title}

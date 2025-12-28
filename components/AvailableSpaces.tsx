@@ -44,8 +44,8 @@ export default function AvailableSpaces() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
-              whileHover={{ y: -5 }}
-              className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all overflow-hidden border border-gray-100"
+              whileHover={{ scale: 1.03, y: -8 }}
+              className="bg-white rounded-xl shadow-lg border-2 border-gray-200 hover:shadow-2xl hover:border-blue-300 transition-all overflow-hidden"
             >
               <Link href={`/volne-prostory#${space.id}`}>
                 <div className="relative h-48 w-full overflow-hidden">
