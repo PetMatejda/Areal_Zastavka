@@ -123,7 +123,7 @@ export const serviceCategories: ServiceCategory[] = [
 export const valuePropositions = [
   {
     title: "Skvělá dostupnost",
-    description: "Kousek od okruhu, D2, vlak a MHD v 3 minuty pěšky"
+    description: "Kousek od Pražského okruhu, D1. MHD a vlak do 3 minut chůze."
   },
   {
     title: "Vše na jednom místě",
