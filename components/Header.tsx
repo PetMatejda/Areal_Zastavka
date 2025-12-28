@@ -11,7 +11,17 @@ import { getImageSrc } from "@/lib/images";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [logoError, setLogoError] = useState(false);
+  const [logoSrc, setLogoSrc] = useState("/images/logo.png");
   const pathname = usePathname();
+  
+  // Zkusíme různé varianty loga
+  const logoVariants = [
+    "/images/logo.png",
+    "/images/logo.svg",
+    "/images/areal/logo.png",
+    "/images/Logo.png",
+    "/images/LOGO.png",
+  ];
 
   const scrollToSection = (id: string) => {
     if (pathname !== "/") {
@@ -39,9 +49,9 @@ export default function Header() {
               className="flex items-center"
             >
               {!logoError ? (
-                <div className="relative h-12 w-auto">
+                <div className="relative h-12 w-auto min-w-[200px]">
                   <Image
-                    src="/images/logo.png"
+                    src={logoSrc}
                     alt="Areál Zastávka Logo"
                     width={200}
                     height={48}
@@ -49,14 +59,25 @@ export default function Header() {
                     unoptimized
                     priority
                     onError={() => {
-                      setLogoError(true);
+                      // Zkusíme další variantu
+                      const currentIndex = logoVariants.indexOf(logoSrc);
+                      if (currentIndex < logoVariants.length - 1) {
+                        setLogoSrc(logoVariants[currentIndex + 1]);
+                      } else {
+                        setLogoError(true);
+                      }
                     }}
                   />
                 </div>
               ) : (
-                <h1 className="text-2xl font-bold text-gray-900">
-                  Areál Zastávka
-                </h1>
+                <div className="flex items-center gap-2">
+                  <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-lg">AZ</span>
+                  </div>
+                  <h1 className="text-2xl font-bold text-gray-900">
+                    Areál Zastávka
+                  </h1>
+                </div>
               )}
             </motion.div>
           </Link>

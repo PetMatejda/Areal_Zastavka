@@ -7,6 +7,15 @@ import { MapPin, Phone, Mail } from "lucide-react";
 
 export default function Footer() {
   const [logoError, setLogoError] = useState(false);
+  const [logoSrc, setLogoSrc] = useState("/images/logo.png");
+  
+  const logoVariants = [
+    "/images/logo.png",
+    "/images/logo.svg",
+    "/images/areal/logo.png",
+    "/images/Logo.png",
+    "/images/LOGO.png",
+  ];
   
   return (
     <footer className="bg-gray-900 text-white py-12">
@@ -17,14 +26,19 @@ export default function Footer() {
             {!logoError ? (
               <Link href="/" className="inline-block mb-4">
                 <Image
-                  src="/images/logo.png"
+                  src={logoSrc}
                   alt="Areál Zastávka Logo"
                   width={180}
                   height={43}
                   className="object-contain h-auto w-auto"
                   unoptimized
                   onError={() => {
-                    setLogoError(true);
+                    const currentIndex = logoVariants.indexOf(logoSrc);
+                    if (currentIndex < logoVariants.length - 1) {
+                      setLogoSrc(logoVariants[currentIndex + 1]);
+                    } else {
+                      setLogoError(true);
+                    }
                   }}
                 />
               </Link>
