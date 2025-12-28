@@ -11,28 +11,16 @@ export default function ValueProposition() {
   return (
     <section className="relative py-20 bg-white overflow-hidden">
       {/* Background Image with Parallax Effect */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/areal/areal-zastavka.jpg"
-            alt="Areál Zastávka - letecký pohled"
-            fill
-            className="object-cover opacity-25"
-            priority
-            unoptimized
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-            }}
-            onError={(e) => {
-              e.currentTarget.style.display = 'none';
-            }}
-          />
-        </div>
-      </div>
+      <div 
+        className="fixed inset-0 z-0 pointer-events-none"
+        style={{
+          backgroundImage: 'url(/images/areal/areal-zastavka.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed',
+          opacity: 0.25,
+        }}
+      />
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
