@@ -25,6 +25,28 @@ export const heroOffer: HeroOffer = {
 
 export const serviceCategories: ServiceCategory[] = [
   {
+    name: "Pronájem",
+    icon: "Building",
+    items: [
+      {
+        title: "Pronájem ploch",
+        description: "Flexibilní pronájem volných ploch pro skladování, výrobu nebo další podnikatelské aktivity. Různé velikosti a možnosti využití."
+      },
+      {
+        title: "Pronájem hal",
+        description: "Pronájem průmyslových hal a skladových prostor. Ideální pro výrobu, logistiku nebo skladování větších objemů materiálu."
+      },
+      {
+        title: "Pronájem kanceláří",
+        description: "Moderní kancelářské prostory různých velikostí. Vhodné pro startupy, malé i střední firmy. Včetně zázemí a parkování."
+      },
+      {
+        title: "Zajištění akcí",
+        description: "Pronájem prostor pro natáčení reklam, filmů, fotoshooty nebo firemní akce. Kompletní zajištění včetně technického zázemí."
+      }
+    ]
+  },
+  {
     name: "Gastro & Eventy",
     icon: "Utensils",
     items: [
