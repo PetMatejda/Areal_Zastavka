@@ -5,12 +5,16 @@ import { motion } from "framer-motion";
 import { serviceCategories } from "@/lib/data";
 import { Send } from "lucide-react";
 
-export default function ContactForm() {
+interface ContactFormProps {
+  defaultInterest?: string;
+}
+
+export default function ContactForm({ defaultInterest = "" }: ContactFormProps = {}) {
   const [formData, setFormData] = useState({
     name: "",
     company: "",
     email: "",
-    interest: "",
+    interest: defaultInterest,
     message: "",
   });
 

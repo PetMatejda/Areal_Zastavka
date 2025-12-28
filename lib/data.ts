@@ -135,3 +135,83 @@ export const valuePropositions = [
   }
 ];
 
+// Volné prostory k pronájmu
+export interface AvailableSpace {
+  id: string;
+  title: string;
+  type: string; // "kancelář", "hala", "plocha", "ubytovna"
+  area: number; // plocha v m²
+  price: string; // cena nebo "na dotaz"
+  location: string; // umístění v areálu
+  description: string;
+  features: string[]; // výhody/vybavení
+  images: string[]; // cesty k obrázkům
+  available: boolean; // zda je dostupné
+}
+
+export const availableSpaces: AvailableSpace[] = [
+  {
+    id: "kancelar-101",
+    title: "Kancelářské prostory - Budova A",
+    type: "kancelář",
+    area: 120,
+    price: "na dotaz",
+    location: "Budova A, 1. patro",
+    description: "Moderní kancelářské prostory v nově zrekonstruované budově. Ideální pro malé a střední firmy. Včetně recepce, zasedačky a kuchyňky.",
+    features: [
+      "Recepce s recepční",
+      "Zasedací místnost",
+      "Kuchyňka",
+      "Parkování",
+      "Klimatizace",
+      "Bezpečnostní systém"
+    ],
+    images: [
+      "/images/areal/budova-terakota.jpg",
+      "/images/areal/budova-hneda.jpg"
+    ],
+    available: true
+  },
+  {
+    id: "hala-6-5",
+    title: "Průmyslová hala 6.5",
+    type: "hala",
+    area: 850,
+    price: "na dotaz",
+    location: "Hala 6.5",
+    description: "Velká průmyslová hala vhodná pro výrobu, skladování nebo logistiku. Vysoké stropy, možnost instalace jeřábu, přímý přístup pro kamiony.",
+    features: [
+      "Výška stropu 8m",
+      "Jeřábová dráha",
+      "Brána pro kamiony",
+      "Kancelářské zázemí",
+      "Parkování pro zaměstnance",
+      "24/7 přístup"
+    ],
+    images: [
+      "/images/areal/hala-6-5.jpg"
+    ],
+    available: true
+  },
+  {
+    id: "skladova-plocha",
+    title: "Skladová plocha - Budova B",
+    type: "plocha",
+    area: 300,
+    price: "na dotaz",
+    location: "Budova B, přízemí",
+    description: "Flexibilní skladová plocha vhodná pro skladování materiálu nebo jako výrobní prostor. Možnost úpravy podle potřeb nájemce.",
+    features: [
+      "Přízemní umístění",
+      "Přímý přístup",
+      "Možnost úprav",
+      "Bezpečnostní systém",
+      "Parkování"
+    ],
+    images: [
+      "/images/areal/areal-zastavka.jpg"
+    ],
+    available: true
+  }
+];
+

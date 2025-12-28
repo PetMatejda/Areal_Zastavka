@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ValueProposition from "@/components/ValueProposition";
+import AvailableSpaces from "@/components/AvailableSpaces";
 import ServiceCatalog from "@/components/ServiceCatalog";
 import AboutSection from "@/components/AboutSection";
 import ContactForm from "@/components/ContactForm";
@@ -12,6 +13,7 @@ export default function Home() {
       <Header />
       <Hero />
       <ValueProposition />
+      <AvailableSpaces />
       <ServiceCatalog />
       <AboutSection />
       <ContactForm />
