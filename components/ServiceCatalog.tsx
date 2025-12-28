@@ -179,7 +179,7 @@ export default function ServiceCatalog() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: (adjustedIndex * 0.1) + (itemIndex * 0.1), duration: 0.5 }}
-                      whileHover={{ y: -5 }}
+                      whileHover={{ scale: 1.03, y: -8 }}
                       className="bg-white p-6 rounded-xl shadow-lg border-2 border-gray-200 hover:shadow-2xl hover:border-blue-300 transition-all cursor-pointer"
                     >
                       <h4 className="text-xl font-bold text-gray-900 mb-3">
