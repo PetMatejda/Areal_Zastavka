@@ -10,8 +10,8 @@ export default function AvailableSpaces() {
   const featuredSpaces = availableSpaces.filter(space => space.available).slice(0, 3);
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="relative py-20 bg-white overflow-hidden">
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
