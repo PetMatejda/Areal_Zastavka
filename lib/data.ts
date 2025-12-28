@@ -140,13 +140,14 @@ export interface AvailableSpace {
   id: string;
   title: string;
   type: string; // "kancelář", "hala", "plocha", "ubytovna"
-  area: number; // plocha v m²
+  area: number | string; // plocha v m² nebo textový popis (např. "od 10 do 150")
   price: string; // cena nebo "na dotaz"
   location: string; // umístění v areálu
   description: string;
-  features: string[]; // výhody/vybavení
+  features?: string[]; // výhody/vybavení
   images: string[]; // cesty k obrázkům
   available: boolean; // zda je dostupné
+  isUniversal?: boolean; // zda je to univerzální poptávka (ne konkrétní prostor)
 }
 
 export const availableSpaces: AvailableSpace[] = [
@@ -154,7 +155,7 @@ export const availableSpaces: AvailableSpace[] = [
     id: "kancelar-101",
     title: "Kancelářské prostory",
     type: "kancelář",
-    area: 150,
+    area: "od 10 do 150",
     price: "na dotaz",
     location: "Budova A, 1. patro",
     description: "Moderní kancelářské prostory v nově zrekonstruované budově. Ideální pro malé a střední firmy. Včetně kuchyňky a sociálního zázemí.",
@@ -163,8 +164,7 @@ export const availableSpaces: AvailableSpace[] = [
       "Sociální zázemí",
       "Parkování",
       "Klimatizace",
-      "Bezpečnostní systém",
-      "Plocha od 10 do 150 m²"
+      "Bezpečnostní systém"
     ],
     images: [
       "/images/areal/budova-terakota.jpg",
@@ -173,17 +173,17 @@ export const availableSpaces: AvailableSpace[] = [
     available: true
   },
   {
-    id: "hala-6-5",
+    id: "hala-5",
     title: "Skladová hala č.5",
     type: "hala",
     area: 800,
     price: "na dotaz",
     location: "Hala č.5",
-    description: "Velká skladová hala vhodná pro výrobu, skladování nebo logistiku. Vysoké stropy, možnost instalace jeřábu, přístup pro nákladní vozy.",
+    description: "Velká skladová hala vhodná pro výrobu, skladování nebo logistiku. Vysoké stropy, možnost instalace jeřábu, přímý přístup pro nákladní vozy.",
     features: [
       "Výška stropu 8m",
       "Jeřábová dráha",
-      "Brána pro nákladní vozy",
+      "Přístup pro nákladní vozy",
       "Kancelářské zázemí",
       "Parkování pro zaměstnance",
       "24/7 přístup"
@@ -194,23 +194,18 @@ export const availableSpaces: AvailableSpace[] = [
     available: true
   },
   {
-    id: "skladova-plocha",
+    id: "univerzalni-poptavka",
     title: "Máte poptávku?",
-    type: "plocha",
-    area: 0,
-    price: "na dotaz",
-    location: "Různé lokace",
-    description: "Dejte nám vědět a zkusíme něco vymyslet. Máme k dispozici různé typy prostor a jsme otevřeni individuálním řešením.",
-    features: [
-      "Individuální řešení",
-      "Různé typy prostor",
-      "Flexibilní podmínky",
-      "Konzultace zdarma"
-    ],
+    type: "univerzální",
+    area: "",
+    price: "",
+    location: "",
+    description: "Dejte nám vědět a zkusíme něco vymyslet.",
     images: [
       "/images/areal/areal-zastavka.jpg"
     ],
-    available: true
+    available: true,
+    isUniversal: true
   }
 ];
 

@@ -37,129 +37,105 @@ export default function AvailableSpaces() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredSpaces.map((space, index) => (
-            <motion.div
-              key={space.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              whileHover={{ scale: 1.03, y: -8 }}
-              className="bg-white rounded-xl shadow-xl border-2 border-gray-200 hover:shadow-2xl hover:border-blue-400 transition-all overflow-hidden"
-            >
-              {space.id === "skladova-plocha" ? (
-                <div 
-                  onClick={() => {
-                    const element = document.getElementById("kontakt");
-                    if (element) {
-                      element.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }} 
-                  className="cursor-pointer"
-                >
-                  <div className="relative h-48 w-full overflow-hidden">
-                    <Image
-                      src={space.images[0] || "/images/areal/areal-zastavka.jpg"}
-                      alt={space.title}
-                      fill
-                      className="object-cover hover:scale-105 transition-transform duration-300"
-                      unoptimized
-                      onError={(e) => {
-                        e.currentTarget.src = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80";
-                      }}
-                    />
-                    {space.available && (
-                      <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                        Dostupné
-                      </div>
-                    )}
-                  </div>
-                  <div className="p-6 bg-white">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
-                      {space.title}
-                    </h3>
-                    <div className="space-y-2 mb-4">
-                      <div className="flex items-center gap-2 text-gray-600">
-                        <MapPin size={18} className="text-blue-600" />
-                        <span className="text-sm">{space.location}</span>
-                      </div>
-                      {space.area > 0 && (
-                        <div className="flex items-center gap-2 text-gray-600">
-                          <Square size={18} className="text-blue-600" />
-                          <span className="text-sm">{space.area} m²</span>
-                        </div>
-                      )}
+          {featuredSpaces.map((space, index) => {
+            const isUniversal = space.isUniversal;
+            const areaDisplay = typeof space.area === 'string' ? space.area : space.area.toString();
+            
+            const cardContent = (
+              <>
+                <div className="relative h-48 w-full overflow-hidden">
+                  <Image
+                    src={space.images[0] || "/images/areal/areal-zastavka.jpg"}
+                    alt={space.title}
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-300"
+                    unoptimized
+                    onError={(e) => {
+                      e.currentTarget.src = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80";
+                    }}
+                  />
+                  {space.available && !isUniversal && (
+                    <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                      Dostupné
                     </div>
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                      {space.description}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-lg font-bold text-blue-600">
-                        {space.price}
-                      </span>
-                      <span className="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center gap-1">
-                        Kontaktujte nás
-                        <ArrowRight size={16} />
-                      </span>
-                    </div>
-                  </div>
+                  )}
                 </div>
-              ) : (
-                <Link href={`/volne-prostory#${space.id}`}>
-                  <div className="relative h-48 w-full overflow-hidden">
-                    <Image
-                      src={space.images[0] || "/images/areal/areal-zastavka.jpg"}
-                      alt={space.title}
-                      fill
-                      className="object-cover hover:scale-105 transition-transform duration-300"
-                      unoptimized
-                      onError={(e) => {
-                        e.currentTarget.src = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80";
-                      }}
-                    />
-                    {space.available && (
-                      <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                        Dostupné
+                <div className="p-6 bg-white">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {space.title}
+                  </h3>
+                  {!isUniversal && (
+                    <>
+                      <div className="space-y-2 mb-4">
+                        {space.location && (
+                          <div className="flex items-center gap-2 text-gray-600">
+                            <MapPin size={18} className="text-blue-600" />
+                            <span className="text-sm">{space.location}</span>
+                          </div>
+                        )}
+                        {space.area && (
+                          <div className="flex items-center gap-2 text-gray-600">
+                            <Square size={18} className="text-blue-600" />
+                            <span className="text-sm">{areaDisplay} m²</span>
+                          </div>
+                        )}
                       </div>
-                    )}
-                  </div>
-                  <div className="p-6 bg-white">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
-                      {space.title}
-                    </h3>
-                    <div className="space-y-2 mb-4">
-                      <div className="flex items-center gap-2 text-gray-600">
-                        <MapPin size={18} className="text-blue-600" />
-                        <span className="text-sm">{space.location}</span>
+                      <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                        {space.description}
+                      </p>
+                      <div className="flex items-center justify-between">
+                        <span className="text-lg font-bold text-blue-600">
+                          {space.price}
+                        </span>
+                        <span className="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center gap-1">
+                          Více info
+                          <ArrowRight size={16} />
+                        </span>
                       </div>
-                      {space.area > 0 && (
-                        <div className="flex items-center gap-2 text-gray-600">
-                          <Square size={18} className="text-blue-600" />
-                          <span className="text-sm">{space.area} m²</span>
-                        </div>
-                      )}
-                    </div>
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                      {space.description}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-lg font-bold text-blue-600">
-                        {space.price}
-                      </span>
-                      <span className="text-blue-600 hover:text-blue-700 font-semibold text-sm flex items-center gap-1">
-                        Více info
-                        <ArrowRight size={16} />
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              )}
-            </motion.div>
-          ))}
+                    </>
+                  )}
+                  {isUniversal && (
+                    <>
+                      <p className="text-gray-600 text-lg mb-4 text-center">
+                        {space.description}
+                      </p>
+                      <div className="flex items-center justify-center">
+                        <span className="text-blue-600 hover:text-blue-700 font-semibold text-base flex items-center gap-1">
+                          Kontaktujte nás
+                          <ArrowRight size={18} />
+                        </span>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </>
+            );
+
+            return (
+              <motion.div
+                key={space.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                whileHover={{ scale: 1.03, y: -8 }}
+                className="bg-white rounded-xl shadow-xl border-2 border-gray-200 hover:shadow-2xl hover:border-blue-400 transition-all overflow-hidden"
+              >
+                {isUniversal ? (
+                  <Link href="/volne-prostory#kontakt">
+                    {cardContent}
+                  </Link>
+                ) : (
+                  <Link href={`/volne-prostory#${space.id}`}>
+                    {cardContent}
+                  </Link>
+                )}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
-
 
