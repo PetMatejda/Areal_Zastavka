@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { valuePropositions } from "@/lib/data";
 import { CheckCircle, Users, Award } from "lucide-react";
 
@@ -8,8 +9,23 @@ const icons = [CheckCircle, Users, Award];
 
 export default function ValueProposition() {
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="relative py-20 bg-white overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/areal/areal-zastavka.jpg"
+          alt="Areál Zastávka - letecký pohled"
+          fill
+          className="object-cover opacity-10"
+          priority
+          unoptimized
+          onError={(e) => {
+            e.currentTarget.style.display = 'none';
+          }}
+        />
+      </div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
