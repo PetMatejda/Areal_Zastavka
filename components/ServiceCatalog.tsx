@@ -62,7 +62,7 @@ export default function ServiceCatalog() {
                 transition={{ delay: categoryIndex * 0.1, duration: 0.6 }}
               >
                 {/* Category Header */}
-                <div className="flex items-center gap-4 mb-8">
+                <div className="flex items-center gap-4 mb-8 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-md inline-flex">
                   <div className="flex items-center justify-center w-12 h-12 bg-blue-600 rounded-lg">
                     <IconComponent size={24} className="text-white" />
                   </div>
@@ -144,7 +144,7 @@ export default function ServiceCatalog() {
                 className="bg-white rounded-xl p-8 shadow-md border border-gray-200"
               >
                 {/* Category Header */}
-                <div className="flex items-center gap-4 mb-8">
+                <div className="flex items-center gap-4 mb-8 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-md inline-flex">
                   <div className="flex items-center justify-center w-12 h-12 bg-blue-600 rounded-lg">
                     <IconComponent size={24} className="text-white" />
                   </div>
