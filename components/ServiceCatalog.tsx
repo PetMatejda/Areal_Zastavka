@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { serviceCategories } from "@/lib/data";
 import { getImageSrc } from "@/lib/images";
-import { Building, Utensils, Rocket, ShieldCheck, Heart } from "lucide-react";
+import { Building, Utensils, Rocket, ShieldCheck, Heart, LucideIcon } from "lucide-react";
 import { ServiceCategory } from "@/lib/data";
 
-const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
+const iconMap: Record<string, LucideIcon> = {
   Building,
   Utensils,
   Rocket,
