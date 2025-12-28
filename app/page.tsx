@@ -11,8 +11,6 @@ import Footer from "@/components/Footer";
 export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
-      const availableSpacesSection = document.querySelector('section:has([href="/volne-prostory"])')?.closest('section') || 
-                                      document.querySelector('section:has(h2:contains("Volné prostory"))')?.closest('section');
       const parallaxBg = document.getElementById("parallax-background");
       
       if (parallaxBg) {
@@ -30,14 +28,28 @@ export default function Home() {
         if (availableSpacesSection) {
           const sectionTop = availableSpacesSection.getBoundingClientRect().top;
           
-          if (sectionTop <= window.innerHeight * 0.5) {
-            // AvailableSpaces section reached - hide parallax background
+          // Hide parallax when AvailableSpaces section becomes visible (top of section reaches top of viewport)
+          if (sectionTop <= window.innerHeight) {
+            // AvailableSpaces section is visible - hide parallax background
             parallaxBg.style.opacity = "0";
             parallaxBg.style.transition = "opacity 0.5s ease-out";
           } else {
-            // AvailableSpaces section not reached - show parallax background
+            // AvailableSpaces section not yet visible - show parallax background
             parallaxBg.style.opacity = "0.25";
             parallaxBg.style.transition = "opacity 0.5s ease-in";
+          }
+        } else {
+          // Fallback: if section not found, hide after ValueProposition
+          const valuePropSection = document.querySelector('section:has(h2:contains("Areál Zastávka"))');
+          if (valuePropSection) {
+            const valuePropBottom = valuePropSection.getBoundingClientRect().bottom;
+            if (valuePropBottom <= window.innerHeight) {
+              parallaxBg.style.opacity = "0";
+              parallaxBg.style.transition = "opacity 0.5s ease-out";
+            } else {
+              parallaxBg.style.opacity = "0.25";
+              parallaxBg.style.transition = "opacity 0.5s ease-in";
+            }
           }
         }
       }
