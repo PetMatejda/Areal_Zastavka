@@ -136,6 +136,7 @@ export const valuePropositions = [
 ];
 
 // Volné prostory k pronájmu
+// Updated: 2024 - corrected texts for office spaces, warehouse hall, and universal inquiry
 export interface AvailableSpace {
   id: string;
   title: string;
