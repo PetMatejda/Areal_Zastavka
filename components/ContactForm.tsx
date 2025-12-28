@@ -151,6 +151,7 @@ export default function ContactForm({ defaultInterest = "" }: ContactFormProps) 
                 className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all bg-white"
               >
                 <option value="">Vyberte službu</option>
+                <option value="Pronájem - Volné prostory">Pronájem - Volné prostory</option>
                 {serviceOptions.map((option, index) => (
                   <option key={index} value={option}>
                     {option}
