@@ -12,11 +12,10 @@ const galleryPlaceholders = [
   "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1920&q=80", // Průmyslový areál
   "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80", // Moderní kanceláře
   "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&q=80", // Business park
-  "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?w=1920&q=80", // Interiér
 ];
 
 export default function AboutSection() {
-  const [imageErrors, setImageErrors] = useState<boolean[]>([false, false, false, false, false]);
+  const [imageErrors, setImageErrors] = useState<boolean[]>([false, false, false, false]);
 
   const handleImageError = (index: number) => {
     setImageErrors(prev => {
@@ -42,13 +41,8 @@ export default function AboutSection() {
       return galleryPlaceholders[index];
     }
     
-    // Pro lokální obrázky (index 0-3) zkusíme načíst, pokud selžou, použijeme placeholder
-    if (index < localImageSources.length) {
-      return localImageSources[index];
-    }
-    
-    // Pro poslední obrázek (restaurant) použijeme externí zdroj
-    return getImageSrc("restaurantInterior");
+    // Pro lokální obrázky zkusíme načíst, pokud selžou, použijeme placeholder
+    return localImageSources[index];
   };
 
   return (
@@ -77,13 +71,12 @@ export default function AboutSection() {
           transition={{ duration: 0.6 }}
           className="mb-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
         >
-          {[0, 1, 2, 3, 4].map((index) => {
+          {[0, 1, 2, 3].map((index) => {
             const altTexts = [
               "Areál Zastávka - letecký pohled",
               "HALA 6.5 - Balloon Light Praha s.r.o.",
               "Areál Zastávka - budova s terakotovou fasádou",
               "Areál Zastávka - budova se světle hnědou fasádou",
-              "Měcholupský Park - Interiér",
             ];
             
             const displaySrc = getImageSource(index);
