@@ -19,19 +19,21 @@ export default function AvailableSpaces() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Volné prostory k pronájmu
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-            Prohlédněte si aktuálně dostupné prostory v našem areálu
-          </p>
-          <Link
-            href="/volne-prostory"
-            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-lg transition-colors"
-          >
-            Zobrazit všechny prostory
-            <ArrowRight size={20} />
-          </Link>
+          <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-lg inline-block max-w-3xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Volné prostory k pronájmu
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+              Prohlédněte si aktuálně dostupné prostory v našem areálu
+            </p>
+            <Link
+              href="/volne-prostory"
+              className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-lg transition-colors"
+            >
+              Zobrazit všechny prostory
+              <ArrowRight size={20} />
+            </Link>
+          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

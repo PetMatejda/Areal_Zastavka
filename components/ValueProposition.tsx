@@ -30,12 +30,14 @@ export default function ValueProposition() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Areál Zastávka: místo pro vaše podnikání
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Ideální lokalita pro vaši firmu s kompletním servisním zázemím
-          </p>
+          <div className="bg-white/95 backdrop-blur-sm rounded-xl p-8 md:p-12 shadow-lg inline-block max-w-4xl">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Areál Zastávka: místo pro vaše podnikání
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Ideální lokalita pro vaši firmu s kompletním servisním zázemím
+            </p>
+          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
