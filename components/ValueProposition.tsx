@@ -18,10 +18,10 @@ export default function ValueProposition() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Proč Areál Zastávka?
+            Areál Zastávka: místo pro vaše podnikání
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Váš kompletní servisní partner pro firemní i osobní potřeby
+            Ideální lokalita pro vaši firmu s kompletním servisním zázemím
           </p>
         </motion.div>
 
