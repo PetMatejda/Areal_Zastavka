@@ -39,7 +39,7 @@ export default function ServiceCatalog() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-lg inline-block max-w-3xl">
+          <div className="bg-white rounded-xl p-6 md:p-8 shadow-lg inline-block max-w-3xl border-2 border-gray-100">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Naše služby
             </h2>
@@ -62,7 +62,7 @@ export default function ServiceCatalog() {
                 transition={{ delay: categoryIndex * 0.1, duration: 0.6 }}
               >
                 {/* Category Header */}
-                <div className="flex items-center gap-4 mb-8 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-md inline-flex">
+                <div className="flex items-center gap-4 mb-8 bg-white rounded-lg p-4 shadow-lg inline-flex border-2 border-gray-200">
                   <div className="flex items-center justify-center w-12 h-12 bg-blue-600 rounded-lg">
                     <IconComponent size={24} className="text-white" />
                   </div>
@@ -144,7 +144,7 @@ export default function ServiceCatalog() {
                 className="bg-white rounded-xl p-8 shadow-md border border-gray-200"
               >
                 {/* Category Header */}
-                <div className="flex items-center gap-4 mb-8 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-md inline-flex">
+                <div className="flex items-center gap-4 mb-8 bg-white rounded-lg p-4 shadow-lg inline-flex border-2 border-gray-200">
                   <div className="flex items-center justify-center w-12 h-12 bg-blue-600 rounded-lg">
                     <IconComponent size={24} className="text-white" />
                   </div>

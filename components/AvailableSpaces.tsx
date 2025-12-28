@@ -19,7 +19,7 @@ export default function AvailableSpaces() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 md:p-8 shadow-lg inline-block max-w-3xl">
+          <div className="bg-white rounded-xl p-6 md:p-8 shadow-lg inline-block max-w-3xl border-2 border-gray-100">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Volné prostory k pronájmu
             </h2>
