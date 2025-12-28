@@ -74,10 +74,12 @@ export default function AvailableSpaces() {
                       <MapPin size={18} className="text-blue-600" />
                       <span className="text-sm">{space.location}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-gray-600">
-                      <Square size={18} className="text-blue-600" />
-                      <span className="text-sm">{space.area} m²</span>
-                    </div>
+                    {space.area > 0 && (
+                      <div className="flex items-center gap-2 text-gray-600">
+                        <Square size={18} className="text-blue-600" />
+                        <span className="text-sm">{space.area} m²</span>
+                      </div>
+                    )}
                   </div>
                   <p className="text-gray-600 text-sm mb-4 line-clamp-2">
                     {space.description}

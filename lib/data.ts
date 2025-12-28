@@ -152,19 +152,19 @@ export interface AvailableSpace {
 export const availableSpaces: AvailableSpace[] = [
   {
     id: "kancelar-101",
-    title: "Kancelářské prostory - Budova A",
+    title: "Kancelářské prostory",
     type: "kancelář",
-    area: 120,
+    area: 150,
     price: "na dotaz",
     location: "Budova A, 1. patro",
-    description: "Moderní kancelářské prostory v nově zrekonstruované budově. Ideální pro malé a střední firmy. Včetně recepce, zasedačky a kuchyňky.",
+    description: "Moderní kancelářské prostory v nově zrekonstruované budově. Ideální pro malé a střední firmy. Včetně kuchyňky a sociálního zázemí.",
     features: [
-      "Recepce s recepční",
-      "Zasedací místnost",
       "Kuchyňka",
+      "Sociální zázemí",
       "Parkování",
       "Klimatizace",
-      "Bezpečnostní systém"
+      "Bezpečnostní systém",
+      "Plocha od 10 do 150 m²"
     ],
     images: [
       "/images/areal/budova-terakota.jpg",
@@ -174,16 +174,16 @@ export const availableSpaces: AvailableSpace[] = [
   },
   {
     id: "hala-6-5",
-    title: "Průmyslová hala 6.5",
+    title: "Skladová hala č.5",
     type: "hala",
-    area: 850,
+    area: 800,
     price: "na dotaz",
-    location: "Hala 6.5",
-    description: "Velká průmyslová hala vhodná pro výrobu, skladování nebo logistiku. Vysoké stropy, možnost instalace jeřábu, přímý přístup pro kamiony.",
+    location: "Hala č.5",
+    description: "Velká skladová hala vhodná pro výrobu, skladování nebo logistiku. Vysoké stropy, možnost instalace jeřábu, přístup pro nákladní vozy.",
     features: [
       "Výška stropu 8m",
       "Jeřábová dráha",
-      "Brána pro kamiony",
+      "Brána pro nákladní vozy",
       "Kancelářské zázemí",
       "Parkování pro zaměstnance",
       "24/7 přístup"
@@ -195,18 +195,17 @@ export const availableSpaces: AvailableSpace[] = [
   },
   {
     id: "skladova-plocha",
-    title: "Skladová plocha - Budova B",
+    title: "Máte poptávku?",
     type: "plocha",
-    area: 300,
+    area: 0,
     price: "na dotaz",
-    location: "Budova B, přízemí",
-    description: "Flexibilní skladová plocha vhodná pro skladování materiálu nebo jako výrobní prostor. Možnost úpravy podle potřeb nájemce.",
+    location: "Různé lokace",
+    description: "Dejte nám vědět a zkusíme něco vymyslet. Máme k dispozici různé typy prostor a jsme otevřeni individuálním řešením.",
     features: [
-      "Přízemní umístění",
-      "Přímý přístup",
-      "Možnost úprav",
-      "Bezpečnostní systém",
-      "Parkování"
+      "Individuální řešení",
+      "Různé typy prostor",
+      "Flexibilní podmínky",
+      "Konzultace zdarma"
     ],
     images: [
       "/images/areal/areal-zastavka.jpg"
