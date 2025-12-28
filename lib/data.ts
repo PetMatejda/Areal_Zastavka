@@ -43,6 +43,10 @@ export const serviceCategories: ServiceCategory[] = [
       {
         title: "Zajištění akcí",
         description: "Pronájem prostor pro natáčení reklam, filmů, fotoshooty nebo firemní akce. Kompletní zajištění včetně technického zázemí."
+      },
+      {
+        title: "Ubytovna",
+        description: "Kvalitní ubytování pro zaměstnance nebo hosty. Komfortní pokoje s veškerým zázemím. Ideální pro dlouhodobé i krátkodobé pobyty."
       }
     ]
   },
