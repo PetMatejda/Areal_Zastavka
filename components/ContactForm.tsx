@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { serviceCategories } from "@/lib/data";
 import { Send } from "lucide-react";
@@ -9,7 +9,7 @@ interface ContactFormProps {
   defaultInterest?: string;
 }
 
-export default function ContactForm({ defaultInterest = "" }: ContactFormProps = {}) {
+export default function ContactForm({ defaultInterest = "" }: ContactFormProps) {
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -17,6 +17,13 @@ export default function ContactForm({ defaultInterest = "" }: ContactFormProps =
     interest: defaultInterest,
     message: "",
   });
+
+  // Update interest when defaultInterest changes
+  useEffect(() => {
+    if (defaultInterest) {
+      setFormData(prev => ({ ...prev, interest: defaultInterest }));
+    }
+  }, [defaultInterest]);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
