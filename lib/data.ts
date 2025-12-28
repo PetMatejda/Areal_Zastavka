@@ -122,16 +122,16 @@ export const serviceCategories: ServiceCategory[] = [
 
 export const valuePropositions = [
   {
+    title: "Skvělá dostupnost",
+    description: "Kousek od okruhu, D2, vlak a MHD v 3 minuty pěšky"
+  },
+  {
     title: "Vše na jednom místě",
-    description: "Šetříme váš čas"
+    description: "K dispozici plná kombinace volných ploch, hal i kanceláří"
   },
   {
-    title: "Pro firmy i lidi",
-    description: "Benefity pro každého"
-  },
-  {
-    title: "Ověřená kvalita",
-    description: "Garance Areálu Zastávka"
+    title: "Výhodné ceny",
+    description: "Kvalitní prostory za férové ceny"
   }
 ];
 
