@@ -163,9 +163,7 @@ export const availableSpaces: AvailableSpace[] = [
     features: [
       "Kuchyňka",
       "Sociální zázemí",
-      "Parkování",
-      "Klimatizace",
-      "Bezpečnostní systém"
+      "Parkování"
     ],
     images: [
       "/images/areal/budova-terakota.jpg",
@@ -182,8 +180,7 @@ export const availableSpaces: AvailableSpace[] = [
     location: "Hala č.5",
     description: "Velká skladová hala vhodná pro výrobu, skladování nebo logistiku. Vysoké stropy, možnost instalace jeřábu, přímý přístup pro nákladní vozy.",
     features: [
-      "Výška stropu 8m",
-      "Jeřábová dráha",
+      "Výška stropu 7m",
       "Přístup pro nákladní vozy",
       "Kancelářské zázemí",
       "Parkování pro zaměstnance",
