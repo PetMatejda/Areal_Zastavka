@@ -59,20 +59,32 @@ git push origin main
 
 ## Kontaktní formulář
 
-Kontaktní formulář má připravený API endpoint (`app/api/contact/route.ts`), ale **momentálně pouze loguje data do konzole** - emaily se neposílají.
+Kontaktní formulář je připraven k odesílání emailů na následující adresy:
+- info@arealzastavka.cz
+- petra.huclova@arealzastavka.cz
+- petr.matejicek@balloonlightgroup.com
 
-### Pro skutečné odesílání emailů:
+### Nastavení odesílání emailů:
 
-1. **Nainstalujte emailovou službu** (např. Resend - zdarma do 3000 emailů/měsíc):
-   ```bash
-   npm install resend
-   ```
+1. **Zaregistrujte se na Resend** (zdarma do 3000 emailů/měsíc):
+   - Navštivte: https://resend.com
+   - Vytvořte účet a získejte API klíč
 
-2. **Nastavte API klíč** v proměnných prostředí Vercelu:
-   - Jděte do Vercel Dashboard → Settings → Environment Variables
-   - Přidejte: `RESEND_API_KEY` = váš API klíč z Resend
+2. **Nastavte doménu v Resend**:
+   - Přidejte doménu `arealzastavka.cz` do Resend
+   - Ověřte DNS záznamy podle instrukcí Resend
 
-3. **Aktualizujte `app/api/contact/route.ts`** - odkomentujte a upravte kód pro odesílání emailů
+3. **Nastavte API klíč v Vercelu**:
+   - Jděte do Vercel Dashboard → Váš projekt → Settings → Environment Variables
+   - Přidejte novou proměnnou:
+     - **Name:** `RESEND_API_KEY`
+     - **Value:** váš API klíč z Resend
+     - **Environment:** Production, Preview, Development (zaškrtněte všechny)
+   - Uložte a redeployujte projekt
 
-Alternativně můžete použít jiné služby: SendGrid, Mailgun, nebo vlastní SMTP server.
+4. **Ověřte odesílání**:
+   - Po nastavení API klíče se emaily budou automaticky odesílat na všechny tři adresy
+   - Pokud API klíč není nastaven, data se pouze logují do konzole
+
+**Poznámka:** Resend je již nainstalován v projektu (`npm install resend`).
 
