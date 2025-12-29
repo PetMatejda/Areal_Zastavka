@@ -16,14 +16,15 @@ export default function Home() {
       if (parallaxBg) {
         // Find AvailableSpaces section by checking for the heading text
         const sections = document.querySelectorAll('section');
-        let availableSpacesSection: Element | null = null;
+        let availableSpacesSection: HTMLElement | null = null;
         
-        sections.forEach(section => {
+        for (const section of Array.from(sections)) {
           const heading = section.querySelector('h2');
           if (heading && heading.textContent?.includes('Volné prostory k pronájmu')) {
-            availableSpacesSection = section;
+            availableSpacesSection = section as HTMLElement;
+            break;
           }
-        });
+        }
         
         if (availableSpacesSection) {
           const sectionTop = availableSpacesSection.getBoundingClientRect().top;
@@ -40,7 +41,7 @@ export default function Home() {
           }
         } else {
           // Fallback: if section not found, hide after ValueProposition
-          const valuePropSection = document.querySelector('section:has(h2:contains("Areál Zastávka"))');
+          const valuePropSection = document.querySelector('section:has(h2:contains("Areál Zastávka"))') as HTMLElement | null;
           if (valuePropSection) {
             const valuePropBottom = valuePropSection.getBoundingClientRect().bottom;
             if (valuePropBottom <= window.innerHeight) {
