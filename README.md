@@ -74,13 +74,15 @@ Kontaktní formulář je připraven k odesílání emailů na následující adr
    - Přidejte doménu `arealzastavka.cz` do Resend
    - Ověřte DNS záznamy podle instrukcí Resend
 
-3. **Nastavte API klíč v Vercelu**:
+3. **Nastavte API klíč v Vercelu** (DŮLEŽITÉ pro produkci):
    - Jděte do Vercel Dashboard → Váš projekt → Settings → Environment Variables
    - Přidejte novou proměnnou:
      - **Name:** `RESEND_API_KEY`
-     - **Value:** váš API klíč z Resend
+     - **Value:** `re_b2KHjeFU_GTrUim5wRC6rbjRG5SEonjdk`
      - **Environment:** Production, Preview, Development (zaškrtněte všechny)
    - Uložte a redeployujte projekt
+   
+   **Poznámka:** API klíč je již nastaven v `.env.local` pro lokální vývoj.
 
 4. **Ověřte odesílání**:
    - Po nastavení API klíče se emaily budou automaticky odesílat na všechny tři adresy
