@@ -96,12 +96,6 @@ export default function Header() {
             >
               Služby
             </button>
-            <button
-              onClick={() => scrollToSection("o-nas")}
-              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
-            >
-              O nás
-            </button>
             <Link
               href="/provozni-rad"
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
@@ -153,12 +147,6 @@ export default function Header() {
               className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
             >
               Služby
-            </button>
-            <button
-              onClick={() => scrollToSection("o-nas")}
-              className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
-            >
-              O nás
             </button>
             <Link
               href="/provozni-rad"
