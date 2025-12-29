@@ -56,12 +56,12 @@ export default function Footer() {
             <div className="space-y-3 text-gray-400">
               <div className="flex items-start gap-3">
                 <MapPin size={20} className="mt-1 flex-shrink-0" />
-                <p>Areál Zastávka<br />Zastávka, Česká republika</p>
+                <p>Areál Zastávka<br />664 84 Zastávka<br />Česká republika</p>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={20} className="flex-shrink-0" />
-                <a href="tel:+420123456789" className="hover:text-white transition-colors">
-                  +420 123 456 789
+                <a href="tel:+420603233264" className="hover:text-white transition-colors">
+                  +420 603 233 264
                 </a>
               </div>
               <div className="flex items-center gap-3">

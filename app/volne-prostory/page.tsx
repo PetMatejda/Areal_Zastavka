@@ -283,11 +283,11 @@ export default function VolneProstoryPage() {
                   info@arealzastavka.cz
                 </a>
                 <a
-                  href="tel:+420123456789"
+                  href="tel:+420603233264"
                   className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold"
                 >
                   <Phone size={20} />
-                  +420 123 456 789
+                  +420 603 233 264
                 </a>
               </div>
             </div>
