@@ -47,9 +47,19 @@ export default function ContactForm({ defaultInterest = "" }: ContactFormProps) 
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
-    // Simulate form submission (replace with actual API call)
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Chyba při odesílání');
+      }
+
       setSubmitStatus("success");
       setFormData({
         name: "",
@@ -61,7 +71,12 @@ export default function ContactForm({ defaultInterest = "" }: ContactFormProps) 
       
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus("idle"), 5000);
-    }, 1000);
+    } catch (error) {
+      console.error('Chyba při odesílání formuláře:', error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

@@ -56,5 +56,23 @@ git push origin main
 ## Poznámky
 
 - Obrázky z původního webu je potřeba přidat do projektu nebo aktualizovat URL v komponentách
-- Kontaktní formulář momentálně simuluje odeslání - je potřeba připojit backend API
+
+## Kontaktní formulář
+
+Kontaktní formulář má připravený API endpoint (`app/api/contact/route.ts`), ale **momentálně pouze loguje data do konzole** - emaily se neposílají.
+
+### Pro skutečné odesílání emailů:
+
+1. **Nainstalujte emailovou službu** (např. Resend - zdarma do 3000 emailů/měsíc):
+   ```bash
+   npm install resend
+   ```
+
+2. **Nastavte API klíč** v proměnných prostředí Vercelu:
+   - Jděte do Vercel Dashboard → Settings → Environment Variables
+   - Přidejte: `RESEND_API_KEY` = váš API klíč z Resend
+
+3. **Aktualizujte `app/api/contact/route.ts`** - odkomentujte a upravte kód pro odesílání emailů
+
+Alternativně můžete použít jiné služby: SendGrid, Mailgun, nebo vlastní SMTP server.
 
