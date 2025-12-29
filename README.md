@@ -32,17 +32,26 @@ npm run dev
 
 ## Aktualizace na GitHub
 
-Pro nahrání změn na GitHub použijte skript:
+### Automatická synchronizace
+
+Projekt je nastaven pro automatickou synchronizaci s GitHubem:
+
+1. **Automatický push po commitu** - Git hook automaticky pushne změny po každém commitu
+2. **Manuální synchronizace** - Použijte PowerShell skript:
 ```powershell
-.\update-github.ps1
+.\sync-to-github.ps1
 ```
 
-Nebo ručně:
+### Ruční aktualizace
+
+Nebo ručně pomocí Git příkazů:
 ```bash
 git add .
 git commit -m "Popis změn"
 git push origin main
 ```
+
+**Poznámka:** Všechny změny jsou automaticky synchronizovány s repozitářem na GitHubu: https://github.com/PetMatejda/Areal_Zastavka.git
 
 ## Poznámky
 
