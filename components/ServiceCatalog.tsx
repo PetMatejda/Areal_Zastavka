@@ -18,7 +18,7 @@ const iconMap: Record<string, LucideIcon> = {
 // Funkce pro získání obrázku pro kategorii
 function getCategoryImage(categoryName: string): string {
   const categoryImages: Record<string, string> = {
-    "Pronájem": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80", // Kancelářské a průmyslové prostory
+    "Pronájem": "/images/areal/areal-zastavka.jpg", // Letecký pohled na areál Zastávka
     "Gastro & Eventy": getImageSrc("restaurantFood"),
     "Růst & Technologie": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80", // Technologie, tým
     "Provoz & Bezpečí": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=80", // Bezpečnost, stavebnictví
