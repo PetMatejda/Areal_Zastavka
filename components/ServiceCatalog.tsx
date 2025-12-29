@@ -19,7 +19,7 @@ const iconMap: Record<string, LucideIcon> = {
 function getCategoryImage(categoryName: string): string {
   const categoryImages: Record<string, string> = {
     "Pronájem": "/images/areal/areal-zastavka.jpg", // Letecký pohled na areál Zastávka
-    "Gastro & Eventy": getImageSrc("restaurantFood"),
+    "Gastro & Eventy": "/images/gastro/interior.jpg", // Interiéry restaurace Měcholupský Park
     "Růst & Technologie": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80", // Technologie, tým
     "Provoz & Bezpečí": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=80", // Bezpečnost, stavebnictví
     "Lifestyle & Volný čas": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80", // Sport, volný čas
