@@ -83,16 +83,40 @@ export async function POST(request: NextRequest) {
     // Odeslání emailu na všechny adresy
     if (process.env.RESEND_API_KEY) {
       try {
-        await resend.emails.send({
-          from: 'Areál Zastávka <noreply@arealzastavka.cz>',
-          to: RECIPIENT_EMAILS,
-          replyTo: email,
-          subject: `Nová poptávka: ${interest}`,
-          html: emailHtml,
+        // Odesíláme emaily jednotlivě pro lepší spolehlivost
+        const emailPromises = RECIPIENT_EMAILS.map(async (recipient) => {
+          try {
+            const result = await resend.emails.send({
+              from: 'Areál Zastávka <noreply@arealzastavka.cz>',
+              to: recipient,
+              replyTo: email,
+              subject: `Nová poptávka: ${interest}`,
+              html: emailHtml,
+            });
+            console.log(`Email úspěšně odeslán na ${recipient}:`, result);
+            return { recipient, success: true, result };
+          } catch (recipientError: any) {
+            console.error(`Chyba při odesílání na ${recipient}:`, recipientError);
+            return { recipient, success: false, error: recipientError.message };
+          }
         });
-        console.log('Email úspěšně odeslán na:', RECIPIENT_EMAILS);
-      } catch (emailError) {
+
+        const results = await Promise.allSettled(emailPromises);
+        const successful = results.filter((r): r is PromiseFulfilledResult<{recipient: string, success: boolean}> => 
+          r.status === 'fulfilled' && r.value.success
+        ).length;
+        const failed = results.filter(r => 
+          r.status === 'rejected' || (r.status === 'fulfilled' && !r.value.success)
+        ).length;
+        
+        console.log(`Odesílání dokončeno: ${successful} úspěšných, ${failed} neúspěšných`);
+        
+        if (failed > 0) {
+          console.error('Některé emaily se nepodařilo odeslat:', results);
+        }
+      } catch (emailError: any) {
         console.error('Chyba při odesílání emailu:', emailError);
+        console.error('Error details:', JSON.stringify(emailError, null, 2));
         // I když se email nepodaří odeslat, logujeme data
         console.log('Data poptávky:', {
           name,
@@ -102,7 +126,6 @@ export async function POST(request: NextRequest) {
           message,
           timestamp: new Date().toISOString(),
         });
-        // V produkci možná budete chtít vrátit chybu, ale prozatím pokračujeme
       }
     } else {
       // Pokud není nastaven API klíč, pouze logujeme
