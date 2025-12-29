@@ -22,7 +22,7 @@ function getCategoryImage(categoryName: string): string {
     "Gastro & Eventy": "/images/gastro/interior.jpg", // Interiéry restaurace Měcholupský Park
     "Růst & Technologie": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80", // Technologie, tým
     "Provoz & Bezpečí": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=80", // Bezpečnost, stavebnictví
-    "Lifestyle & Volný čas": "https://images.unsplash.com/photo-1622163642992-9c03a4e1a5c4?w=1920&q=80", // Tenisový kurt
+    "Lifestyle & Volný čas": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=1920&q=80", // Tenisový kurt
   };
   
   return categoryImages[categoryName] || getImageSrc("restaurantFood");
