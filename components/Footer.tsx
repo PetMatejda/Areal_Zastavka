@@ -56,7 +56,7 @@ export default function Footer() {
             <div className="space-y-3 text-gray-400">
               <div className="flex items-start gap-3">
                 <MapPin size={20} className="mt-1 flex-shrink-0" />
-                <p>Areál Zastávka<br />664 84 Zastávka<br />Česká republika</p>
+                <p>Za Zástávkou 377/3<br />109 00 Praha-Dolní Měcholupy<br />Česká republika</p>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={20} className="flex-shrink-0" />
