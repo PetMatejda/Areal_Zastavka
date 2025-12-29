@@ -74,7 +74,7 @@ export const serviceCategories: ServiceCategory[] = [
     items: [
       {
         title: "AI Školení & Workshopy",
-        description: "Naučte svůj tým používat umělou inteligenci. Praktické kurzy pro administrativu i marketing."
+        description: "Jak dostat AI do vaší firmy, aby vám pomáhala? Buď dodávkou řešení virtuálních asistentů, nebo školením a workshopy pro zaměstnance. Praktické kurzy pro administrativu i marketing."
       },
       {
         title: "Správa sociálních sítí",
