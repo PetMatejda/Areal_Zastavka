@@ -5,9 +5,10 @@
 Uložte obrázky areálu do této složky s následujícími názvy:
 
 1. **areal-zastavka.jpg** - Letecký pohled na areál (již přidán)
-2. **hala-6-5.jpg** - Budova HALA 6.5 s žlutou fasádou (Balloon Light Praha s.r.o.)
-3. **budova-terakota.jpg** - Budova s červeno-oranžovou (terakotovou) fasádou
-4. **budova-hneda.jpg** - Budova se světle hnědou/tanovou fasádou
+2. **hala-5.jpg** - Interiér skladové haly č.5 (průmyslový/warehouse prostor)
+3. **hala-6-5.jpg** - Budova HALA 6.5 s žlutou fasádou (Balloon Light Praha s.r.o.)
+4. **budova-terakota.jpg** - Budova s červeno-oranžovou (terakotovou) fasádou
+5. **budova-hneda.jpg** - Budova se světle hnědou/tanovou fasádou
 
 ## Technické požadavky:
 - Podporované formáty: JPG, PNG, WebP

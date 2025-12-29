@@ -187,7 +187,7 @@ export const availableSpaces: AvailableSpace[] = [
       "24/7 přístup"
     ],
     images: [
-      "/images/areal/hala-6-5.jpg"
+      "/images/areal/hala-5.jpg"
     ],
     available: true
   },
