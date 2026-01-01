@@ -18,18 +18,22 @@ export default function VolneProstoryPage() {
       <Header />
       <div className="pt-20">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
-          <div className="container mx-auto px-4">
+        <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white py-20 overflow-hidden">
+          {/* Dekorativní elementy */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blob -mr-48 -mt-48"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blob -ml-48 -mb-48" style={{ borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' }}></div>
+          
+          <div className="container mx-auto px-4 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="text-center"
             >
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
                 Volné prostory k pronájmu
               </h1>
-              <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
+              <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto font-medium">
                 Najděte ideální prostor pro vaši firmu v areálu Zastávka
               </p>
             </motion.div>
@@ -53,49 +57,55 @@ export default function VolneProstoryPage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1, duration: 0.6 }}
-                      className="bg-white rounded-xl shadow-lg overflow-hidden"
+                      className="glass rounded-2xl shadow-xl overflow-hidden border border-white/30 group"
                     >
                       <div className="md:flex items-center">
                         {/* Image */}
                         <div className="md:w-1/2">
-                          <div className="relative h-64 md:h-96">
+                          <div className="relative h-64 md:h-96 overflow-hidden">
                             <Image
                               src={space.images[0] || "/images/areal/areal-zastavka.jpg"}
                               alt={space.title}
                               fill
-                              className="object-cover"
+                              className="object-cover group-hover:scale-110 transition-transform duration-700"
                               unoptimized
                               onError={(e) => {
                                 e.currentTarget.src = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80";
                               }}
                             />
+                            {/* Gradient overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                           </div>
                         </div>
 
                         {/* Details */}
-                        <div className="md:w-1/2 p-8 md:p-12">
-                          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center md:text-left">
-                            {space.title}
-                          </h2>
-                          
-                          <p className="text-gray-600 mb-8 leading-relaxed text-lg text-center md:text-left">
-                            {space.description}
-                          </p>
+                        <div className="md:w-1/2 p-8 md:p-12 relative">
+                          {/* Gradient overlay při hover */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-orange-50/0 group-hover:from-blue-50/20 group-hover:to-orange-50/20 transition-all duration-500"></div>
+                          <div className="relative z-10">
+                            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-6 text-center md:text-left">
+                              {space.title}
+                            </h2>
+                            
+                            <p className="text-gray-600 mb-8 leading-relaxed text-lg text-center md:text-left">
+                              {space.description}
+                            </p>
 
-                          <div className="flex justify-center md:justify-start">
-                            <a
-                              href="#kontakt"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                const contactForm = document.getElementById("kontakt");
-                                if (contactForm) {
-                                  contactForm.scrollIntoView({ behavior: "smooth" });
-                                }
-                              }}
-                              className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-lg"
-                            >
-                              Kontaktujte nás
-                            </a>
+                            <div className="flex justify-center md:justify-start">
+                              <a
+                                href="#kontakt"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  const contactForm = document.getElementById("kontakt");
+                                  if (contactForm) {
+                                    contactForm.scrollIntoView({ behavior: "smooth" });
+                                  }
+                                }}
+                                className="gradient-blue text-white px-8 py-4 rounded-xl font-semibold hover:shadow-glow transition-all text-lg shadow-lg hover:scale-105"
+                              >
+                                Kontaktujte nás
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -111,24 +121,26 @@ export default function VolneProstoryPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1, duration: 0.6 }}
-                    className="bg-white rounded-xl shadow-lg overflow-hidden"
+                    className="glass rounded-2xl shadow-xl overflow-hidden border border-white/30 group"
                   >
                     <div className="md:flex">
                       {/* Images Gallery */}
                       <div className="md:w-1/2">
-                        <div className="relative h-64 md:h-full min-h-[400px]">
+                        <div className="relative h-64 md:h-full min-h-[400px] overflow-hidden">
                           <Image
                             src={space.images[0] || "/images/areal/areal-zastavka.jpg"}
                             alt={space.title}
                             fill
-                            className="object-cover"
+                            className="object-cover group-hover:scale-110 transition-transform duration-700"
                             unoptimized
                             onError={(e) => {
                               e.currentTarget.src = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80";
                             }}
                           />
+                          {/* Gradient overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                           {space.available && (
-                            <div className="absolute top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                            <div className="absolute top-4 right-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
                               Dostupné
                             </div>
                           )}
@@ -154,10 +166,13 @@ export default function VolneProstoryPage() {
                       </div>
 
                       {/* Details */}
-                      <div className="md:w-1/2 p-8">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                          {space.title}
-                        </h2>
+                      <div className="md:w-1/2 p-8 relative">
+                        {/* Gradient overlay při hover */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-orange-50/0 group-hover:from-blue-50/20 group-hover:to-orange-50/20 transition-all duration-500"></div>
+                        <div className="relative z-10">
+                          <h2 className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent mb-4">
+                            {space.title}
+                          </h2>
                         
                         <div className="space-y-4 mb-6">
                           {space.location && (
@@ -201,12 +216,13 @@ export default function VolneProstoryPage() {
                           </div>
                         )}
 
-                        <button
-                          onClick={() => setSelectedSpace(selectedSpace === space.id ? null : space.id)}
-                          className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-                        >
-                          Mám zájem o tento prostor
-                        </button>
+                          <button
+                            onClick={() => setSelectedSpace(selectedSpace === space.id ? null : space.id)}
+                            className="w-full gradient-blue text-white px-6 py-3 rounded-xl font-semibold hover:shadow-glow transition-all shadow-lg hover:scale-105"
+                          >
+                            Mám zájem o tento prostor
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </motion.div>
@@ -227,10 +243,10 @@ export default function VolneProstoryPage() {
                 className="max-w-2xl mx-auto"
               >
                 <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                  <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-4">
                     Kontaktujte nás ohledně pronájmu
                   </h2>
-                  <p className="text-gray-600">
+                  <p className="text-gray-700 font-medium">
                     Vyplňte formulář a my se vám ozveme s dalšími informacemi
                   </p>
                 </div>
@@ -253,10 +269,10 @@ export default function VolneProstoryPage() {
               className="max-w-2xl mx-auto"
             >
               <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-4">
                   Máte jinou poptávku?
                 </h2>
-                <p className="text-gray-600">
+                <p className="text-gray-700 font-medium">
                   Kontaktujte nás a zkusíme najít řešení pro vás
                 </p>
               </div>
