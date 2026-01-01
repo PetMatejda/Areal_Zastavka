@@ -13,15 +13,15 @@ export default function ValueProposition() {
       {/* Background Image with Parallax Effect - only visible until Services section */}
       <div 
         id="parallax-background"
-        className="fixed inset-0 z-0 pointer-events-none"
+        className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none"
         style={{
           backgroundImage: 'url(/images/areal/areal-zastavka.jpg)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'fixed',
-          opacity: 0.3,
-          zIndex: 0,
+          opacity: 0.4,
+          willChange: 'opacity',
         }}
       />
       
