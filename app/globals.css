@@ -14,12 +14,16 @@
   }
 }
 
-body {
+html, body {
   color: var(--foreground);
-  background: transparent;
+  background: transparent !important;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: transparent !important;
 }
 
 @layer utilities {
