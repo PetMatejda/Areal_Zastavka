@@ -10,23 +10,7 @@ const icons = [CheckCircle, Users, Award];
 export default function ValueProposition() {
   return (
     <section className="relative py-20 overflow-hidden" style={{ backgroundColor: 'transparent' }}>
-      {/* Background Image with Parallax Effect - only visible until Services section */}
-      <div 
-        id="parallax-background"
-        className="fixed top-0 left-0 w-full h-full pointer-events-none"
-        style={{
-          backgroundImage: 'url(/images/areal/areal-zastavka.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center center',
-          backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'fixed',
-          opacity: 0.4,
-          willChange: 'opacity',
-          zIndex: 0,
-        }}
-      />
-      
-      <div className="container mx-auto px-4 relative" style={{ zIndex: 1 }}>
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

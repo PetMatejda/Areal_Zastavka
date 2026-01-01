@@ -63,13 +63,31 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen">
-      <Header />
-      <ValueProposition />
-      <AvailableSpaces />
-      <ServiceCatalog />
-      <ContactForm />
-      <Footer />
+    <main className="min-h-screen relative">
+      {/* Parallax Background - fixed behind everything */}
+      <div 
+        id="parallax-background"
+        className="fixed inset-0 pointer-events-none"
+        style={{
+          backgroundImage: 'url(/images/areal/areal-zastavka.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed',
+          opacity: 0.4,
+          willChange: 'opacity',
+          zIndex: -1,
+        }}
+      />
+      
+      <div className="relative z-0">
+        <Header />
+        <ValueProposition />
+        <AvailableSpaces />
+        <ServiceCatalog />
+        <ContactForm />
+        <Footer />
+      </div>
     </main>
   );
 }
