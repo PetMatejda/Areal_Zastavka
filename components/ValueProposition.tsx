@@ -18,8 +18,10 @@ export default function ValueProposition() {
           backgroundImage: 'url(/images/areal/areal-zastavka.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'fixed',
-          opacity: 0.25,
+          opacity: 0.3,
+          zIndex: 0,
         }}
       />
       
