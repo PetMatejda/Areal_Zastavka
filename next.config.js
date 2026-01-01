@@ -30,6 +30,18 @@ const nextConfig = {
     ],
     unoptimized: false,
   },
+  // Pomoc pro OneDrive kompatibilitu
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.watchOptions = {
+        ...config.watchOptions,
+        ignored: ['**/node_modules/**', '**/.git/**', '**/.next/**'],
+        poll: 1000, // Polling pro OneDrive
+        aggregateTimeout: 300,
+      };
+    }
+    return config;
+  },
 };
 
 module.exports = nextConfig;

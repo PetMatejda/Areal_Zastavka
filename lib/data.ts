@@ -60,7 +60,7 @@ export const serviceCategories: ServiceCategory[] = [
       },
       {
         title: "Firemní stravování",
-        description: "Zvýhodněné obědy pro vaše zaměstnance v restauraci Měcholupský Park. Fakturace jednou měsíčně."
+        description: "Zvýhodněné obědy pro vaše zaměstnance v restauraci Měcholupský Park."
       },
       {
         title: "Večírky a Eventy",
