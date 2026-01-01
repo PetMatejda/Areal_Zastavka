@@ -80,7 +80,7 @@ export default function ContactForm({ defaultInterest = "" }: ContactFormProps) 
   };
 
   return (
-    <section id="kontakt" className="py-20 bg-gradient-to-b from-white via-blue-50/30 to-white relative overflow-hidden">
+    <section id="kontakt" className="py-20 bg-gradient-to-b from-transparent via-blue-50/20 to-white relative overflow-hidden">
       {/* Dekorativní elementy */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200/20 rounded-full blob -mr-48 -mt-48"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-200/20 rounded-full blob -ml-48 -mb-48" style={{ borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' }}></div>

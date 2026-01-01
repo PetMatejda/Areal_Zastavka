@@ -36,7 +36,7 @@ export default function Home() {
             parallaxBg.style.transition = "opacity 0.5s ease-out";
           } else {
             // AvailableSpaces section not yet visible - show parallax background
-            parallaxBg.style.opacity = "0.25";
+            parallaxBg.style.opacity = "0.5";
             parallaxBg.style.transition = "opacity 0.5s ease-in";
           }
         } else {
@@ -48,7 +48,7 @@ export default function Home() {
               parallaxBg.style.opacity = "0";
               parallaxBg.style.transition = "opacity 0.5s ease-out";
             } else {
-              parallaxBg.style.opacity = "0.25";
+              parallaxBg.style.opacity = "0.5";
               parallaxBg.style.transition = "opacity 0.5s ease-in";
             }
           }
@@ -65,6 +65,7 @@ export default function Home() {
   return (
     <main className="min-h-screen relative">
       {/* Parallax Background - fixed behind everything */}
+      {/* Parallax Background - fixed behind everything */}
       <div 
         id="parallax-background"
         className="fixed inset-0 pointer-events-none"
@@ -74,13 +75,13 @@ export default function Home() {
           backgroundPosition: 'center center',
           backgroundRepeat: 'no-repeat',
           backgroundAttachment: 'fixed',
-          opacity: 0.4,
+          opacity: 0.6,
           willChange: 'opacity',
-          zIndex: -1,
+          zIndex: 0,
         }}
       />
       
-      <div className="relative z-0">
+      <div className="relative z-10">
         <Header />
         <ValueProposition />
         <AvailableSpaces />
