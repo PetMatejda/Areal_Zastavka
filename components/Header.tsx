@@ -94,7 +94,7 @@ export default function Header() {
               href="/sluzby"
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
             >
-              Služby
+              Rozšiřující služby
             </Link>
             <Link
               href="/provozni-rad"
@@ -147,7 +147,7 @@ export default function Header() {
               onClick={() => setIsMenuOpen(false)}
               className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
             >
-              Služby
+              Rozšiřující služby
             </Link>
             <Link
               href="/provozni-rad"
