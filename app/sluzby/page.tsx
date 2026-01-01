@@ -119,8 +119,10 @@ export default function SluzbyPage() {
                           viewport={{ once: true }}
                           transition={{ delay: (categoryIndex * 0.1) + (itemIndex * 0.1), duration: 0.5 }}
                           whileHover={{ scale: 1.03, y: -8 }}
-                          className="bg-white p-6 rounded-xl shadow-lg border-2 border-gray-200 hover:shadow-2xl hover:border-blue-300 transition-all"
+                          className="glass p-6 rounded-2xl shadow-lg border border-white/30 hover:shadow-glow hover:border-blue-400/50 transition-all group/item relative overflow-hidden"
                         >
+                          {/* Gradient overlay při hover */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-orange-50/0 group-hover/item:from-blue-50/40 group-hover/item:to-orange-50/40 transition-all duration-500"></div>
                           <div className="relative z-10">
                             <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover/item:text-blue-600 transition-colors">
                               {item.title}
