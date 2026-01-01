@@ -134,7 +134,7 @@ export default function OperationalRules() {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex-1 bg-gray-200 text-gray-900 px-6 py-4 rounded-lg font-semibold hover:bg-gray-300 transition-colors inline-flex items-center justify-center gap-2"
+                  className="flex-1 bg-gradient-to-r from-gray-200 to-gray-300 text-gray-900 px-6 py-4 rounded-xl font-semibold hover:shadow-lg transition-all shadow-md inline-flex items-center justify-center gap-2"
                 >
                   <ExternalLink size={20} />
                   Otevřít v novém okně
