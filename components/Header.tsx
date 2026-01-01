@@ -90,12 +90,12 @@ export default function Header() {
             >
               Volné prostory
             </Link>
-            <button
-              onClick={() => scrollToSection("sluzby")}
+            <Link
+              href="/sluzby"
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
             >
               Služby
-            </button>
+            </Link>
             <Link
               href="/provozni-rad"
               className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
@@ -142,12 +142,13 @@ export default function Header() {
             >
               Volné prostory
             </Link>
-            <button
-              onClick={() => scrollToSection("sluzby")}
+            <Link
+              href="/sluzby"
+              onClick={() => setIsMenuOpen(false)}
               className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
             >
               Služby
-            </button>
+            </Link>
             <Link
               href="/provozni-rad"
               onClick={() => setIsMenuOpen(false)}

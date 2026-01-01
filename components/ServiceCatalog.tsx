@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { serviceCategories } from "@/lib/data";
 import { getImageSrc } from "@/lib/images";
 import { Building, Utensils, Rocket, ShieldCheck, Heart, LucideIcon } from "lucide-react";
@@ -130,70 +131,22 @@ export default function ServiceCatalog() {
             </div>
           </div>
 
-          {/* Rozšiřující kategorie */}
-          {serviceCategories.slice(1).map((category: ServiceCategory, categoryIndex: number) => {
-            const IconComponent = iconMap[category.icon] || Utensils;
-            const adjustedIndex = categoryIndex + 1; // Pro správné delay
-            return (
-              <motion.div
-                key={adjustedIndex}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: adjustedIndex * 0.1, duration: 0.6 }}
-                className="bg-white rounded-xl p-8 shadow-md border border-gray-200"
-              >
-                {/* Category Header */}
-                <div className="flex items-center gap-4 mb-8 bg-white rounded-lg p-4 shadow-lg inline-flex border-2 border-gray-200">
-                  <div className="flex items-center justify-center w-12 h-12 bg-blue-600 rounded-lg">
-                    <IconComponent size={24} className="text-white" />
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
-                    {category.name}
-                  </h3>
-                </div>
+          {/* Link to extended services page */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="text-center"
+          >
+            <Link
+              href="/sluzby"
+              className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-lg shadow-lg hover:shadow-xl"
+            >
+              Zobrazit všechny rozšiřující služby →
+            </Link>
+          </motion.div>
 
-                {/* Category Image */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                  className="mb-8 relative h-64 rounded-xl overflow-hidden shadow-lg"
-                >
-                  <Image
-                    src={getCategoryImage(category.name)}
-                    alt={category.name}
-                    fill
-                    className="object-cover"
-                    unoptimized
-                  />
-                </motion.div>
-
-                {/* Service Items Grid */}
-                <div className="grid md:grid-cols-3 gap-6">
-                  {category.items.map((item, itemIndex) => (
-                    <motion.div
-                      key={itemIndex}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: (adjustedIndex * 0.1) + (itemIndex * 0.1), duration: 0.5 }}
-                      whileHover={{ scale: 1.03, y: -8 }}
-                      className="bg-white p-6 rounded-xl shadow-lg border-2 border-gray-200 hover:shadow-2xl hover:border-blue-300 transition-all cursor-pointer"
-                    >
-                      <h4 className="text-xl font-bold text-gray-900 mb-3">
-                        {item.title}
-                      </h4>
-                      <p className="text-gray-600 leading-relaxed">
-                        {item.description}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            );
-          })}
         </div>
       </div>
     </section>
