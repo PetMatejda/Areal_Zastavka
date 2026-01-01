@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 import Header from "@/components/Header";
 import ValueProposition from "@/components/ValueProposition";
 import AvailableSpaces from "@/components/AvailableSpaces";
@@ -30,26 +31,32 @@ export default function Home() {
           const sectionTop = availableSpacesSection.getBoundingClientRect().top;
           
           // Hide parallax when AvailableSpaces section becomes visible (top of section reaches top of viewport)
-          if (sectionTop <= window.innerHeight) {
-            // AvailableSpaces section is visible - hide parallax background
-            parallaxBg.style.opacity = "0";
-            parallaxBg.style.transition = "opacity 0.5s ease-out";
-          } else {
-            // AvailableSpaces section not yet visible - show parallax background
-            parallaxBg.style.opacity = "0.5";
-            parallaxBg.style.transition = "opacity 0.5s ease-in";
+          const img = parallaxBg.querySelector('img');
+          if (img) {
+            if (sectionTop <= window.innerHeight) {
+              // AvailableSpaces section is visible - hide parallax background
+              img.style.opacity = "0";
+              img.style.transition = "opacity 0.5s ease-out";
+            } else {
+              // AvailableSpaces section not yet visible - show parallax background
+              img.style.opacity = "0.7";
+              img.style.transition = "opacity 0.5s ease-in";
+            }
           }
         } else {
           // Fallback: if section not found, hide after ValueProposition
           const valuePropSection = document.querySelector('section:has(h2:contains("Areál Zastávka"))') as HTMLElement | null;
           if (valuePropSection) {
             const valuePropBottom = valuePropSection.getBoundingClientRect().bottom;
-            if (valuePropBottom <= window.innerHeight) {
-              parallaxBg.style.opacity = "0";
-              parallaxBg.style.transition = "opacity 0.5s ease-out";
-            } else {
-              parallaxBg.style.opacity = "0.5";
-              parallaxBg.style.transition = "opacity 0.5s ease-in";
+            const img = parallaxBg.querySelector('img');
+            if (img) {
+              if (valuePropBottom <= window.innerHeight) {
+                img.style.opacity = "0";
+                img.style.transition = "opacity 0.5s ease-out";
+              } else {
+                img.style.opacity = "0.7";
+                img.style.transition = "opacity 0.5s ease-in";
+              }
             }
           }
         }
@@ -64,24 +71,31 @@ export default function Home() {
 
   return (
     <main className="min-h-screen relative">
-      {/* Parallax Background - fixed behind everything */}
-      {/* Parallax Background - fixed behind everything */}
+      {/* Parallax Background - using Next.js Image for better loading */}
       <div 
         id="parallax-background"
         className="fixed inset-0 pointer-events-none"
         style={{
-          backgroundImage: 'url(/images/areal/areal-zastavka.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center center',
-          backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'fixed',
-          opacity: 0.6,
-          willChange: 'opacity',
           zIndex: 0,
         }}
-      />
+      >
+        <Image
+          src="/images/areal/areal-zastavka.jpg"
+          alt="Areál Zastávka"
+          fill
+          className="object-cover"
+          style={{
+            opacity: 0.7,
+            willChange: 'opacity',
+            position: 'fixed',
+          }}
+          priority
+          unoptimized
+          quality={90}
+        />
+      </div>
       
-      <div className="relative z-10">
+      <div className="relative z-10 bg-transparent">
         <Header />
         <ValueProposition />
         <AvailableSpaces />
