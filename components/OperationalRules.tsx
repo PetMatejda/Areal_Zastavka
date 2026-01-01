@@ -7,8 +7,12 @@ export default function OperationalRules() {
   const pdfUrl = "https://www.arealzastavka.cz/static/media/Provozn%C3%AD%20%C5%99%C3%A1d%20are%C3%A1lu%20032025.85ec1e43eec86593a7a4.pdf";
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-gradient-to-b from-white via-blue-50/30 to-white relative overflow-hidden">
+      {/* Dekorativní elementy */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200/20 rounded-full blob -mr-48 -mt-48"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-200/20 rounded-full blob -ml-48 -mb-48" style={{ borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' }}></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -16,16 +20,16 @@ export default function OperationalRules() {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto"
         >
-          <div className="bg-white rounded-xl shadow-lg p-8 md:p-12">
+          <div className="glass rounded-2xl shadow-xl p-8 md:p-12 border border-white/30">
             <div className="flex items-center gap-4 mb-6">
-              <div className="flex items-center justify-center w-16 h-16 bg-blue-600 rounded-lg">
+              <div className="flex items-center justify-center w-16 h-16 gradient-blue rounded-xl shadow-lg">
                 <FileText size={32} className="text-white" />
               </div>
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                   Provozní řád areálu
                 </h2>
-                <p className="text-gray-600 mt-1">Platnost od: 01. 03. 2025</p>
+                <p className="text-gray-600 mt-1 font-medium">Platnost od: 01. 03. 2025</p>
               </div>
             </div>
 
@@ -36,8 +40,8 @@ export default function OperationalRules() {
                 všechny podnájemce a osoby pohybující se v areálu.
               </p>
 
-              <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">Hlavní oblasti provozního řádu:</h3>
+              <div className="glass border-l-4 border-blue-600 p-6 mb-6 rounded-r-xl shadow-lg">
+                <h3 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-4">Hlavní oblasti provozního řádu:</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600 font-bold">•</span>
@@ -82,8 +86,8 @@ export default function OperationalRules() {
                 </ul>
               </div>
 
-              <div className="bg-gray-50 rounded-lg p-6 mb-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Důležitá telefonní čísla:</h3>
+              <div className="glass rounded-xl p-6 mb-6 shadow-lg border border-white/30">
+                <h3 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-3">Důležitá telefonní čísla:</h3>
                 <div className="grid md:grid-cols-2 gap-4 text-gray-700">
                   <div>
                     <p className="font-semibold mb-2">Tísňová volání:</p>
