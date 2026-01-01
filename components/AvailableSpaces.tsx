@@ -20,7 +20,7 @@ export default function AvailableSpaces() {
           className="text-center mb-12"
         >
           <div className="glass rounded-2xl p-6 md:p-8 shadow-xl inline-block max-w-3xl border border-white/20 relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-orange-50/30"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/15 via-white/10 to-orange-50/15"></div>
             <div className="relative z-10">
               <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-4">
                 Volné prostory k pronájmu

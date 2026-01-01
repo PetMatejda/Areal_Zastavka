@@ -39,7 +39,7 @@ export default function Home() {
               img.style.transition = "opacity 0.5s ease-out";
             } else {
               // AvailableSpaces section not yet visible - show parallax background
-              img.style.opacity = "0.7";
+              img.style.opacity = "0.8";
               img.style.transition = "opacity 0.5s ease-in";
             }
           }
@@ -54,7 +54,7 @@ export default function Home() {
                 img.style.opacity = "0";
                 img.style.transition = "opacity 0.5s ease-out";
               } else {
-                img.style.opacity = "0.7";
+                img.style.opacity = "0.8";
                 img.style.transition = "opacity 0.5s ease-in";
               }
             }
@@ -85,7 +85,7 @@ export default function Home() {
           fill
           className="object-cover"
           style={{
-            opacity: 0.7,
+            opacity: 0.8,
             willChange: 'opacity',
             position: 'fixed',
           }}
