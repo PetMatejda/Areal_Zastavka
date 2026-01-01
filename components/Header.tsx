@@ -37,7 +37,7 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-gray-200/50 shadow-lg">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -109,10 +109,10 @@ export default function Header() {
               Kontakt
             </button>
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(37, 99, 235, 0.3)" }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection("kontakt")}
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+              className="gradient-blue text-white px-6 py-2 rounded-xl font-semibold shadow-lg hover:shadow-glow transition-all"
             >
               Poptat služby
             </motion.button>

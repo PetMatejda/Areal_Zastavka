@@ -18,8 +18,10 @@ export default function Footer() {
   ];
   
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="container mx-auto px-4">
+    <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-12 overflow-hidden">
+      {/* Dekorativní gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
@@ -52,20 +54,22 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-xl font-semibold mb-4">Kontakt</h4>
-            <div className="space-y-3 text-gray-400">
-              <div className="flex items-start gap-3">
-                <MapPin size={20} className="mt-1 flex-shrink-0" />
-                <p>Za Zástávkou 377/3<br />109 00 Praha-Dolní Měcholupy<br />Česká republika</p>
+            <h4 className="text-xl font-semibold mb-4 bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">
+              Kontakt
+            </h4>
+            <div className="space-y-3 text-gray-300">
+              <div className="flex items-start gap-3 group">
+                <MapPin size={20} className="mt-1 flex-shrink-0 text-blue-400 group-hover:text-blue-300 transition-colors" />
+                <p className="group-hover:text-white transition-colors">Za Zástávkou 377/3<br />109 00 Praha-Dolní Měcholupy<br />Česká republika</p>
               </div>
-              <div className="flex items-center gap-3">
-                <Phone size={20} className="flex-shrink-0" />
+              <div className="flex items-center gap-3 group">
+                <Phone size={20} className="flex-shrink-0 text-blue-400 group-hover:text-blue-300 transition-colors" />
                 <a href="tel:+420603233264" className="hover:text-white transition-colors">
                   +420 603 233 264
                 </a>
               </div>
-              <div className="flex items-center gap-3">
-                <Mail size={20} className="flex-shrink-0" />
+              <div className="flex items-center gap-3 group">
+                <Mail size={20} className="flex-shrink-0 text-blue-400 group-hover:text-blue-300 transition-colors" />
                 <a href="mailto:info@arealzastavka.cz" className="hover:text-white transition-colors">
                   info@arealzastavka.cz
                 </a>
@@ -75,8 +79,10 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-xl font-semibold mb-4">Rychlé odkazy</h4>
-            <div className="space-y-2 text-gray-400">
+            <h4 className="text-xl font-semibold mb-4 bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent">
+              Rychlé odkazy
+            </h4>
+            <div className="space-y-2 text-gray-300">
               <button
                 onClick={() => {
                   const element = document.getElementById("sluzby");
@@ -114,7 +120,8 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+        <div className="border-t border-gray-700/50 mt-8 pt-8 text-center text-gray-400 relative">
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
           <p>&copy; {new Date().getFullYear()} Areál Zastávka. Všechna práva vyhrazena.</p>
         </div>
       </div>

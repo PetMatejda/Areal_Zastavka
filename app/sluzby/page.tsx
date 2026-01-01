@@ -40,18 +40,22 @@ export default function SluzbyPage() {
       <Header />
       <div className="pt-20">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
-          <div className="container mx-auto px-4">
+        <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white py-20 overflow-hidden">
+          {/* Dekorativní elementy */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blob -mr-48 -mt-48"></div>
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blob -ml-48 -mb-48" style={{ borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' }}></div>
+          
+          <div className="container mx-auto px-4 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               className="text-center"
             >
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
                 Rozšiřující služby
               </h1>
-              <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
+              <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto font-medium">
                 Kompletní servis pro naše klienty a jejich zaměstnance
               </p>
             </motion.div>
@@ -71,14 +75,17 @@ export default function SluzbyPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: categoryIndex * 0.1, duration: 0.6 }}
-                    className="bg-white rounded-xl p-8 shadow-md border border-gray-200"
+                    className="glass rounded-2xl p-8 shadow-xl border border-white/30 relative overflow-hidden group"
                   >
+                    {/* Gradient overlay při hover */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-orange-50/0 group-hover:from-blue-50/30 group-hover:to-orange-50/30 transition-all duration-500"></div>
+                    
                     {/* Category Header */}
-                    <div className="flex items-center gap-4 mb-8 bg-white rounded-lg p-4 shadow-lg inline-flex border-2 border-gray-200">
-                      <div className="flex items-center justify-center w-12 h-12 bg-blue-600 rounded-lg">
+                    <div className="flex items-center gap-4 mb-8 glass rounded-xl p-4 shadow-lg inline-flex border border-white/30 relative z-10">
+                      <div className="flex items-center justify-center w-12 h-12 gradient-blue rounded-xl shadow-lg">
                         <IconComponent size={24} className="text-white" />
                       </div>
-                      <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+                      <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
                         {category.name}
                       </h2>
                     </div>
@@ -89,15 +96,17 @@ export default function SluzbyPage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.6 }}
-                      className="mb-8 relative h-64 rounded-xl overflow-hidden shadow-lg"
+                      className="mb-8 relative h-64 rounded-2xl overflow-hidden shadow-xl group/image"
                     >
                       <Image
                         src={getCategoryImage(category.name)}
                         alt={category.name}
                         fill
-                        className="object-cover"
+                        className="object-cover group-hover/image:scale-110 transition-transform duration-700"
                         unoptimized
                       />
+                      {/* Gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                     </motion.div>
 
                     {/* Service Items Grid */}
@@ -112,12 +121,14 @@ export default function SluzbyPage() {
                           whileHover={{ scale: 1.03, y: -8 }}
                           className="bg-white p-6 rounded-xl shadow-lg border-2 border-gray-200 hover:shadow-2xl hover:border-blue-300 transition-all"
                         >
-                          <h3 className="text-xl font-bold text-gray-900 mb-3">
-                            {item.title}
-                          </h3>
-                          <p className="text-gray-600 leading-relaxed">
-                            {item.description}
-                          </p>
+                          <div className="relative z-10">
+                            <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover/item:text-blue-600 transition-colors">
+                              {item.title}
+                            </h3>
+                            <p className="text-gray-600 leading-relaxed">
+                              {item.description}
+                            </p>
+                          </div>
                         </motion.div>
                       ))}
                     </div>
@@ -146,7 +157,7 @@ export default function SluzbyPage() {
               </p>
               <Link
                 href="/#kontakt"
-                className="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-lg"
+                className="inline-block gradient-blue text-white px-8 py-4 rounded-xl font-semibold hover:shadow-glow-lg transition-all text-lg shadow-lg hover:scale-105"
               >
                 Kontaktujte nás
               </Link>

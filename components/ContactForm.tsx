@@ -80,8 +80,12 @@ export default function ContactForm({ defaultInterest = "" }: ContactFormProps) 
   };
 
   return (
-    <section id="kontakt" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
+    <section id="kontakt" className="py-20 bg-gradient-to-b from-white via-blue-50/30 to-white relative overflow-hidden">
+      {/* Dekorativní elementy */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200/20 rounded-full blob -mr-48 -mt-48"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-200/20 rounded-full blob -ml-48 -mb-48" style={{ borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' }}></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -89,12 +93,14 @@ export default function ContactForm({ defaultInterest = "" }: ContactFormProps) 
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Poptat služby
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Vyplňte formulář a my se vám ozveme s nabídkou na míru
-          </p>
+          <div className="glass rounded-2xl p-6 md:p-8 shadow-xl inline-block max-w-3xl border border-white/20">
+            <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-4">
+              Poptat služby
+            </h2>
+            <p className="text-xl text-gray-700 max-w-2xl mx-auto font-medium">
+              Vyplňte formulář a my se vám ozveme s nabídkou na míru
+            </p>
+          </div>
         </motion.div>
 
         <div className="max-w-2xl mx-auto">
@@ -104,7 +110,7 @@ export default function ContactForm({ defaultInterest = "" }: ContactFormProps) 
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             onSubmit={handleSubmit}
-            className="bg-gray-50 p-8 rounded-xl shadow-lg space-y-6"
+            className="glass p-8 rounded-2xl shadow-xl space-y-6 border border-white/30"
           >
             <div>
               <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -117,7 +123,7 @@ export default function ContactForm({ defaultInterest = "" }: ContactFormProps) 
                 required
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
+                className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-blue-500 outline-none transition-all bg-white/80 backdrop-blur-sm"
                 placeholder="Vaše jméno"
               />
             </div>
@@ -132,7 +138,7 @@ export default function ContactForm({ defaultInterest = "" }: ContactFormProps) 
                 name="company"
                 value={formData.company}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
+                className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-blue-500 outline-none transition-all bg-white/80 backdrop-blur-sm"
                 placeholder="Název firmy"
               />
             </div>
@@ -148,7 +154,7 @@ export default function ContactForm({ defaultInterest = "" }: ContactFormProps) 
                 required
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
+                className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-blue-500 outline-none transition-all bg-white/80 backdrop-blur-sm"
                 placeholder="vas@email.cz"
               />
             </div>
@@ -186,7 +192,7 @@ export default function ContactForm({ defaultInterest = "" }: ContactFormProps) 
                 rows={5}
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all resize-none"
+                className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-blue-600 focus:border-blue-500 outline-none transition-all resize-none bg-white/80 backdrop-blur-sm"
                 placeholder="Vaše zpráva nebo dotaz..."
               />
             </div>
@@ -216,7 +222,7 @@ export default function ContactForm({ defaultInterest = "" }: ContactFormProps) 
               disabled={isSubmitting}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full bg-blue-600 text-white px-6 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full gradient-blue text-white px-6 py-4 rounded-xl font-semibold hover:shadow-glow transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg hover:scale-105"
             >
               {isSubmitting ? (
                 "Odesílám..."

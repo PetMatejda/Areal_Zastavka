@@ -18,13 +18,17 @@ export default function ValueProposition() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="bg-white rounded-xl p-8 md:p-12 shadow-lg inline-block max-w-4xl border-2 border-gray-100">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Areál Zastávka: místo pro vaše podnikání
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Ideální lokalita pro vaši firmu s kompletním servisním zázemím
-            </p>
+          <div className="glass rounded-2xl p-8 md:p-12 shadow-xl inline-block max-w-4xl border border-white/20 relative overflow-hidden">
+            {/* Dekorativní gradient pozadí */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white to-orange-50/50 opacity-50"></div>
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-4">
+                Areál Zastávka: místo pro vaše podnikání
+              </h2>
+              <p className="text-xl text-gray-700 max-w-2xl mx-auto font-medium">
+                Ideální lokalita pro vaši firmu s kompletním servisním zázemím
+              </p>
+            </div>
           </div>
         </motion.div>
 
@@ -38,18 +42,22 @@ export default function ValueProposition() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2, duration: 0.6 }}
-                whileHover={{ scale: 1.05, y: -8 }}
-                className="text-center p-8 rounded-xl bg-white border-2 border-gray-200 shadow-xl hover:shadow-2xl hover:border-blue-400 transition-all"
+                whileHover={{ scale: 1.05, y: -8, rotate: 1 }}
+                className="text-center p-8 rounded-2xl glass border border-white/30 shadow-xl hover:shadow-glow-lg hover:border-blue-400/50 transition-all relative overflow-hidden group"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-6">
-                  <Icon size={32} className="text-white" />
+                {/* Dekorativní gradient pozadí při hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 via-blue-50/0 to-orange-50/0 group-hover:from-blue-50/30 group-hover:via-white group-hover:to-orange-50/30 transition-all duration-500"></div>
+                <div className="relative z-10">
+                  <div className="inline-flex items-center justify-center w-16 h-16 gradient-blue rounded-2xl mb-6 shadow-lg group-hover:shadow-glow transition-all">
+                    <Icon size={32} className="text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                    {prop.title}
+                  </h3>
+                  <p className="text-gray-600 text-lg leading-relaxed">
+                    {prop.description}
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                  {prop.title}
-                </h3>
-                <p className="text-gray-600 text-lg">
-                  {prop.description}
-                </p>
               </motion.div>
             );
           })}

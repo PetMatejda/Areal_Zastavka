@@ -19,20 +19,23 @@ export default function AvailableSpaces() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <div className="bg-white rounded-xl p-6 md:p-8 shadow-lg inline-block max-w-3xl border-2 border-gray-100">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Volné prostory k pronájmu
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-              Prohlédněte si aktuálně dostupné prostory v našem areálu
-            </p>
-            <Link
-              href="/volne-prostory"
-              className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-semibold text-lg transition-colors"
-            >
-              Zobrazit všechny prostory
-              <ArrowRight size={20} />
-            </Link>
+          <div className="glass rounded-2xl p-6 md:p-8 shadow-xl inline-block max-w-3xl border border-white/20 relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 via-white to-orange-50/30"></div>
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-4">
+                Volné prostory k pronájmu
+              </h2>
+              <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-8 font-medium">
+                Prohlédněte si aktuálně dostupné prostory v našem areálu
+              </p>
+              <Link
+                href="/volne-prostory"
+                className="inline-flex items-center gap-2 gradient-blue text-white px-6 py-3 rounded-xl font-semibold text-lg shadow-lg hover:shadow-glow transition-all hover:scale-105"
+              >
+                Zobrazit všechny prostory
+                <ArrowRight size={20} />
+              </Link>
+            </div>
           </div>
         </motion.div>
 
@@ -43,24 +46,29 @@ export default function AvailableSpaces() {
             
             const cardContent = (
               <>
-                <div className="relative h-48 w-full overflow-hidden">
+                <div className="relative h-48 w-full overflow-hidden rounded-t-2xl">
                   <Image
                     src={space.images[0] || "/images/areal/areal-zastavka.jpg"}
                     alt={space.title}
                     fill
-                    className="object-cover hover:scale-105 transition-transform duration-300"
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
                     unoptimized
                     onError={(e) => {
                       e.currentTarget.src = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80";
                     }}
                   />
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent group-hover:from-black/20 transition-all"></div>
                   {space.available && !isUniversal && (
-                    <div className="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    <div className="absolute top-4 right-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
                       Dostupné
                     </div>
                   )}
                 </div>
-                <div className="p-6 bg-white">
+                <div className="p-6 relative">
+                  {/* Gradient overlay při hover */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-orange-50/0 group-hover:from-blue-50/20 group-hover:to-orange-50/20 transition-all duration-500"></div>
+                  <div className="relative z-10">
                   <h3 className="text-xl font-bold text-gray-900 mb-3">
                     {space.title}
                   </h3>
@@ -107,6 +115,7 @@ export default function AvailableSpaces() {
                       </div>
                     </>
                   )}
+                  </div>
                 </div>
               </>
             );
@@ -118,8 +127,8 @@ export default function AvailableSpaces() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                whileHover={{ scale: 1.03, y: -8 }}
-                className="bg-white rounded-xl shadow-xl border-2 border-gray-200 hover:shadow-2xl hover:border-blue-400 transition-all overflow-hidden"
+                whileHover={{ scale: 1.03, y: -8, rotate: 0.5 }}
+                className="glass rounded-2xl shadow-xl border border-white/30 hover:shadow-glow-lg hover:border-blue-400/50 transition-all overflow-hidden group"
               >
                 {isUniversal ? (
                   <Link href="/volne-prostory#kontakt">
