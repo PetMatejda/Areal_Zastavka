@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { FileText, Download, ExternalLink } from "lucide-react";
 
 export default function OperationalRules() {
-  const pdfUrl = "https://www.arealzastavka.cz/static/media/Provozn%C3%AD%20%C5%99%C3%A1d%20are%C3%A1lu%20032025.85ec1e43eec86593a7a4.pdf";
+  const pdfUrl = "/documents/Provozni-rad-arealu-032025.pdf";
 
   return (
     <section className="py-20 bg-gradient-to-b from-white via-blue-50/30 to-white relative overflow-hidden">
