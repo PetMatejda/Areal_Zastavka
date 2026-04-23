@@ -11,8 +11,10 @@ export interface ServiceItem {
 }
 
 export interface ServiceCategory {
+  id: string;
   name: string;
   icon: string;
+  image?: string;
   items: ServiceItem[];
 }
 
@@ -25,8 +27,10 @@ export const heroOffer: HeroOffer = {
 
 export const serviceCategories: ServiceCategory[] = [
   {
+    id: "pronajem",
     name: "Pronájem",
     icon: "Building",
+    image: "/images/areal/areal-zastavka.jpg",
     items: [
       {
         title: "Pronájem ploch",
@@ -51,8 +55,10 @@ export const serviceCategories: ServiceCategory[] = [
     ]
   },
   {
+    id: "gastro",
     name: "Gastro & Eventy",
     icon: "Utensils",
+    image: "/images/gastro/interior.jpg",
     items: [
       {
         title: "Meeting Boxy do zasedačky",
@@ -69,8 +75,10 @@ export const serviceCategories: ServiceCategory[] = [
     ]
   },
   {
+    id: "technologie",
     name: "Růst & Technologie",
     icon: "Rocket",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80",
     items: [
       {
         title: "AI Školení & Workshopy",
@@ -87,8 +95,10 @@ export const serviceCategories: ServiceCategory[] = [
     ]
   },
   {
+    id: "provoz",
     name: "Provoz & Bezpečí",
     icon: "ShieldCheck",
+    image: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=80",
     items: [
       {
         title: "PO & BOZP Servis",
@@ -105,8 +115,10 @@ export const serviceCategories: ServiceCategory[] = [
     ]
   },
   {
+    id: "zivotni-styl",
     name: "Lifestyle & Volný čas",
     icon: "Heart",
+    image: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=1920&q=80",
     items: [
       {
         title: "Tenis Aréna (Praha 4)",

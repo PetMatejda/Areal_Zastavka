@@ -1,177 +1,74 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import { motion } from "framer-motion";
-import { getImageSrc } from "@/lib/images";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [logoError, setLogoError] = useState(false);
-  const [logoSrc, setLogoSrc] = useState("/images/logo.png");
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  
-  // Zkusíme různé varianty loga
-  const logoVariants = [
-    "/images/logo.png",
-    "/images/logo.svg",
-    "/images/areal/logo.png",
-    "/images/Logo.png",
-    "/images/LOGO.png",
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const links = [
+    {href: '/volne-prostory', label: 'Volné prostory'},
+    {href: '/sluzby', label: 'Služby'},
+    {href: '/provozni-rad', label: 'Provozní řád'},
+    {href: '#kontakt', label: 'Kontakt'}
   ];
 
-  const scrollToSection = (id: string) => {
-    if (pathname !== "/") {
-      // Pokud nejsme na hlavní stránce, přesměrujeme tam a pak scrollujeme
-      window.location.href = `/#${id}`;
-      return;
-    }
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMenuOpen(false);
-    }
-  };
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-gray-200/50 shadow-lg">
-      <nav className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              className="flex items-center"
+    <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-400 ease-out px-4 md:px-10 ${scrolled ? 'bg-[#0b0d10]/95 backdrop-blur-md border-b border-[rgba(255,255,255,0.07)]' : 'bg-transparent'}`}>
+      <div className="max-w-[1280px] mx-auto flex items-center justify-between h-[72px]">
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-3 bg-transparent border-none cursor-pointer group">
+          <img 
+            src="/images/logo.svg" 
+            alt="Areál Zastávka" 
+            className="h-8 md:h-9 group-hover:opacity-80 transition-opacity"
+          />
+        </Link>
+
+        <nav className="hidden md:flex items-center gap-1">
+          {links.map((link) => (
+            <Link key={link.href} href={link.href}
+              className={`px-4 py-2 rounded-md font-sans text-[15px] font-semibold transition-all drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] ${pathname === link.href ? 'text-white' : 'text-slate-100 hover:text-white'}`}
             >
-              {!logoError ? (
-                <div className="relative h-12 w-auto min-w-[200px]">
-                  <Image
-                    src={logoSrc}
-                    alt="Areál Zastávka Logo"
-                    width={200}
-                    height={48}
-                    className="object-contain h-12 w-auto"
-                    unoptimized
-                    priority
-                    onError={() => {
-                      // Zkusíme další variantu
-                      const currentIndex = logoVariants.indexOf(logoSrc);
-                      if (currentIndex < logoVariants.length - 1) {
-                        setLogoSrc(logoVariants[currentIndex + 1]);
-                      } else {
-                        setLogoError(true);
-                      }
-                    }}
-                  />
-                </div>
-              ) : (
-                <div className="flex items-center gap-2">
-                  <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">AZ</span>
-                  </div>
-                  <h1 className="text-2xl font-bold text-gray-900">
-                    Areál Zastávka
-                  </h1>
-                </div>
-              )}
-            </motion.div>
+              {link.label}
+            </Link>
+          ))}
+          <Link href="/kontakt" className="ml-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white border-none rounded-md cursor-pointer font-sans text-sm font-semibold px-5 py-[9px] transition-all transform hover:-translate-y-[1px]">
+            Poptat služby
           </Link>
+        </nav>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link
-              href="/volne-prostory"
-              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
-            >
-              Volné prostory
-            </Link>
-            <Link
-              href="/sluzby"
-              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
-            >
-              Rozšiřující služby
-            </Link>
-            <Link
-              href="/provozni-rad"
-              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
-            >
-              Provozní řád
-            </Link>
-            <button
-              onClick={() => scrollToSection("kontakt")}
-              className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
-            >
-              Kontakt
-            </button>
-            <motion.button
-              whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(37, 99, 235, 0.3)" }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => scrollToSection("kontakt")}
-              className="gradient-blue text-white px-6 py-2 rounded-xl font-semibold shadow-lg hover:shadow-glow transition-all"
-            >
-              Poptat služby
-            </motion.button>
-          </div>
+        {/* Mobile Menu Button */}
+        <button className="md:hidden text-[var(--white)] p-2" onClick={() => setOpen(!open)}>
+          {open ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-gray-700"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-        </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden mt-4 pb-4 space-y-4"
-          >
-            <Link
-              href="/volne-prostory"
-              onClick={() => setIsMenuOpen(false)}
-              className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
+      {/* Mobile Nav */}
+      <div className={`md:hidden absolute top-[72px] left-0 right-0 bg-[#13171c] border-b border-[rgba(255,255,255,0.07)] transition-all duration-300 overflow-hidden ${open ? 'max-h-[400px] py-4' : 'max-h-0 py-0 border-b-0 opacity-0'}`}>
+        <nav className="flex flex-col px-6 gap-2">
+          {links.map((link) => (
+            <Link key={link.href} href={link.href} onClick={() => setOpen(false)}
+              className={`px-4 py-3 rounded-md font-sans text-base font-medium transition-colors ${pathname === link.href ? 'text-[var(--accent)] bg-[rgba(255,255,255,0.05)]' : 'text-[var(--text-muted)] hover:text-[var(--white)] bg-transparent'}`}
             >
-              Volné prostory
+              {link.label}
             </Link>
-            <Link
-              href="/sluzby"
-              onClick={() => setIsMenuOpen(false)}
-              className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
-            >
-              Rozšiřující služby
-            </Link>
-            <Link
-              href="/provozni-rad"
-              onClick={() => setIsMenuOpen(false)}
-              className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
-            >
-              Provozní řád
-            </Link>
-            <button
-              onClick={() => scrollToSection("kontakt")}
-              className="block w-full text-left text-gray-700 hover:text-blue-600 transition-colors font-medium py-2"
-            >
-              Kontakt
-            </button>
-            <button
-              onClick={() => scrollToSection("kontakt")}
-              className="block w-full bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center"
-            >
-              Poptat služby
-            </button>
-          </motion.div>
-        )}
-      </nav>
+          ))}
+          <Link href="/kontakt" onClick={() => setOpen(false)} className="mt-2 text-center bg-[var(--accent)] text-white rounded-md font-sans text-base font-semibold px-4 py-3">
+            Poptat služby
+          </Link>
+        </nav>
+      </div>
     </header>
   );
 }
-

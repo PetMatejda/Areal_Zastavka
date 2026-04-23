@@ -2,152 +2,122 @@
 
 import { motion } from "framer-motion";
 import { FileText, Download, ExternalLink } from "lucide-react";
+import { SectionLabel } from "./Contact";
 
 export default function OperationalRules() {
   const pdfUrl = "/documents/Provozni-rad-arealu-032025.pdf";
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white via-blue-50/30 to-white relative overflow-hidden">
-      {/* Dekorativní elementy */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-blue-200/20 rounded-full blob -mr-48 -mt-48"></div>
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-orange-200/20 rounded-full blob -ml-48 -mb-48" style={{ borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' }}></div>
+    <section className="py-[100px] px-6 md:px-10 bg-[var(--bg)] relative overflow-hidden flex flex-col items-center">
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--accent)]/10 rounded-full blur-[120px] -mr-48 -mt-48 pointer-events-none"></div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto max-w-[900px] relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-4xl mx-auto"
         >
-          <div className="glass rounded-2xl shadow-xl p-8 md:p-12 border border-white/30">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="flex items-center justify-center w-16 h-16 gradient-blue rounded-xl shadow-lg">
-                <FileText size={32} className="text-white" />
-              </div>
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                  Provozní řád areálu
-                </h2>
-                <p className="text-gray-600 mt-1 font-medium">Platnost od: 01. 03. 2025</p>
+          <div className="bg-[var(--surface)] rounded-2xl p-8 md:p-14 border border-[var(--border)] shadow-2xl shadow-black/50">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+              <div className="flex items-center gap-5">
+                <div className="flex items-center justify-center w-[72px] h-[72px] bg-[var(--surface2)] border border-[var(--border)] rounded-xl flex-shrink-0">
+                  <FileText size={36} className="text-[var(--accent)]" />
+                </div>
+                <div>
+                   <SectionLabel>Dokument</SectionLabel>
+                  <h2 className="text-3xl md:text-5xl font-barlow font-bold text-[var(--white)] tracking-tight">
+                    Provozní řád areálu
+                  </h2>
+                  <p className="text-[var(--text-dim)] mt-2 font-medium text-sm">Platnost od: 01. 03. 2025</p>
+                </div>
               </div>
             </div>
 
-            <div className="prose prose-lg max-w-none mb-8">
-              <p className="text-gray-700 leading-relaxed mb-6">
+            <div className="text-[16px] max-w-none text-[var(--text)] font-light leading-relaxed">
+              <p className="mb-10 text-[var(--text-muted)] text-[17px]">
                 Provozní řád upravuje požadavky právních a ostatních předpisů k zajištění bezpečnosti 
                 a ochrany pro areál Za Zastávkou 3, Dolní Měcholupy. Tento dokument je závazný pro 
                 všechny podnájemce a osoby pohybující se v areálu.
               </p>
 
-              <div className="glass border-l-4 border-blue-600 p-6 mb-6 rounded-r-xl shadow-lg">
-                <h3 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-4">Hlavní oblasti provozního řádu:</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
-                    <span>Účel a rozsah platnosti</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
-                    <span>Důležitá telefonní čísla a kontakty</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
-                    <span>Mimořádné události a jejich řešení</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
-                    <span>Povinnosti podnájemců</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
-                    <span>Prevence rizik a bezpečnost práce</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
-                    <span>Doprava, parkování a odstavování vozidel</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
-                    <span>Odpadové hospodářství</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
-                    <span>Práce s otevřeným ohněm a hořlavými látkami</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
-                    <span>Hasicí přístroje a požární ochrana</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-blue-600 font-bold">•</span>
-                    <span>BOZP a PO dokumentace</span>
-                  </li>
+              <div className="bg-[var(--bg)] border-l-[3px] border-[var(--accent)] p-6 md:p-8 mb-12 rounded-r-xl">
+                <h3 className="text-xl font-barlow font-bold text-[var(--white)] mb-6">Hlavní oblasti provozního řádu:</h3>
+                <ul className="grid sm:grid-cols-2 gap-y-4 gap-x-6 text-[15.5px] text-[var(--text-muted)]">
+                  {[
+                    "Účel a rozsah platnosti",
+                    "Důležitá telefonní čísla a kontakty",
+                    "Mimořádné události a jejich řešení",
+                    "Povinnosti podnájemců",
+                    "Prevence rizik a bezpečnost práce",
+                    "Doprava a parkování vozidel",
+                    "Odpadové hospodářství",
+                    "Práce s otevřeným ohněm",
+                    "Hasicí přístroje a PO",
+                    "BOZP a PO dokumentace",
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="text-[var(--accent)] text-lg leading-none mt-0.5">•</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
-              <div className="glass rounded-xl p-6 mb-6 shadow-lg border border-white/30">
-                <h3 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent mb-3">Důležitá telefonní čísla:</h3>
-                <div className="grid md:grid-cols-2 gap-4 text-gray-700">
+              <div className="bg-[var(--surface2)] rounded-xl py-7 px-8 mb-12 border border-[var(--border)]">
+                <h3 className="text-xl font-barlow font-bold text-[var(--white)] mb-5 border-b border-[var(--border)] pb-4">Důležitá telefonní čísla</h3>
+                <div className="grid md:grid-cols-2 gap-8 text-[15px] text-[var(--text-muted)]">
                   <div>
-                    <p className="font-semibold mb-2">Tísňová volání:</p>
-                    <ul className="space-y-1 text-sm">
-                      <li>Hasiči: <span className="font-bold text-blue-600">150</span></li>
-                      <li>Tísňové volání: <span className="font-bold text-blue-600">112</span></li>
-                      <li>Záchranná služba: <span className="font-bold text-blue-600">155</span></li>
-                      <li>Policie: <span className="font-bold text-blue-600">158</span></li>
-                      <li>Městská policie: <span className="font-bold text-blue-600">156</span></li>
+                    <p className="font-bold text-[var(--white)] mb-4 tracking-wide uppercase text-xs">Tísňová volání</p>
+                    <ul className="space-y-3">
+                      <li className="flex justify-between items-center border-b border-[var(--border)] pb-2"><span className="opacity-80">Hasiči</span> <span className="font-bold text-[var(--white)]">150</span></li>
+                      <li className="flex justify-between items-center border-b border-[var(--border)] pb-2"><span className="opacity-80">Tísňové volání</span> <span className="font-bold text-[var(--white)]">112</span></li>
+                      <li className="flex justify-between items-center border-b border-[var(--border)] pb-2"><span className="opacity-80">Záchranná služba</span> <span className="font-bold text-[var(--white)]">155</span></li>
+                      <li className="flex justify-between items-center border-b border-[var(--border)] pb-2"><span className="opacity-80">Policie</span> <span className="font-bold text-[var(--white)]">158</span></li>
+                      <li className="flex justify-between items-center"><span className="opacity-80">Městská policie</span> <span className="font-bold text-[var(--white)]">156</span></li>
                     </ul>
                   </div>
                   <div>
-                    <p className="font-semibold mb-2">Poruchy:</p>
-                    <ul className="space-y-1 text-sm">
-                      <li>Elektrický proud: <span className="font-bold text-blue-600">800 850 860</span></li>
-                      <li>Plyn: <span className="font-bold text-blue-600">1239</span></li>
-                      <li>Voda: <span className="font-bold text-blue-600">840 111 112</span></li>
+                    <p className="font-bold text-[var(--white)] mb-4 tracking-wide uppercase text-xs">Poruchy</p>
+                    <ul className="space-y-3">
+                      <li className="flex justify-between items-center border-b border-[var(--border)] pb-2"><span className="opacity-80">Elektrický proud</span> <span className="font-bold text-[var(--white)]">800 850 860</span></li>
+                      <li className="flex justify-between items-center border-b border-[var(--border)] pb-2"><span className="opacity-80">Plyn</span> <span className="font-bold text-[var(--white)]">1239</span></li>
+                      <li className="flex justify-between items-center"><span className="opacity-80">Voda</span> <span className="font-bold text-[var(--white)]">840 111 112</span></li>
                     </ul>
                   </div>
                 </div>
-                <div className="mt-4 pt-4 border-t border-gray-200">
-                  <p className="text-sm text-gray-600">
-                    <span className="font-semibold">Kontakt pro mimořádné situace:</span><br />
-                    Josef Šiška: <a href="tel:+420603233264" className="text-blue-600 hover:underline">+420 603 233 264</a>
-                  </p>
+                <div className="mt-8 pt-5 border-t border-[var(--border)] flex flex-wrap items-center justify-between gap-4">
+                  <span className="font-semibold text-[var(--white)]">Manažer areálu (Mimořádné situace):</span>
+                  <a href="tel:+420603233264" className="text-[var(--accent)] hover:text-white transition-colors font-semibold text-lg">+420 603 233 264</a>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <motion.a
+              <div className="flex flex-col sm:flex-row gap-4 mb-10">
+                <a
                   href={pdfUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex-1 gradient-blue text-white px-6 py-4 rounded-xl font-semibold hover:shadow-glow transition-all shadow-lg inline-flex items-center justify-center gap-2"
+                  className="flex-1 bg-[var(--accent)] text-white px-6 py-4 rounded-xl font-sans font-semibold hover:-translate-y-1 hover:shadow-lg hover:shadow-[var(--accent)]/20 transition-all flex items-center justify-center gap-3 text-[15px]"
                 >
                   <Download size={20} />
-                  Stáhnout provozní řád (PDF)
-                </motion.a>
-                <motion.a
+                  Stáhnout (PDF)
+                </a>
+                <a
                   href={pdfUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="flex-1 bg-gradient-to-r from-gray-200 to-gray-300 text-gray-900 px-6 py-4 rounded-xl font-semibold hover:shadow-lg transition-all shadow-md inline-flex items-center justify-center gap-2"
+                  className="flex-1 bg-transparent border border-[var(--border)] text-[var(--text)] hover:text-white hover:border-white/30 hover:bg-white/5 px-6 py-4 rounded-xl font-sans font-semibold hover:-translate-y-1 transition-all flex items-center justify-center gap-3 text-[15px]"
                 >
                   <ExternalLink size={20} />
-                  Otevřít v novém okně
-                </motion.a>
+                  Otevřít v prohlížeči
+                </a>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-gray-200 text-sm text-gray-600">
-                <p>
-                  <strong>Poznámka:</strong> Podnájemci jsou povinni seznámit své zaměstnance s provozním řádem 
-                  a zajistit jeho dodržování. Provozní řád je k dispozici také na informačních tabulích 
-                  umístěných u vjezdu do areálu.
-                </p>
-              </div>
+              <p className="text-[13px] text-[var(--text-dim)] border-t border-[var(--border)] pt-5">
+                <strong className="text-[var(--text)]">Poznámka:</strong> Podnájemci jsou povinni seznámit své zaměstnance s provozním řádem 
+                a zajistit jeho dodržování. Provozní řád je k dispozici také na informačních tabulích 
+                umístěných u vjezdu do areálu.
+              </p>
             </div>
           </div>
         </motion.div>
@@ -155,4 +125,3 @@ export default function OperationalRules() {
     </section>
   );
 }
-

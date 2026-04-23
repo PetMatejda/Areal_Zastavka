@@ -2,173 +2,92 @@
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Contact, { SectionLabel } from "@/components/Contact";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { serviceCategories } from "@/lib/data";
-import { getImageSrc } from "@/lib/images";
-import { Building, Utensils, Rocket, ShieldCheck, Heart, LucideIcon } from "lucide-react";
-import { ServiceCategory } from "@/lib/data";
-import Link from "next/link";
-
-const iconMap: Record<string, LucideIcon> = {
-  Building,
-  Utensils,
-  Rocket,
-  ShieldCheck,
-  Heart,
-};
-
-// Funkce pro získání obrázku pro kategorii
-function getCategoryImage(categoryName: string): string {
-  const categoryImages: Record<string, string> = {
-    "Pronájem": "/images/areal/areal-zastavka.jpg",
-    "Gastro & Eventy": "/images/gastro/interior.jpg",
-    "Růst & Technologie": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80",
-    "Provoz & Bezpečí": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1920&q=80",
-    "Lifestyle & Volný čas": "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=1920&q=80",
-  };
-  
-  return categoryImages[categoryName] || getImageSrc("restaurantFood");
-}
 
 export default function SluzbyPage() {
-  // Zobrazujeme všechny kategorie kromě "Pronájem" (která je na homepage)
-  const extendedServices = serviceCategories.slice(1);
+  const extendedServices = serviceCategories.filter(cat => cat.name !== "Pronájem");
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-[var(--bg)]">
       <Header />
       <div className="pt-20">
-        {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white py-20 overflow-hidden">
-          {/* Dekorativní elementy */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blob -mr-48 -mt-48"></div>
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blob -ml-48 -mb-48" style={{ borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' }}></div>
+        <section className="relative py-[80px] md:py-[120px] px-6 md:px-10 bg-[var(--surface)] border-b border-[var(--border)] overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0b0d10] via-[#0b0d10] to-[var(--bg)]"></div>
           
-          <div className="container mx-auto px-4 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center"
-            >
-              <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
-                Rozšiřující služby
+          <div className="container mx-auto max-w-[1280px] relative z-10 text-center flex flex-col items-center">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+              <SectionLabel>Naše Služby</SectionLabel>
+              <h1 className="font-barlow font-extrabold text-5xl md:text-6xl text-[var(--white)] mb-6 tracking-tight">
+                KOMPLETNÍ SERVIS PRO VÁS
               </h1>
-              <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto font-medium">
-                Kompletní servis pro naše klienty a jejich zaměstnance
+              <p className="text-[17px] text-[var(--text-muted)] max-w-2xl mx-auto font-light leading-relaxed">
+                Nabízíme širokou škálu doplňkových služeb. Vše, co potřebujete pro bezstarostné podnikání, máte u nás nadosah.
               </p>
             </motion.div>
           </div>
         </section>
 
-        {/* Services List */}
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="space-y-20">
-              {extendedServices.map((category: ServiceCategory, categoryIndex: number) => {
-                const IconComponent = iconMap[category.icon] || Utensils;
-                return (
+        <section className="py-[100px] px-6 md:px-10 max-w-[1280px] mx-auto">
+          <div className="space-y-16 lg:space-y-24">
+            {extendedServices.map((category, index) => {
+               const colMap: any = {
+                 'Gastro & Eventy': '#e8a87c',
+                 'Růst & Technologie': '#7bc8a4',
+                 'Provoz & Bezpečí': '#a89bc8',
+                 'Lifestyle & Volný čas': '#c8a87b'
+               };
+               const col = colMap[category.name] || 'var(--steel)';
+
+               return (
                   <motion.div
-                    key={categoryIndex}
+                    key={index}
+                    id={category.id}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: categoryIndex * 0.1, duration: 0.6 }}
-                    className="glass rounded-2xl p-8 shadow-xl border border-white/30 relative overflow-hidden group"
+                    transition={{ duration: 0.6 }}
+                    className="flex flex-col border border-[var(--border)] bg-[var(--surface)] rounded-xl overflow-hidden p-8 lg:p-12 gap-8 relative shrink-0 scroll-mt-24"
                   >
-                    {/* Gradient overlay při hover */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-orange-50/0 group-hover:from-blue-50/30 group-hover:to-orange-50/30 transition-all duration-500"></div>
-                    
-                    {/* Category Header */}
-                    <div className="flex items-center gap-4 mb-8 glass rounded-xl p-4 shadow-lg inline-flex border border-white/30 relative z-10">
-                      <div className="flex items-center justify-center w-12 h-12 gradient-blue rounded-xl shadow-lg">
-                        <IconComponent size={24} className="text-white" />
-                      </div>
-                      <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                        {category.name}
-                      </h2>
-                    </div>
+                     <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full blur-[120px] opacity-[0.10] -mr-[200px] -mt-[200px] pointer-events-none" style={{ backgroundColor: col }} />
 
-                    {/* Category Image */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6 }}
-                      className="mb-8 relative h-64 rounded-2xl overflow-hidden shadow-xl group/image"
-                    >
-                      <Image
-                        src={getCategoryImage(category.name)}
-                        alt={category.name}
-                        fill
-                        className="object-cover group-hover/image:scale-110 transition-transform duration-700"
-                        unoptimized
-                      />
-                      {/* Gradient overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
-                    </motion.div>
+                     <div className="flex flex-col md:flex-row gap-8 relative z-10 w-full">
+                       {/* Obrázek */}
+                       {category.image && (
+                         <div className="w-full md:w-[280px] shrink-0 h-[200px] rounded-xl overflow-hidden border border-[var(--border)] relative">
+                            <img src={category.image} alt={category.name} className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                         </div>
+                       )}
+                       
+                       <div className="flex flex-col flex-grow justify-center">
+                         <div className="flex items-center gap-5 mb-6">
+                            <div className="w-14 h-14 rounded-lg flex items-center justify-center text-2xl border" style={{ background: `${col}18`, borderColor: `${col}30` }}>
+                               {category.name === 'Gastro & Eventy' ? '🍽' : category.name === 'Růst & Technologie' ? '⚡' : category.name === 'Provoz & Bezpečí' ? '🔧' : '🎾'}
+                            </div>
+                            <h2 className="font-barlow font-bold text-3xl md:text-4xl text-[var(--white)]">{category.name}</h2>
+                         </div>
+                       </div>
+                     </div>
 
-                    {/* Service Items Grid */}
-                    <div className="grid md:grid-cols-3 gap-6">
-                      {category.items.map((item, itemIndex) => (
-                        <motion.div
-                          key={itemIndex}
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: (categoryIndex * 0.1) + (itemIndex * 0.1), duration: 0.5 }}
-                          whileHover={{ scale: 1.03, y: -8 }}
-                          className="glass p-6 rounded-2xl shadow-lg border border-white/30 hover:shadow-glow hover:border-blue-400/50 transition-all group/item relative overflow-hidden"
-                        >
-                          {/* Gradient overlay při hover */}
-                          <div className="absolute inset-0 bg-gradient-to-br from-blue-50/0 to-orange-50/0 group-hover/item:from-blue-50/40 group-hover/item:to-orange-50/40 transition-all duration-500"></div>
-                          <div className="relative z-10">
-                            <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover/item:text-blue-600 transition-colors">
-                              {item.title}
-                            </h3>
-                            <p className="text-gray-600 leading-relaxed">
-                              {item.description}
-                            </p>
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
+                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
+                        {category.items.map((item, itemIdx) => (
+                           <div key={itemIdx} className="bg-[var(--bg)] border border-[var(--border)] rounded-lg p-6 hover:border-white/20 transition-all hover:-translate-y-1">
+                              <h3 className="font-barlow font-semibold text-xl text-[var(--white)] mb-3">{item.title}</h3>
+                              <p className="text-[14.5px] text-[var(--text-muted)] font-light leading-relaxed">{item.description}</p>
+                           </div>
+                        ))}
+                     </div>
                   </motion.div>
-                );
-              })}
-            </div>
+               )
+            })}
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-2xl mx-auto"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Máte zájem o některou z našich služeb?
-              </h2>
-              <p className="text-xl text-gray-600 mb-8">
-                Kontaktujte nás a my vám připravíme nabídku na míru
-              </p>
-              <Link
-                href="/#kontakt"
-                className="inline-block gradient-blue text-white px-8 py-4 rounded-xl font-semibold hover:shadow-glow-lg transition-all text-lg shadow-lg hover:scale-105"
-              >
-                Kontaktujte nás
-              </Link>
-            </motion.div>
-          </div>
-        </section>
+        <Contact />
       </div>
       <Footer />
     </main>
   );
 }
-
