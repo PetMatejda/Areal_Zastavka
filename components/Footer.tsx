@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-[1280px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-12 md:gap-12 mb-12">
           <div>
-            <img src="https://www.arealzastavka.cz/images/logo.png" alt="Areál Zastávka" className="h-8 filter brightness-0 invert mb-4" />
+            <img src="/images/logo.svg" alt="Areál Zastávka" className="h-8 mb-4" />
             <p className="text-sm text-[var(--text-muted)] leading-relaxed max-w-sm">
               Váš servisní hub pro firmy a jejich zaměstnance. Všechny služby na jednom místě v Praze-Dolní Měcholupy.
             </p>
