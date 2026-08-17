@@ -30,6 +30,14 @@ const nextConfig = {
     ],
     unoptimized: false,
   },
+  async rewrites() {
+    return [
+      {
+        source: '/zastupitele',
+        destination: '/zastupitele/index.html',
+      },
+    ];
+  },
   // Pomoc pro OneDrive kompatibilitu
   webpack: (config, { isServer }) => {
     if (!isServer) {

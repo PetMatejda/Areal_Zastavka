@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Areál Za Zastávkou · Informační zpráva a plán zefektivnění pro zastupitele MČ Dolní Měcholupy</title>
+  <meta name="description" content="Informační zpráva pachtýře BALLOON - light - PRAHA pro zastupitele Městské části Praha – Dolní Měcholupy o vývoji v areálu Za Zastávkou 377, investicích a předloženém Plánu zefektivnění.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-base: #F8F5F0;
+      --bg-surface: #FFFFFF;
+      --bg-surface-subtle: #F1ECE1;
+      --bg-dark: #161513;
+      --bg-dark-elevated: #22201D;
+      --bg-dark-card: #2A2824;
+      
+      --text-main: #23201C;
+      --text-muted: #6B655D;
+      --text-light: #F4F1EA;
+      --text-light-muted: #A8A298;
+      
+      --accent-terracotta: #C86228;
+      --accent-terracotta-hover: #B0521C;
+      --accent-amber: #D97706;
+      --accent-amber-light: #F59E0B;
+      --accent-amber-soft: rgba(217, 119, 6, 0.12);
+      
+      --border-light: #E5DFC9;
+      --border-subtle: rgba(0, 0, 0, 0.07);
+      --border-dark: #38342E;
+      
+      --status-green: #2E7D32;
+      --status-green-bg: #E8F5E9;
+      --status-blue: #1565C0;
+      --status-blue-bg: #E3F2FD;
+      
+      --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'DM Mono', monospace;
+      
+      --radius-sm: 2px;
+      --radius-md: 4px;
+      --radius-lg: 6px;
+      
+      --shadow-sm: 0 1px 3px rgba(22, 21, 19, 0.06);
+      --shadow-md: 0 4px 16px rgba(22, 21, 19, 0.08);
+      --shadow-lg: 0 12px 32px rgba(22, 21, 19, 0.12);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* Navigation Bar */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--bg-dark);
+      border-bottom: 2px solid var(--accent-terracotta);
+      height: 60px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .brand-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .brand-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      color: var(--accent-amber-light);
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+    }
+
+    .brand-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-light);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 8px;
+    }
+
+    .nav-link {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text-light-muted);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 80px 0 72px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 80% 20%, rgba(200, 98, 40, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-amber-light);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: var(--accent-amber-light);
+    }
+
+    .hero-title {
+      font-size: clamp(34px, 4.5vw, 54px);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: 24px;
+      max-width: 920px;
+    }
+
+    .hero-title strong {
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent-amber-light);
+    }
+
+    .hero-lead {
+      font-size: 16px;
+      color: var(--text-light-muted);
+      line-height: 1.7;
+      max-width: 780px;
+      margin-bottom: 48px;
+    }
+
+    /* KPI Grid */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border-dark);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .kpi-card {
+      background: var(--bg-dark-elevated);
+      padding: 24px 20px;
+      position: relative;
+    }
+
+    .kpi-value {
+      font-family: var(--font-sans);
+      font-size: clamp(28px, 2.5vw, 38px);
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .kpi-value span {
+      font-size: 18px;
+      color: var(--accent-amber-light);
+      font-weight: 500;
+    }
+
+    .kpi-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light-muted);
+      margin-bottom: 4px;
+    }
+
+    .kpi-subtext {
+      font-size: 11.5px;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    /* Section Utilities */
+    .section-block {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+      max-width: 800px;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-terracotta);
+      margin-bottom: 10px;
+    }
+
+    .section-heading {
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+
+    .section-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Cards & Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .grid-work {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    /* Video showcase uvnitř karet */
+    .media-disclaimer {
+      margin-top: 20px;
+      max-width: 760px;
+      font-size: 12.5px;
+      line-height: 1.65;
+      color: var(--text-muted);
+      background: var(--bg-surface-subtle);
+      border-left: 3px solid var(--accent-amber);
+      padding: 12px 16px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    .media-disclaimer strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .work-card--media {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .work-media {
+      position: relative;
+      margin: 0;
+      aspect-ratio: 4 / 3;
+      background: var(--bg-dark);
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .work-media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+
+    .work-media::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(12, 11, 10, 0.7), rgba(12, 11, 10, 0));
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .work-media-phase {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 2;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      background: rgba(200, 98, 40, 0.9);
+      padding: 4px 9px;
+      border-radius: var(--radius-sm);
+      pointer-events: none;
+    }
+
+    .work-media-tag {
+      position: absolute;
+      left: 14px;
+      bottom: 12px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.92);
+      background: rgba(12, 11, 10, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      padding: 4px 9px;
+      border-radius: var(--radius-sm);
+      pointer-events: none;
+    }
+
+    .work-media-tag::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent-amber-light);
+      flex: none;
+    }
+
+    .work-media-play {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      padding: 0;
+      background: rgba(12, 11, 10, 0.25);
+      cursor: pointer;
+    }
+
+    .work-media.is-paused .work-media-play {
+      display: flex;
+    }
+
+    .work-media-play i {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.94);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.32);
+    }
+
+    .work-media-play i::after {
+      content: "";
+      margin-left: 5px;
+      border-left: 15px solid var(--bg-dark);
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+    }
+
+    /* Panel s nerealizovaným konceptem (Varianta A) */
+    .vision-panel {
+      margin-top: 40px;
+      background: var(--bg-dark);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      color: var(--text-light);
+    }
+
+    .vision-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .vision-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-amber-light);
+      margin-bottom: 8px;
+    }
+
+    .vision-title {
+      font-size: 21px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.01em;
+    }
+
+    .vision-cta {
+      flex: none;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-decoration: none;
+      color: #fff;
+      background: var(--accent-terracotta);
+      border: 1px solid var(--accent-terracotta);
+      padding: 10px 18px;
+      border-radius: var(--radius-sm);
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .vision-cta:hover {
+      background: var(--accent-terracotta-hover);
+      border-color: var(--accent-terracotta-hover);
+    }
+
+    .vision-hero {
+      position: relative;
+      margin: 0 0 16px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .vision-hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .vision-hero .work-media-tag {
+      bottom: 12px;
+      background: rgba(12, 11, 10, 0.68);
+    }
+
+    .vision-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .vision-grid figure {
+      margin: 0;
+      background: var(--bg-dark-elevated);
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .vision-grid img {
+      width: 100%;
+      height: 195px;
+      object-fit: contain;
+      background: #0E0D0C;
+      display: block;
+    }
+
+    .vision-grid figcaption {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-light-muted);
+      padding: 10px 12px;
+    }
+
+    .vision-note {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-dark);
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--text-light-muted);
+      max-width: 900px;
+    }
+
+    .vision-note a {
+      color: var(--accent-amber-light);
+    }
+
+    .work-body {
+      padding: 24px 26px 26px;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* What we have done - Before / After Showcase */
+    .work-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .work-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .work-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 500;
+      padding: 3px 8px;
+      background: var(--status-green-bg);
+      color: var(--status-green);
+      border-radius: var(--radius-sm);
+      margin-bottom: 16px;
+      width: fit-content;
+    }
+
+    .work-badge--wip {
+      background: var(--accent-amber-soft);
+      color: #9A5B06;
+    }
+
+    .work-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+
+    .work-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .work-stat {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .work-stat-label {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+    }
+
+    .work-stat-val {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--accent-terracotta);
+    }
+
+    /* Context Callout Box */
+    .context-box {
+      background: var(--bg-surface-subtle);
+      border-left: 4px solid var(--accent-terracotta);
+      padding: 28px 32px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin: 40px 0;
+    }
+
+    .context-box h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .context-box p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Plan Zefektivneni - Module Cards */
+    .module-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-top: 4px solid var(--accent-terracotta);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .module-id {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent-terracotta);
+      letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+
+    .module-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 10px;
+    }
+
+    .module-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .module-cost-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: auto;
+      font-size: 12px;
+      background: var(--bg-base);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .module-cost-table td {
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .module-cost-table tr:last-child td {
+      border-bottom: none;
+      font-weight: 700;
+      background: rgba(200, 98, 40, 0.08);
+      color: var(--accent-terracotta);
+    }
+
+    /* Financial Summary Strip */
+    .fin-summary-box {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 36px 40px;
+      border-radius: var(--radius-md);
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .fin-summary-main h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .fin-summary-main p {
+      font-size: 13px;
+      color: var(--text-light-muted);
+      line-height: 1.6;
+    }
+
+    .fin-stat-item {
+      border-left: 1px solid var(--border-dark);
+      padding-left: 24px;
+    }
+
+    .fin-stat-num {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--accent-amber-light);
+      margin-bottom: 2px;
+    }
+
+    .fin-stat-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light-muted);
+    }
+
+    /* Timeline Section */
+    .timeline {
+      position: relative;
+      margin: 40px 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 10px;
+      bottom: 10px;
+      width: 2px;
+      background: var(--border-light);
+    }
+
+    .timeline-step {
+      position: relative;
+      padding-left: 56px;
+      margin-bottom: 32px;
+    }
+
+    .timeline-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-node {
+      position: absolute;
+      left: 10px;
+      top: 4px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--bg-surface);
+      border: 3px solid var(--accent-terracotta);
+      z-index: 2;
+    }
+
+    .timeline-step.done .timeline-node {
+      background: var(--status-green);
+      border-color: var(--status-green);
+    }
+
+    .timeline-step.current .timeline-node {
+      background: var(--accent-amber);
+      border-color: var(--accent-amber);
+      box-shadow: 0 0 0 4px var(--accent-amber-soft);
+    }
+
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--accent-terracotta);
+      margin-bottom: 4px;
+    }
+
+    .timeline-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .timeline-text {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Governance Call to Action */
+    .governance-card {
+      background: var(--bg-surface);
+      border: 2px solid var(--accent-terracotta);
+      border-radius: var(--radius-md);
+      padding: 48px;
+      margin: 60px 0;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .gov-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--accent-terracotta);
+      background: rgba(200, 98, 40, 0.1);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    .gov-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+
+    .gov-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .gov-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent-terracotta);
+      color: #FFFFFF;
+      border: 1px solid var(--accent-terracotta);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-terracotta-hover);
+      border-color: var(--accent-terracotta-hover);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-main);
+      border: 1px solid var(--border-light);
+    }
+
+    .btn-outline:hover {
+      background: var(--bg-surface-subtle);
+      border-color: var(--text-muted);
+    }
+
+    /* Comparison Table */
+    .compare-table-wrap {
+      overflow-x: auto;
+      margin: 32px 0;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    .compare-table th {
+      background: var(--bg-surface-subtle);
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .compare-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-subtle);
+      vertical-align: top;
+    }
+
+    .compare-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .compare-table .col-highlight {
+      background: rgba(200, 98, 40, 0.03);
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--bg-dark);
+      color: var(--text-light-muted);
+      padding: 60px 0 40px;
+      border-top: 1px solid var(--border-dark);
+      font-size: 12px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand h4 {
+      color: #FFFFFF;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .footer-brand p {
+      line-height: 1.7;
+      max-width: 400px;
+    }
+
+    .footer-links h5 {
+      color: #FFFFFF;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-links a {
+      color: var(--text-light-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #FFFFFF;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border-dark);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .kpi-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-3, .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .fin-summary-box {
+        grid-template-columns: 1fr;
+      }
+      .fin-stat-item {
+        border-left: none;
+        border-top: 1px solid var(--border-dark);
+        padding-left: 0;
+        padding-top: 16px;
+      }
+      .governance-card {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .nav-menu {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 20px;
+      }
+      .kpi-row {
+        grid-template-columns: 1fr;
+      }
+      .grid-2, .grid-3, .grid-4, .grid-work {
+        grid-template-columns: 1fr;
+      }
+      .vision-panel {
+        padding: 22px 18px;
+      }
+      .vision-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .vision-grid {
+        grid-template-columns: 1fr;
+      }
+      .vision-title {
+        font-size: 18px;
+      }
+      .work-media-tag {
+        font-size: 9px;
+        left: 10px;
+        bottom: 9px;
+        padding: 3px 7px;
+      }
+      .work-body {
+        padding: 20px 20px 22px;
+      }
+      .hero {
+        padding: 50px 0;
+      }
+      .hero-title {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <div class="container nav-inner">
+      <a href="#hero" class="brand-meta">
+        <span class="brand-tag">MČ PRAHA 15</span>
+        <span class="brand-name">Areál Za Zastávkou 377</span>
+      </a>
+      <nav class="nav-menu">
+        <a href="#bilance" class="nav-link">18 měsíců pachtu</a>
+        <a href="#rozhodnuti" class="nav-link">Rozhodnutí Rady</a>
+        <a href="#plan" class="nav-link">Plán zefektivnění</a>
+        <a href="#vyhrazeni" class="nav-link">Role Zastupitelstva</a>
+        <a href="https://plan-zefektivneni.vercel.app/" target="_blank" class="nav-link" style="color: var(--accent-amber-light);">Vize areálu (Vercel) ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="container">
+      <div class="hero-eyebrow">Zpráva pachtýře pro Zastupitelstvo MČ Praha – Dolní Měcholupy · Září 2026</div>
+      <h1 class="hero-title">
+        Pacht areálu Za Zastávkou:<br>
+        <strong>18 měsíců faktické práce,</strong> <em>jasná data a další kroky</em>
+      </h1>
+      <p class="hero-lead">
+        Jako pachtýř areálu Za Zastávkou 377 předkládáme zastupitelům městské části souhrnnou zprávu o dosavadním průběhu pachtu, vyřešení zděděných havarijních stavů, finančních přínosech pro obecní rozpočet a o uceleném Plánu zefektivnění připraveném přesně v intencích usnesení Rady MČ.
+      </p>
+
+      <!-- Top KPI Row -->
+      <div class="kpi-row">
+        <div class="kpi-card">
+          <div class="kpi-label">Uhrazené pachtovné</div>
+          <div class="kpi-value">11,5 <span>mil. Kč</span></div>
+          <div class="kpi-subtext">Bez DPH (3/2025 – 8/2026) přímo do rozpočtu MČ</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Vlastní investice pachtýře</div>
+          <div class="kpi-value">1,9 <span>mil. Kč</span></div>
+          <div class="kpi-subtext">Nulová útrata obce — patro 1,4 mil. + havárie 0,5 mil. Kč</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Doba provozování</div>
+          <div class="kpi-value">18 <span>měsíců</span></div>
+          <div class="kpi-subtext">Odstraněny klíčové havárie (brána, voda, elektro)</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">Předložený Plán zefektivnění</div>
+          <div class="kpi-value">14,6 <span>mil. Kč</span></div>
+          <div class="kpi-subtext">4 moduly rozvoje (podíl MČ 50 % / bezpečně pod limitem)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: 18 Months Balance -->
+  <section id="bilance" class="section-block">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">1. Bilance dosavadního působení</div>
+        <h2 class="section-heading">Odstraňování havárií a stabilizace brownfieldu</h2>
+        <p class="section-desc">
+          Při převzetí areálu v roce 2025 stál pachtýř před zanedbaným areálem s desítkami let odkládanou údržbou. Ve všech čtyřech případech níže šlo primárně o <strong>odstranění havarijního stavu</strong> — nikoli o zhodnocování nad rámec nutného. Brána už padala na projíždějící auta a chodce, světla v hale jiskřila při každém rozsvícení, pod podlahou hospodářského objektu praskl hlavní přívod vody. Vše bylo řešeno okamžitě a <strong>na náklad pachtýře, tedy s nulovou útratou obce</strong>.
+        </p>
+        <p class="media-disclaimer">
+          <strong>Poznámka k záběrům.</strong> Úvodní i závěrečný snímek každé sekvence je skutečná fotografie — stav před zásahem a stav po něm. Plynulý přechod mezi oběma snímky je dopočítán AI, aby byla proměna čitelná na první pohled; mezilehlé fáze proto nejsou dokumentární. Fotografie v plném rozlišení předložíme kdykoli na vyžádání.
+        </p>
+      </div>
+
+      <div class="grid-work">
+        <!-- Card 1 -->
+        <div class="work-card work-card--media">
+          <figure class="work-media is-paused">
+            <video poster="media/patro.jpg" muted loop playsinline preload="none"
+                   aria-label="Fotografie 1. patra hlavní budovy před rekonstrukcí a po ní, s přechodem dopočítaným AI">
+                     <source src="media/patro.mp4" type="video/mp4">
+                     <source src="media/patro.webm" type="video/webm">
+                   </video>
+            <span class="work-media-phase">Před → Po</span>
+            <span class="work-media-tag">Foto před a po · přechod AI</span>
+            <button class="work-media-play" type="button" aria-label="Přehrát video"><i></i></button>
+          </figure>
+          <div class="work-body">
+            <div>
+              <span class="work-badge work-badge--wip">Stavebně dokončeno · čeká na kolaudaci</span>
+              <h3 class="work-title">1. patro hlavní budovy č.p. 377</h3>
+              <p class="work-desc">
+                Patro bylo v havarijním stavu — zatékající konstrukce, nefunkční rozvody a propadlé podlahy bývalé ubytovny. Rekonstrukce odstranila havárii a zároveň vytvořila kancelářské a administrativní zázemí pro nájemce STOCK a správu areálu. Nová okna, sítě, podlahy, sanita a vytápění.
+              </p>
+            </div>
+            <div class="work-stat">
+              <span class="work-stat-label">Náklad pachtýře:</span>
+              <span class="work-stat-val">1 400 000 Kč</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="work-card work-card--media">
+          <figure class="work-media is-paused">
+            <video poster="media/brana.jpg" muted loop playsinline preload="none"
+                   aria-label="Fotografie vjezdové brány areálu před opravou a po ní, s přechodem dopočítaným AI">
+                     <source src="media/brana.mp4" type="video/mp4">
+                     <source src="media/brana.webm" type="video/webm">
+                   </video>
+            <span class="work-media-phase">Před → Po</span>
+            <span class="work-media-tag">Foto před a po · přechod AI</span>
+            <button class="work-media-play" type="button" aria-label="Přehrát video"><i></i></button>
+          </figure>
+          <div class="work-body">
+            <div>
+              <span class="work-badge">✓ Hotovo 05/2026</span>
+              <h3 class="work-title">Havarijní oprava vjezdové brány</h3>
+              <p class="work-desc">
+                Bezprostřední ohrožení života a zdraví: původní masivní ocelová brána se už hroutila na projíždějící vozy i chodce. Odstranění havarijního stavu zahrnovalo sanaci vodících profilů, nový pojezdový mechanismus a bezpečnostní značení pro bezkolizní vjezd, včetně nočního nasvícení a orientačního označení areálu.
+              </p>
+            </div>
+            <div class="work-stat">
+              <span class="work-stat-label">Náklad pachtýře:</span>
+              <span class="work-stat-val">cca 200 000 Kč</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="work-card work-card--media">
+          <figure class="work-media is-paused">
+            <video poster="media/ho1.jpg" muted loop playsinline preload="none"
+                   aria-label="Fotografie sociálního zázemí objektu HO1 před sanací a po ní, s přechodem dopočítaným AI">
+                     <source src="media/ho1.mp4" type="video/mp4">
+                     <source src="media/ho1.webm" type="video/webm">
+                   </video>
+            <span class="work-media-phase">Před → Po</span>
+            <span class="work-media-tag">Foto před a po · přechod AI</span>
+            <button class="work-media-play" type="button" aria-label="Přehrát video"><i></i></button>
+          </figure>
+          <div class="work-body">
+            <div>
+              <span class="work-badge work-badge--wip">Před dokončením · sanace probíhá</span>
+              <h3 class="work-title">Sanace vodovodu HO1 (Žlutý domeček)</h3>
+              <p class="work-desc">
+                Havárie prasklého hlavního přívodu pitné vody pod podlahou hospodářského objektu — voda podemlela podlahu sociálního zařízení, která se propadla. Sanace zahrnuje novou ležatou kanalizaci a obnovu hygienického zázemí; práce jsou před dokončením.
+              </p>
+            </div>
+            <div class="work-stat">
+              <span class="work-stat-label">Náklad pachtýře:</span>
+              <span class="work-stat-val">cca 200 000 Kč</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="work-card work-card--media">
+          <figure class="work-media is-paused">
+            <video poster="media/hala5.jpg" muted loop playsinline preload="none"
+                   aria-label="Fotografie skladové haly č. 5 s původním a novým LED osvětlením, s přechodem dopočítaným AI">
+                     <source src="media/hala5.mp4" type="video/mp4">
+                     <source src="media/hala5.webm" type="video/webm">
+                   </video>
+            <span class="work-media-phase">Před → Po</span>
+            <span class="work-media-tag">Foto před a po · přechod AI</span>
+            <button class="work-media-play" type="button" aria-label="Přehrát video"><i></i></button>
+          </figure>
+          <div class="work-body">
+            <div>
+              <span class="work-badge">✓ Hotovo</span>
+              <h3 class="work-title">Výměna osvětlení skladové haly č. 5</h3>
+              <p class="work-desc">
+                Havarijní stav elektroinstalace: původní výbojková svítidla při každém rozsvícení jiskřila, tedy přímé riziko požáru v provozovaném skladu. Svítidla byla vyměněna za úsporná LED — havárie odstraněna a osvětlenost skladové plochy se výrazně zvýšila.
+              </p>
+            </div>
+            <div class="work-stat">
+              <span class="work-stat-label">Náklad pachtýře:</span>
+              <span class="work-stat-val">cca 100 000 Kč</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Context Callout -->
+      <div class="context-box">
+        <h4>Spolehlivý a transparentní partner pro obecní rozpočet</h4>
+        <p>
+          Od 1. 3. 2025 do 31. 8. 2026 uhradil pachtýř na účet MČ Praha – Dolní Měcholupy celkem <strong>11 505 654 Kč bez DPH</strong> na pachtovném (aktuální platba činí <strong>700 514 Kč měsíčně</strong>). Areál Za Zastávkou tak představuje jeden z nejvýznamnějších a nejstabilnějších nedaňových příjmů městské části.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Strategy Decision & Reality -->
+  <section id="rozhodnuti" class="section-block">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">2. Kontext rozhodování</div>
+        <h2 class="section-heading">Od vizionářské studie k realistickému prováděcímu plánu</h2>
+        <p class="section-desc">
+          V červenci 2026 jsme Radě MČ předložili na výběr dvě strategické cesty. Dne 3. 8. 2026 rozhodla Rada MČ (č.j. 1120/2026) o volbě <strong>Varianty B — pokračování výhradně dle platné pachtovní smlouvy</strong>.
+        </p>
+      </div>
+
+      <div class="compare-table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Parametr rozvoje</th>
+              <th style="width: 37%;">Původní vize (Varianta A · Vercel)</th>
+              <th style="width: 38%;" class="col-highlight">Schválený směr Rady (Varianta B · Náš Plán)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Časový horizont</strong></td>
+              <td>Dlouhodobý rozvoj 20+ let (prodloužení pachtu)</td>
+              <td class="col-highlight">Fixní termín do 28. 2. 2035 (stávající smlouva)</td>
+            </tr>
+            <tr>
+              <td><strong>Infrastruktura (Kanalizace)</strong></td>
+              <td>Kompletní přeložky a nové sítě (cca 8–12 mil. Kč)</td>
+              <td class="col-highlight">Využití stávajících kapacit bez drahých liniových staveb</td>
+            </tr>
+            <tr>
+              <td><strong>Typ a charakter investic</strong></td>
+              <td>Filmová studia, architektonický kampus, promenáda</td>
+              <td class="col-highlight">Modulární lehká výroba, řemeslný HUB, zateplení haly 5, FVE</td>
+            </tr>
+            <tr>
+              <td><strong>Finanční nárok na obec</strong></td>
+              <td>Vyšší investiční rámec a slevy na pachtovném po dobu výstavby</td>
+              <td class="col-highlight">Přísně v limitu 50 % (7,3 mil. Kč), nulové slevy z pachtovného</td>
+            </tr>
+            <tr>
+              <td><strong>Právní režim</strong></td>
+              <td>Vyžadoval by zásadní dodatky pachtovní smlouvy</td>
+              <td class="col-highlight">100% soulad s čl. VI odst. 12 stávající platné smlouvy</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="vision-panel">
+        <div class="vision-head">
+          <div>
+            <div class="vision-eyebrow">Varianta A · předloženo 24. 7. 2026</div>
+            <h3 class="vision-title">Jak měl areál vypadat: identita, orientační systém a zástavba</h3>
+          </div>
+          <a class="vision-cta" href="https://plan-zefektivneni.vercel.app/index.html" target="_blank" rel="noopener">Celý koncept ↗</a>
+        </div>
+
+        <figure class="vision-hero">
+          <img src="media/identita-vjezd.jpg" width="1024" height="390" loading="lazy"
+               alt="Vizualizace vjezdu do areálu s bránou nesoucí název Areál Zastávka, informačním pylonem a modulární kontejnerovou zástavbou">
+          <span class="work-media-tag">Vizualizace záměru · nerealizováno</span>
+        </figure>
+
+        <div class="vision-grid">
+          <figure>
+            <img src="media/identita-zastavba.jpg" width="570" height="359" loading="lazy"
+                 alt="Vizualizace vnitřní ulice areálu s modulární zástavbou, zelenými střechami a kavárnou">
+            <figcaption>Zástavba a vnitřní ulice</figcaption>
+          </figure>
+          <figure>
+            <img src="media/identita-noc.jpg" width="395" height="206" loading="lazy"
+                 alt="Noční vizualizace nasvíceného vjezdu do areálu">
+            <figcaption>Noční varianta vjezdu</figcaption>
+          </figure>
+          <figure>
+            <img src="media/identita-znaceni.jpg" width="508" height="246" loading="lazy"
+                 alt="Návrh orientačního systému: tabule s označením nájemců, směrové cedule a značení hal">
+            <figcaption>Orientační systém areálu</figcaption>
+          </figure>
+        </div>
+
+        <p class="vision-note">
+          Ukázka z materiálu, který byl součástí Varianty A. Rada MČ dne 3. 8. 2026 zvolila Variantu B, a tento koncept proto zůstává nerealizovaný — uvádíme jej jako doklad koncepční práce a dlouhodobého potenciálu území, nikoli jako součást aktuálního návrhu. Kompletní studie včetně tří fází rozvoje je k nahlédnutí na <a href="https://plan-zefektivneni.vercel.app/index.html" target="_blank" rel="noopener">plan-zefektivneni.vercel.app</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Plan Zefektivneni Modules -->
+  <section id="plan" class="section-block">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">3. Konkrétní návrh investic</div>
+        <h2 class="section-heading">Plán zefektivnění v rozpočtu 14,6 mil. Kč</h2>
+        <p class="section-desc">
+          V souladu s pokynem Rady MČ jsme připravili 4 nezávislé, samonosné investiční moduly. Všechny splňují zákonné i smluvní požadavky, generují okamžitý výnos a po skončení pachtu přejdou do výlučného majetku obce za 1 Kč.
+        </p>
+      </div>
+
+      <div class="grid-4">
+        <!-- Modul M1 -->
+        <div class="module-card">
+          <div>
+            <div class="module-id">MODUL M1</div>
+            <h3 class="module-title">Zateplení &amp; Vytápění Haly č. 5</h3>
+            <p class="module-desc">
+              Aplikace stříkané PUR pěny (800 m² střechy), předsazené zateplené SDK stěny a instalace průmyslových tepelných čerpadel vzduch-vzduch (2× 40 kW).
+            </p>
+          </div>
+          <table class="module-cost-table">
+            <tr>
+              <td>Celkový rozpočet:</td>
+              <td style="text-align: right;">2 200 000 Kč</td>
+            </tr>
+            <tr>
+              <td>Podíl MČ (50 %):</td>
+              <td style="text-align: right;">1 100 000 Kč</td>
+            </tr>
+            <tr>
+              <td>Nárůst nájmu:</td>
+              <td style="text-align: right;">+828 tis. Kč/rok</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Modul M2 -->
+        <div class="module-card">
+          <div>
+            <div class="module-id">MODUL M2</div>
+            <h3 class="module-title">Nová montovaná hala H1</h3>
+            <p class="module-desc">
+              Výstavba zateplené ocelové montované haly 260 m² (20×13 m, v=7 m) na dosud nevyužité ploše pro kotevního technologického nájemce GIA (automotive / přesná výroba).
+            </p>
+          </div>
+          <table class="module-cost-table">
+            <tr>
+              <td>Celkový rozpočet:</td>
+              <td style="text-align: right;">4 800 000 Kč</td>
+            </tr>
+            <tr>
+              <td>Podíl MČ (50 %):</td>
+              <td style="text-align: right;">2 400 000 Kč</td>
+            </tr>
+            <tr>
+              <td>Nárůst nájmu:</td>
+              <td style="text-align: right;">+499 tis. Kč/rok</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Modul M3 -->
+        <div class="module-card">
+          <div>
+            <div class="module-id">MODUL M3</div>
+            <h3 class="module-title">Kontejnerový HUB Za Zastávkou</h3>
+            <p class="module-desc">
+              40 zateplených modulárních kontejnerů podél ul. Za Zastávkou. Okamžité uspokojení poptávky řemeslníků a živnostníků. Vznik 5m izolačního zeleného pásu.
+            </p>
+          </div>
+          <table class="module-cost-table">
+            <tr>
+              <td>Celkový rozpočet:</td>
+              <td style="text-align: right;">5 500 000 Kč</td>
+            </tr>
+            <tr>
+              <td>Podíl MČ (50 %):</td>
+              <td style="text-align: right;">2 750 000 Kč</td>
+            </tr>
+            <tr>
+              <td>Nárůst nájmu:</td>
+              <td style="text-align: right;">+2,34 mil. Kč/rok</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- Modul M4 -->
+        <div class="module-card">
+          <div>
+            <div class="module-id">MODUL M4</div>
+            <h3 class="module-title">Energetika &amp; FVE 120 kWp</h3>
+            <p class="module-desc">
+              Instalace střešní fotovoltaiky na střechu haly 5 a výtopny. 50% kofinancování z Modernizačního fondu (program RES+). Fixace provozních nákladů.
+            </p>
+          </div>
+          <table class="module-cost-table">
+            <tr>
+              <td>Čistý náklad (po dotaci):</td>
+              <td style="text-align: right;">1 300 000 Kč</td>
+            </tr>
+            <tr>
+              <td>Podíl MČ (50 %):</td>
+              <td style="text-align: right;">650 000 Kč</td>
+            </tr>
+            <tr>
+              <td>Úspora energií:</td>
+              <td style="text-align: right;">+420 tis. Kč/rok</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Financial Summary Box -->
+      <div class="fin-summary-box">
+        <div class="fin-summary-main">
+          <h3>Celková bilance Plánu zefektivnění</h3>
+          <p>
+            Plán plně respektuje limit 20 mil. Kč dle čl. VI odst. 14 Smluv. Městské části přináší přímé zhodnocení majetku a nová pracovní místa v obci bez provozních rizik.
+          </p>
+        </div>
+        <div class="fin-stat-item">
+          <div class="fin-stat-label">Celkový investiční náklad</div>
+          <div class="fin-stat-num">14,60 mil. Kč</div>
+          <div class="kpi-subtext">Rezerva pod limitem: 5,4 mil. Kč</div>
+        </div>
+        <div class="fin-stat-item">
+          <div class="fin-stat-label">Podíl MČ Praha – Dolní Měcholupy</div>
+          <div class="fin-stat-num">7,30 mil. Kč</div>
+          <div class="kpi-subtext">Představuje méně než 11 měsíců pachtovného</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Timeline -->
+  <section class="section-block">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-eyebrow">4. Harmonogram kroků</div>
+        <h2 class="section-heading">Časová osa: Od předložení plánu po rok 2028</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-step done">
+          <div class="timeline-node"></div>
+          <div class="timeline-date">BŘEZEN 2025 – SRPEN 2026 · HOTOVO</div>
+          <h4 class="timeline-title">Převzetí areálu, odstraňování havárií &amp; stabilizace plateb</h4>
+          <p class="timeline-text">
+            Investováno 1,9 mil. Kč z vlastních prostředků — patro hlavní budovy, havarijní oprava brány, osvětlení haly 5 a sanace vodovodu HO1. Odvedeno 11,5 mil. Kč na pachtovném.
+          </p>
+        </div>
+
+        <div class="timeline-step done">
+          <div class="timeline-node"></div>
+          <div class="timeline-date">3. SRPNA 2026 · HOTOVO</div>
+          <h4 class="timeline-title">Rozhodnutí Rady MČ (č.j. 1120/2026)</h4>
+          <p class="timeline-text">
+            Rada potvrdila pokračování dle Varianty B a uložila předložit ucelený Plán zefektivnění dle čl. VI odst. 12 pachtovní smlouvy.
+          </p>
+        </div>
+
+        <div class="timeline-step current">
+          <div class="timeline-node"></div>
+          <div class="timeline-date">ZÁŘÍ 2026 · AKTUÁLNÍ KROK</div>
+          <h4 class="timeline-title">Oficiální předložení Plánu zefektivnění &amp; Výzva k zahájení povinných oprav</h4>
+          <p class="timeline-text">
+            Předání uceleného plánu (14,6 mil. Kč) a spuštění 90denní lhůty pro posouzení MČ dle čl. VI odst. 13. Odeslání podkladů k zahájení oprav dle Přílohy č. 2.
+          </p>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-node"></div>
+          <div class="timeline-date">PODZIM / ZIMA 2026 (DO 8. 12. 2026)</div>
+          <h4 class="timeline-title">Projednání na Zastupitelstvu &amp; Rozhodnutí MČ</h4>
+          <p class="timeline-text">
+            Schválení jednotlivých investičních modulů a zadávacích dokumentací pro společná výběrová řízení.
+          </p>
+        </div>
+
+        <div class="timeline-step">
+          <div class="timeline-node"></div>
+          <div class="timeline-date">28. ÚNORA 2028</div>
+          <h4 class="timeline-title">Smluvní milník: Dokončení povinných oprav dle Přílohy č. 2</h4>
+          <p class="timeline-text">
+            Dokončení generálních oprav střech, areálového osvětlení, trafostanice TS 7435 a kanalizačních rozvodů ve společném režimu 50/50.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: Role of Zastupitelstvo -->
+  <section id="vyhrazeni" class="section-block" style="border-bottom: none;">
+    <div class="container">
+      <div class="governance-card">
+        <div>
+          <span class="gov-badge">KOMPETENCE ZASTUPITELSTVA</span>
+          <h3 class="gov-title">Proč by o Plánu zefektivnění mělo jednat celé Zastupitelstvo</h3>
+          <p class="gov-text">
+            Rozhodnutí o investicích v areálu Za Zastávkou má přímý dopad na rozpočet obce v řádu desítek milionů korun a určuje podobu významného městského brownfieldu na dalších 9 let.
+            <br><br>
+            Podle zákona č. 131/2000 Sb., o hlavním městě Praze, si Zastupitelstvo MČ může vyhradit rozhodování o záležitostech zásadního majetkového a strategického významu. Rádi členům Zastupitelstva představíme celý záměr osobně přímo na zasedání nebo při prohlídce areálu.
+          </p>
+        </div>
+        <div class="gov-actions">
+          <a href="mailto:starosta@dolnimecholupy.cz?cc=petr.matejicek@balloonlightgroup.com&subject=Zarazeni%20bodu%20Areal%20Za%20Zastavkou%20na%20program%20ZM%C4%8C" class="btn btn-primary">Navrhnout zařazení na program ZMČ</a>
+          <a href="https://plan-zefektivneni.vercel.app/" target="_blank" class="btn btn-outline">Prohlédnout původní Vizi (Vercel) ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>BALLOON - light - PRAHA spol. s r.o.</h4>
+          <p>
+            Pachtýř areálu Za Zastávkou 377, 109 00 Praha – Dolní Měcholupy.<br>
+            Spolupracujeme s obcí na transparentním, bezpečném a ekonomicky přínosném rozvoji obecního majetku.
+          </p>
+        </div>
+        <div class="footer-links">
+          <h5>Dokumenty a podklady</h5>
+          <ul>
+            <li><a href="https://plan-zefektivneni.vercel.app/" target="_blank">Původní studie Vize (Vercel)</a></li>
+            <li><a href="#bilance">Přehled investic 2025–2026</a></li>
+            <li><a href="#plan">Rozpočet modulů M1–M4</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h5>Kontakt pro zastupitele</h5>
+          <ul>
+            <li><strong>Petr Matějíček</strong>, jednatel</li>
+            <li><a href="mailto:petr.matejicek@balloonlightgroup.com">petr.matejicek@balloonlightgroup.com</a></li>
+            <li>Petra Huclová, správa areálu</li>
+            <li><a href="mailto:petra.huclova@arealzastavka.cz">petra.huclova@arealzastavka.cz</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 BALLOON - light - PRAHA spol. s r.o. · Zpracováno pro Zastupitelstvo MČ Praha – Dolní Měcholupy</div>
+        <div>Věcná zpráva bez marketingových nadsázek</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var figures = Array.prototype.slice.call(document.querySelectorAll('.work-media'));
+      if (!figures.length) return;
+
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function play(fig) {
+        var v = fig.querySelector('video');
+        if (!v) return;
+        if (v.preload === 'none') { v.preload = 'auto'; v.load(); }
+        var p = v.play();
+        if (p && p.catch) p.catch(function () { fig.classList.add('is-paused'); });
+        fig.classList.remove('is-paused');
+      }
+
+      function pause(fig) {
+        var v = fig.querySelector('video');
+        if (!v) return;
+        v.pause();
+        fig.classList.add('is-paused');
+      }
+
+      figures.forEach(function (fig) {
+        var v = fig.querySelector('video');
+        var btn = fig.querySelector('.work-media-play');
+
+        function toggle(e) {
+          e.preventDefault();
+          if (v.paused) { play(fig); } else { pause(fig); }
+        }
+
+        if (btn) btn.addEventListener('click', toggle);
+        if (v) {
+          v.addEventListener('click', toggle);
+          v.addEventListener('pause', function () { fig.classList.add('is-paused'); });
+          v.addEventListener('playing', function () { fig.classList.remove('is-paused'); });
+        }
+      });
+
+      // Přehrávat jen to, co je právě vidět — šetří data i pozornost.
+      if (!reduceMotion && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            var fig = entry.target;
+            var v = fig.querySelector('video');
+            if (!v) return;
+            if (entry.isIntersecting) {
+              play(fig);
+            } else {
+              pause(fig);
+            }
+          });
+        }, { threshold: 0.45 });
+        figures.forEach(function (fig) { io.observe(fig); });
+      }
+    })();
+  </script>
+
+</body>
+</html>
