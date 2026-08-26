@@ -24,11 +24,11 @@ function Hero() {
     <section className="relative h-screen min-h-[640px] max-h-[1080px] overflow-hidden flex items-end">
       {/* Parallax Image */}
       <motion.div ref={ref} style={{ y }} className="absolute -inset-[20%] w-[140%] h-[140%]">
-        <div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: `url(${IMG.areal})` }} />
+        <div className="w-full h-full bg-cover" style={{ backgroundImage: `url(${IMG.areal})`, backgroundPosition: '50% 25%' }} />
       </motion.div>
 
       {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[var(--dark-bg)]/35 via-[var(--dark-bg)]/40 to-[var(--dark-bg)]/95" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[var(--dark-bg)]/25 via-[var(--dark-bg)]/35 to-[var(--dark-bg)]/95" />
       <div className="absolute inset-0 bg-gradient-to-r from-[var(--dark-bg)]/75 via-[var(--dark-bg)]/20 to-transparent right-[30%]" />
 
       {/* Content */}
