@@ -74,7 +74,7 @@ function StatsBar() {
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[var(--border)]">
         {[
           { val: '3 min', label: 'pěšky na MHD a vlak' },
-          { val: '150 m²', label: 'kancelářské prostory k pronájmu' },
+          { val: '35 000 m²', label: 'plocha areálu' },
           { val: '10+', label: 'dostupných služeb' },
         ].map((s, i) => (
           <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 * i, duration: 0.6 }} className="py-7 md:py-7 px-4 md:px-8 flex flex-col gap-1 text-center md:text-left">
