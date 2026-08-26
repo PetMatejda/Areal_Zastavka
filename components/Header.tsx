@@ -40,9 +40,9 @@ export default function Header() {
           className={`flex items-center gap-3 bg-transparent border-none cursor-pointer group transition-opacity duration-300 ${showBar ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         >
           <img
-            src="/images/logo-budova.png"
+            src="/images/logo-budova-white.png"
             alt=""
-            className="h-7 md:h-8 w-auto brightness-0 invert transition-opacity group-hover:opacity-80"
+            className="h-7 md:h-8 w-auto transition-opacity group-hover:opacity-80"
           />
           <span className="font-barlow font-bold text-lg md:text-xl tracking-wide text-[var(--dark-text)] transition-opacity group-hover:opacity-80">
             AREÁL ZASTÁVKA

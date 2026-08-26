@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-12 md:gap-12 mb-12">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src="/images/logo-budova.png" alt="" className="h-7 w-auto brightness-0 invert" />
+              <img src="/images/logo-budova-white.png" alt="" className="h-7 w-auto" />
               <span className="font-barlow font-bold text-lg tracking-wide text-[var(--dark-text)]">AREÁL ZASTÁVKA</span>
             </div>
             <p className="text-sm text-[var(--dark-text-muted)] leading-relaxed max-w-sm">
