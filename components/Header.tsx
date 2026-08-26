@@ -9,12 +9,18 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Na homepage necháme úvodní fotku (a ceduli na ní) volnou - lišta i logo se
+  // objeví až po odscrollování. Na ostatních stránkách je lišta vidět vždy.
+  const showBar = !isHome || scrolled;
 
   const links = [
     {href: '/volne-prostory', label: 'Volné prostory'},
@@ -24,39 +30,35 @@ export default function Header() {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-400 ease-out px-4 md:px-10 ${scrolled ? 'bg-[var(--dark-bg)]/95 backdrop-blur-md border-b border-[var(--dark-border)]' : 'bg-transparent'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-400 ease-out px-4 md:px-10 ${showBar ? 'bg-[var(--dark-bg)]/95 backdrop-blur-md border-b border-[var(--dark-border)]' : 'bg-transparent'}`}>
       <div className="max-w-[1280px] mx-auto flex items-center justify-between h-[72px]">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 bg-transparent border-none cursor-pointer group">
-          <img 
-            src="/images/logo.svg" 
-            alt="Areál Zastávka" 
+        {/* Logo - schované, dokud jsme nahoře na homepage */}
+        <Link
+          href="/"
+          aria-hidden={!showBar}
+          tabIndex={showBar ? 0 : -1}
+          className={`flex items-center gap-3 bg-transparent border-none cursor-pointer group transition-opacity duration-300 ${showBar ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+        >
+          <img
+            src="/images/logo.svg"
+            alt="Areál Zastávka"
             className="h-8 md:h-9 group-hover:opacity-80 transition-opacity"
           />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-1">
-          {links.map((link) => (
-            <Link key={link.href} href={link.href}
-              className={`px-4 py-2 rounded-md font-sans text-[15px] font-semibold transition-all drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] ${pathname === link.href ? 'text-white' : 'text-slate-100 hover:text-white'}`}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link href="/kontakt" className="ml-2 bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white border-none rounded-md cursor-pointer font-sans text-sm font-semibold px-5 py-[9px] transition-all transform hover:-translate-y-[1px]">
-            Poptat služby
-          </Link>
-        </nav>
-
-        {/* Mobile Menu Button */}
-        <button className="md:hidden text-[var(--white)] p-2" onClick={() => setOpen(!open)}>
-          {open ? <X size={28} /> : <Menu size={28} />}
+        {/* Menu - vždy jen ikona, rozbaluje se pod ní */}
+        <button
+          className={`p-2 rounded-lg transition-colors text-white ${showBar ? '' : 'bg-black/30 backdrop-blur-sm'}`}
+          onClick={() => setOpen(!open)}
+          aria-label={open ? 'Zavřít menu' : 'Otevřít menu'}
+        >
+          {open ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
-      {/* Mobile Nav */}
-      <div className={`md:hidden absolute top-[72px] left-0 right-0 bg-[var(--dark-bg)] border-b border-[var(--dark-border)] transition-all duration-300 overflow-hidden ${open ? 'max-h-[400px] py-4' : 'max-h-0 py-0 border-b-0 opacity-0'}`}>
-        <nav className="flex flex-col px-6 gap-2">
+      {/* Rozbalovací nabídka */}
+      <div className={`absolute top-[72px] left-0 right-0 bg-[var(--dark-bg)] border-b border-[var(--dark-border)] transition-all duration-300 overflow-hidden ${open ? 'max-h-[400px] py-4' : 'max-h-0 py-0 border-b-0 opacity-0'}`}>
+        <nav className="flex flex-col px-6 gap-2 max-w-[1280px] mx-auto">
           {links.map((link) => (
             <Link key={link.href} href={link.href} onClick={() => setOpen(false)}
               className={`px-4 py-3 rounded-md font-sans text-base font-medium transition-colors ${pathname === link.href ? 'text-[var(--accent)] bg-[rgba(255,255,255,0.05)]' : 'text-[var(--dark-text-muted)] hover:text-[var(--dark-text)] bg-transparent'}`}
@@ -64,9 +66,6 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <Link href="/kontakt" onClick={() => setOpen(false)} className="mt-2 text-center bg-[var(--accent)] text-white rounded-md font-sans text-base font-semibold px-4 py-3">
-            Poptat služby
-          </Link>
         </nav>
       </div>
     </header>
