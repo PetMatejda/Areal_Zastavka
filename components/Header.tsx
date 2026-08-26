@@ -40,10 +40,13 @@ export default function Header() {
           className={`flex items-center gap-3 bg-transparent border-none cursor-pointer group transition-opacity duration-300 ${showBar ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
         >
           <img
-            src="/images/logo.svg"
-            alt="Areál Zastávka"
-            className="h-8 md:h-9 group-hover:opacity-80 transition-opacity"
+            src="/images/logo-budova.png"
+            alt=""
+            className="h-7 md:h-8 w-auto brightness-0 invert transition-opacity group-hover:opacity-80"
           />
+          <span className="font-barlow font-bold text-lg md:text-xl tracking-wide text-[var(--dark-text)] transition-opacity group-hover:opacity-80">
+            AREÁL ZASTÁVKA
+          </span>
         </Link>
 
         {/* Menu - vždy jen ikona, rozbaluje se pod ní */}
