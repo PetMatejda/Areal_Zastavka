@@ -73,7 +73,7 @@ export default function Contact() {
             <a href="tel:+420603233264" className="w-full sm:w-auto text-center bg-[var(--accent)] hover:bg-[var(--accent-light)] transition-all text-white font-sans text-sm font-semibold px-6 py-3.5 rounded-lg transform hover:-translate-y-0.5 shadow-lg inline-flex items-center justify-center gap-2">
               <Phone size={16} /> Zavolat nyní
             </a>
-            <a href="mailto:info@arealzastavka.cz" className="w-full sm:w-auto text-center bg-transparent border border-[var(--border)] hover:border-white/30 hover:text-white transition-all text-[var(--text)] font-sans text-sm font-medium px-6 py-3.5 rounded-lg backdrop-blur-md inline-flex items-center justify-center gap-2">
+            <a href="mailto:info@arealzastavka.cz" className="w-full sm:w-auto text-center bg-transparent border border-[var(--border)] hover:border-[var(--accent)]/50 hover:text-[var(--white)] transition-all text-[var(--text)] font-sans text-sm font-medium px-6 py-3.5 rounded-lg inline-flex items-center justify-center gap-2">
               <Mail size={16} /> Napsat e-mail
             </a>
           </div>

@@ -15,9 +15,7 @@ export default function VolneProstoryPage() {
       <Header />
       <div className="pt-20">
         {/* Header Section */}
-        <section className="relative py-[80px] md:py-[120px] px-6 md:px-10 bg-[var(--surface)] border-b border-[var(--border)] overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0b0d10] via-[#0b0d10] to-[var(--bg)]"></div>
-          
+        <section className="relative py-[80px] md:py-[120px] px-6 md:px-10 bg-[var(--surface2)] border-b border-[var(--border)] overflow-hidden">
           <div className="container mx-auto max-w-[1280px] relative z-10 text-center flex flex-col items-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <SectionLabel>Nabídka pronájmu</SectionLabel>
@@ -46,7 +44,7 @@ export default function VolneProstoryPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1, duration: 0.6 }}
-                    className="flex flex-col md:flex-row bg-[var(--surface)] border border-[var(--border)] hover:border-[#7a9db8]/30 transition-colors duration-500 rounded-xl overflow-hidden group"
+                    className="flex flex-col md:flex-row bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--accent)]/40 transition-colors duration-500 rounded-xl overflow-hidden group"
                   >
                     {/* Images */}
                     <div className="md:w-5/12 lg:w-1/2 flex flex-col">
@@ -63,7 +61,7 @@ export default function VolneProstoryPage() {
                           </div>
                         )}
                         {space.area && (
-                          <div className="absolute bottom-5 right-5 font-barlow font-bold text-[24px] text-[var(--white)] shadow-lg">
+                          <div className="absolute bottom-5 right-5 font-barlow font-bold text-[24px] text-white shadow-lg">
                             {areaDisplay} {typeof space.area === 'number' ? 'm²' : ''}
                           </div>
                         )}

@@ -21,9 +21,7 @@ export default function SluzbyPage() {
     <main className="min-h-screen bg-[var(--bg)]">
       <Header />
       <div className="pt-20">
-        <section className="relative py-[80px] md:py-[120px] px-6 md:px-10 bg-[var(--surface)] border-b border-[var(--border)] overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0b0d10] via-[#0b0d10] to-[var(--bg)]"></div>
-          
+        <section className="relative py-[80px] md:py-[120px] px-6 md:px-10 bg-[var(--surface2)] border-b border-[var(--border)] overflow-hidden">
           <div className="container mx-auto max-w-[1280px] relative z-10 text-center flex flex-col items-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <SectionLabel>Naše Služby</SectionLabel>
@@ -82,7 +80,7 @@ export default function SluzbyPage() {
 
                      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10">
                         {category.items.map((item, itemIdx) => (
-                           <div key={itemIdx} className="bg-[var(--bg)] border border-[var(--border)] rounded-lg p-6 hover:border-white/20 transition-all hover:-translate-y-1">
+                           <div key={itemIdx} className="bg-[var(--bg)] border border-[var(--border)] rounded-lg p-6 hover:border-[var(--accent)]/30 transition-all hover:-translate-y-1">
                               <h3 className="font-barlow font-semibold text-xl text-[var(--white)] mb-3">{item.title}</h3>
                               <p className="text-[14.5px] text-[var(--text-muted)] font-light leading-relaxed">{item.description}</p>
                            </div>

@@ -10,7 +10,7 @@ import { Building2, UtensilsCrossed, Rocket, ShieldCheck, Heart } from "lucide-r
 import { availableSpaces } from "@/lib/data";
 
 const IMG = {
-  areal: 'https://www.arealzastavka.cz/images/areal/areal-zastavka.jpg',
+  areal: '/images/areal/vjezd-brana.jpg',
   budova: 'https://www.arealzastavka.cz/images/areal/budova-terakota.jpg',
   gastro: 'https://www.arealzastavka.cz/images/gastro/interior.jpg',
 };
@@ -26,33 +26,33 @@ function Hero() {
       <motion.div ref={ref} style={{ y }} className="absolute -inset-[20%] w-[140%] h-[140%]">
         <div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: `url(${IMG.areal})` }} />
       </motion.div>
-      
+
       {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0b0d10]/45 via-[#0b0d10]/55 to-[#0b0d10]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0b0d10]/80 via-[#0b0d10]/25 to-transparent right-[30%]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[var(--dark-bg)]/35 via-[var(--dark-bg)]/40 to-[var(--dark-bg)]/95" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[var(--dark-bg)]/75 via-[var(--dark-bg)]/20 to-transparent right-[30%]" />
 
       {/* Content */}
       <div className="relative w-full max-w-[1280px] mx-auto px-6 md:px-10 pb-[100px] md:pb-[112px]">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
-          <div className="inline-flex items-center gap-2 mb-6 bg-[#7a9db8]/10 border border-[#7a9db8]/25 rounded-full px-4 py-1.5">
+          <div className="inline-flex items-center gap-2 mb-6 bg-[var(--accent)]/15 border border-[var(--accent)]/30 rounded-full px-4 py-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-green-500 block animate-pulse-custom" />
-            <span className="font-sans text-[13px] text-[var(--steel-light)] tracking-widest">Praha-Dolní Měcholupy · Kanceláře k dispozici</span>
+            <span className="font-sans text-[13px] text-[var(--dark-text-muted)] tracking-widest">Praha-Dolní Měcholupy · Kanceláře k dispozici</span>
           </div>
 
-          <h1 className="font-barlow font-extrabold text-[clamp(64px,10vw,130px)] leading-[0.92] text-[var(--white)] tracking-[-0.01em] mb-6 text-balance [text-shadow:0_4px_28px_rgba(0,0,0,0.65)]">
+          <h1 className="font-barlow font-extrabold text-[clamp(64px,10vw,130px)] leading-[0.92] text-[var(--dark-text)] tracking-[-0.01em] mb-6 text-balance [text-shadow:0_4px_28px_rgba(0,0,0,0.65)]">
             AREÁL<br />
             <span className="text-[var(--accent)]">ZASTÁVKA</span>
           </h1>
 
-          <p className="text-[clamp(16px,2vw,20px)] text-[var(--text)] max-w-[540px] mb-10 font-light leading-[1.7] [text-shadow:0_2px_12px_rgba(0,0,0,0.7)]">
+          <p className="text-[clamp(16px,2vw,20px)] text-[var(--dark-text-muted)] max-w-[540px] mb-10 font-light leading-[1.7] [text-shadow:0_2px_12px_rgba(0,0,0,0.7)]">
             Váš servisní hub pro podnikání v Praze. Průmyslové haly, kanceláře a kompletní zázemí — vše na jednom místě.
           </p>
-          
+
           <div className="flex gap-3 flex-wrap">
             <Link href="/volne-prostory" className="bg-[var(--accent)] hover:bg-[var(--accent-light)] text-white border-none rounded-lg font-sans font-semibold text-[15px] px-7 py-3.5 transition-all transform hover:-translate-y-0.5">
               Prohlédnout prostory
             </Link>
-            <Link href="#kontakt" className="bg-transparent hover:border-white/30 text-[var(--text)] hover:text-[var(--white)] border border-[var(--border)] rounded-lg font-sans font-medium text-[15px] px-7 py-3.5 transition-all backdrop-blur-md">
+            <Link href="#kontakt" className="bg-transparent hover:border-white/40 text-[var(--dark-text-muted)] hover:text-[var(--dark-text)] border border-white/20 rounded-lg font-sans font-medium text-[15px] px-7 py-3.5 transition-all backdrop-blur-md">
               Kontaktovat nás
             </Link>
           </div>
@@ -61,8 +61,8 @@ function Hero() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 right-6 md:right-10 flex flex-col items-center gap-2">
-        <span className="font-barlow text-[11px] tracking-[0.15em] text-[var(--text-muted)] writing-m-vertical" style={{ writingMode: 'vertical-rl' }}>SCROLL</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-[var(--steel)] to-transparent animate-scroll" />
+        <span className="font-barlow text-[11px] tracking-[0.15em] text-white/60 writing-m-vertical" style={{ writingMode: 'vertical-rl' }}>SCROLL</span>
+        <div className="w-[1px] h-12 bg-gradient-to-b from-white/50 to-transparent animate-scroll" />
       </div>
     </section>
   );
@@ -112,7 +112,7 @@ function SpacesSection() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {spaces.map((s, i) => (
-          <Link href={s.isContact ? "#kontakt" : "/volne-prostory"} key={i} className="group flex flex-col bg-[var(--surface)] border border-[var(--border)] hover:border-[#7a9db8]/25 rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300">
+          <Link href={s.isContact ? "#kontakt" : "/volne-prostory"} key={i} className="group flex flex-col bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--accent)]/40 rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-xl hover:shadow-black/10 transition-all duration-300">
             <div className="relative h-[220px] overflow-hidden">
               <img src={s.img} alt={s.title} className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" />
               <div className="absolute inset-0 bg-gradient-to-t from-[rgba(19,23,28,0.8)] to-transparent" />
@@ -198,19 +198,19 @@ function GastroFeature() {
       <motion.div ref={ref} style={{ y }} className="absolute -inset-[20%] w-[140%] h-[140%]">
         <div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: `url(${IMG.gastro})` }} />
       </motion.div>
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0b0d10]/95 via-[#0b0d10]/80 to-[#0b0d10]/50" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[var(--dark-bg)]/95 via-[var(--dark-bg)]/80 to-[var(--dark-bg)]/50" />
       <div className="relative z-10 max-w-[1280px] w-full mx-auto px-6 md:px-10 py-20 pointer-events-none">
         <motion.div className="max-w-[500px]" initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
           <SectionLabel>Gastro & Eventy</SectionLabel>
-          <h2 className="font-barlow font-extrabold text-4xl md:text-5xl lg:text-6xl text-[var(--white)] leading-[0.95] mb-5">
+          <h2 className="font-barlow font-extrabold text-4xl md:text-5xl lg:text-6xl text-[var(--dark-text)] leading-[0.95] mb-5">
             FIREMNÍ STRAVOVÁNÍ<br/><span className="text-[var(--accent)]">& EVENTY</span>
           </h2>
-          <p className="text-base text-[var(--text)] leading-[1.7] mb-7 font-light">
+          <p className="text-base text-[var(--dark-text-muted)] leading-[1.7] mb-7 font-light">
             Od ranního kafe a chlebíčků po firemní večírky. Kompletní gastronomické zázemí přímo v areálu.
           </p>
           <div className="flex flex-col gap-3">
             {['Meeting Boxy přímo do zasedačky', 'Zvýhodněné obědy pro zaměstnance', 'Organizace firemních eventů'].map((f, i) => (
-              <div key={i} className="flex items-center gap-2.5 text-sm text-[var(--text-muted)]">
+              <div key={i} className="flex items-center gap-2.5 text-sm text-[var(--dark-text-muted)]">
                 <span className="text-[var(--accent)] text-base">✓</span> {f}
               </div>
             ))}

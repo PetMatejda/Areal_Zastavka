@@ -24,7 +24,7 @@ export default function Header() {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-400 ease-out px-4 md:px-10 ${scrolled ? 'bg-[#0b0d10]/95 backdrop-blur-md border-b border-[rgba(255,255,255,0.07)]' : 'bg-transparent'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-400 ease-out px-4 md:px-10 ${scrolled ? 'bg-[var(--dark-bg)]/95 backdrop-blur-md border-b border-[var(--dark-border)]' : 'bg-transparent'}`}>
       <div className="max-w-[1280px] mx-auto flex items-center justify-between h-[72px]">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 bg-transparent border-none cursor-pointer group">
@@ -55,11 +55,11 @@ export default function Header() {
       </div>
 
       {/* Mobile Nav */}
-      <div className={`md:hidden absolute top-[72px] left-0 right-0 bg-[#13171c] border-b border-[rgba(255,255,255,0.07)] transition-all duration-300 overflow-hidden ${open ? 'max-h-[400px] py-4' : 'max-h-0 py-0 border-b-0 opacity-0'}`}>
+      <div className={`md:hidden absolute top-[72px] left-0 right-0 bg-[var(--dark-bg)] border-b border-[var(--dark-border)] transition-all duration-300 overflow-hidden ${open ? 'max-h-[400px] py-4' : 'max-h-0 py-0 border-b-0 opacity-0'}`}>
         <nav className="flex flex-col px-6 gap-2">
           {links.map((link) => (
             <Link key={link.href} href={link.href} onClick={() => setOpen(false)}
-              className={`px-4 py-3 rounded-md font-sans text-base font-medium transition-colors ${pathname === link.href ? 'text-[var(--accent)] bg-[rgba(255,255,255,0.05)]' : 'text-[var(--text-muted)] hover:text-[var(--white)] bg-transparent'}`}
+              className={`px-4 py-3 rounded-md font-sans text-base font-medium transition-colors ${pathname === link.href ? 'text-[var(--accent)] bg-[rgba(255,255,255,0.05)]' : 'text-[var(--dark-text-muted)] hover:text-[var(--dark-text)] bg-transparent'}`}
             >
               {link.label}
             </Link>

@@ -18,7 +18,7 @@ export default function OperationalRules() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="bg-[var(--surface)] rounded-2xl p-8 md:p-14 border border-[var(--border)] shadow-2xl shadow-black/50">
+          <div className="bg-[var(--surface)] rounded-2xl p-8 md:p-14 border border-[var(--border)] shadow-xl shadow-black/5">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
               <div className="flex items-center gap-5">
                 <div className="flex items-center justify-center w-[72px] h-[72px] bg-[var(--surface2)] border border-[var(--border)] rounded-xl flex-shrink-0">

@@ -3,19 +3,28 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0b0d10;
-  --surface: #13171c;
-  --surface2: #1a1f26;
-  --border: rgba(255, 255, 255, 0.07);
-  --steel: #7a9db8;
-  --steel-light: #a8c4d8;
-  --accent: #c97a4a;
-  --accent-light: #e0956a;
-  --text: #dde2e8;
-  --text-muted: #6b7a87;
-  --text-dim: #3d4a55;
-  --white: #f0ece6;
-  
+  /* Light, warm base palette (shared look with /zastupitele) */
+  --bg: #F8F5F0;
+  --surface: #FFFFFF;
+  --surface2: #F1ECE1;
+  --border: #E5DFC9;
+  --steel: #9c7b52;
+  --steel-light: #b89872;
+  --accent: #C86228;
+  --accent-light: #D97706;
+  --text: #4A443B;
+  --text-muted: #6B655D;
+  --text-dim: #9C9488;
+  --white: #23201C;
+
+  /* Dark-surface tokens: header, hero, footer stay on dark ink regardless of the page theme */
+  --dark-bg: #161513;
+  --dark-surface: #22201D;
+  --dark-surface2: #2A2824;
+  --dark-border: #38342E;
+  --dark-text: #F4F1EA;
+  --dark-text-muted: #A8A298;
+
   --background: var(--bg);
   --foreground: var(--text);
 }
