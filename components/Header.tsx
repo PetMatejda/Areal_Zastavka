@@ -30,7 +30,7 @@ export default function Header() {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-400 ease-out px-4 md:px-10 ${showBar ? 'bg-[var(--dark-bg)]/95 backdrop-blur-md border-b border-[var(--dark-border)]' : 'bg-transparent'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-400 ease-out px-4 md:px-10 ${showBar ? 'bg-[#161513] border-b border-[var(--dark-border)]' : 'bg-transparent'}`}>
       <div className="max-w-[1280px] mx-auto flex items-center justify-between h-[72px]">
         {/* Logo - schované, dokud jsme nahoře na homepage */}
         <Link
