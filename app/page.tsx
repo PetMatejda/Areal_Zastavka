@@ -6,11 +6,12 @@ import Contact, { SectionLabel } from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
+import { Building2, UtensilsCrossed, Rocket, ShieldCheck, Heart } from "lucide-react";
+import { availableSpaces } from "@/lib/data";
 
 const IMG = {
   areal: 'https://www.arealzastavka.cz/images/areal/areal-zastavka.jpg',
   budova: 'https://www.arealzastavka.cz/images/areal/budova-terakota.jpg',
-  hala: 'https://www.arealzastavka.cz/images/areal/hala-5.jpg',
   gastro: 'https://www.arealzastavka.cz/images/gastro/interior.jpg',
 };
 
@@ -27,23 +28,23 @@ function Hero() {
       </motion.div>
       
       {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0b0d10]/30 via-[#0b0d10]/20 to-[#0b0d10] lg:to-[#0b0d10] to-[100%] via-[40%] from-[0%]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0b0d10]/60 to-transparent right-[40%]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0b0d10]/45 via-[#0b0d10]/55 to-[#0b0d10]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0b0d10]/80 via-[#0b0d10]/25 to-transparent right-[30%]" />
 
       {/* Content */}
       <div className="relative w-full max-w-[1280px] mx-auto px-6 md:px-10 pb-[100px] md:pb-[112px]">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }}>
           <div className="inline-flex items-center gap-2 mb-6 bg-[#7a9db8]/10 border border-[#7a9db8]/25 rounded-full px-4 py-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-green-500 block animate-pulse-custom" />
-            <span className="font-sans text-[13px] text-[var(--steel-light)] tracking-widest">Praha-Dolní Měcholupy · Hala i kanceláře k dispozici</span>
+            <span className="font-sans text-[13px] text-[var(--steel-light)] tracking-widest">Praha-Dolní Měcholupy · Kanceláře k dispozici</span>
           </div>
-          
-          <h1 className="font-barlow font-extrabold text-[clamp(64px,10vw,130px)] leading-[0.92] text-[var(--white)] tracking-[-0.01em] mb-6 text-balance">
+
+          <h1 className="font-barlow font-extrabold text-[clamp(64px,10vw,130px)] leading-[0.92] text-[var(--white)] tracking-[-0.01em] mb-6 text-balance [text-shadow:0_4px_28px_rgba(0,0,0,0.65)]">
             AREÁL<br />
             <span className="text-[var(--accent)]">ZASTÁVKA</span>
           </h1>
-          
-          <p className="text-[clamp(16px,2vw,20px)] text-[var(--text)] max-w-[540px] mb-10 font-light leading-[1.7]">
+
+          <p className="text-[clamp(16px,2vw,20px)] text-[var(--text)] max-w-[540px] mb-10 font-light leading-[1.7] [text-shadow:0_2px_12px_rgba(0,0,0,0.7)]">
             Váš servisní hub pro podnikání v Praze. Průmyslové haly, kanceláře a kompletní zázemí — vše na jednom místě.
           </p>
           
@@ -73,7 +74,7 @@ function StatsBar() {
       <div className="max-w-[1280px] mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[var(--border)]">
         {[
           { val: '3 min', label: 'pěšky na MHD a vlak' },
-          { val: '800 m²', label: 'největší dostupná hala' },
+          { val: '150 m²', label: 'kancelářské prostory k pronájmu' },
           { val: '10+', label: 'dostupných služeb' },
         ].map((s, i) => (
           <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 * i, duration: 0.6 }} className="py-7 md:py-7 px-4 md:px-8 flex flex-col gap-1 text-center md:text-left">
@@ -87,26 +88,17 @@ function StatsBar() {
 }
 
 function SpacesSection() {
-  const spaces = [
-    {
-      img: IMG.budova, tag: 'Dostupné', tagColor: '#4caf50',
-      title: 'Kancelářské prostory', sub: 'Budova A, 1. patro', size: '10 – 150 m²',
-      desc: 'Moderní kancelářské prostory v nově zrekonstruované budově. Ideální pro malé a střední firmy. Včetně kuchyňky a sociálního zázemí.',
-      price: 'na dotaz',
-    },
-    {
-      img: IMG.hala, tag: 'Dostupné', tagColor: '#4caf50',
-      title: 'Skladová hala č. 5', sub: 'Hala č. 5', size: '800 m²',
-      desc: 'Velká skladová hala vhodná pro výrobu, skladování nebo logistiku. Vysoké stropy, možnost jeřábu, přímý přístup pro nákladní vozy.',
-      price: 'na dotaz',
-    },
-    {
-      img: IMG.areal, tag: 'Dotaz', tagColor: 'var(--accent)',
-      title: 'Máte specifický požadavek?', sub: 'Přizpůsobíme nabídku', size: 'Flexibilně',
-      desc: 'Dejte nám vědět a zkusíme najít řešení. Různé velikosti prostor, flexibilní podmínky pronájmu.',
-      price: 'Kontaktujte nás', isContact: true,
-    },
-  ];
+  const spaces = availableSpaces.map((s) => ({
+    img: s.images[0] || IMG.areal,
+    tag: s.isUniversal ? 'Dotaz' : 'Dostupné',
+    tagColor: s.isUniversal ? 'var(--accent)' : '#4caf50',
+    title: s.title,
+    sub: s.location || 'Přizpůsobíme nabídku',
+    size: s.isUniversal ? 'Flexibilně' : `${s.area} m²`,
+    desc: s.description,
+    price: s.isUniversal ? 'Kontaktujte nás' : s.price,
+    isContact: s.isUniversal,
+  }));
 
   return (
     <section className="py-[100px] px-6 md:px-10 max-w-[1280px] mx-auto">
@@ -115,10 +107,10 @@ function SpacesSection() {
         <h2 className="font-barlow font-extrabold text-4xl md:text-5xl lg:text-7xl text-[var(--white)] leading-[0.95] mb-5">
           PROSTORY<br/><span className="text-[var(--steel)]">K PRONÁJMU</span>
         </h2>
-        <p className="text-[17px] text-[var(--text-muted)] max-w-[520px] font-light leading-relaxed">Prohlédněte si aktuálně dostupné kanceláře, haly a plochy v našem areálu.</p>
+        <p className="text-[17px] text-[var(--text-muted)] max-w-[520px] font-light leading-relaxed">Prohlédněte si aktuálně dostupné kanceláře a dejte nám vědět o vaší poptávce na další prostory.</p>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {spaces.map((s, i) => (
           <Link href={s.isContact ? "#kontakt" : "/volne-prostory"} key={i} className="group flex flex-col bg-[var(--surface)] border border-[var(--border)] hover:border-[#7a9db8]/25 rounded-xl overflow-hidden hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300">
             <div className="relative h-[220px] overflow-hidden">
@@ -147,11 +139,11 @@ function SpacesSection() {
 
 function ServicesSection() {
   const cats = [
-    { icon: '🏢', title: 'Pronájem', color: 'var(--steel)', items: ['Pronájem ploch', 'Pronájem hal', 'Pronájem kanceláří', 'Zajištění akcí', 'Ubytovna'] },
-    { icon: '🍽', title: 'Gastro & Eventy', color: '#e8a87c', items: ['Meeting Boxy do zasedačky', 'Firemní stravování', 'Večírky a Eventy'] },
-    { icon: '⚡', title: 'Růst & Technologie', color: '#7bc8a4', items: ['AI Školení & Workshopy', 'Správa sociálních sítí', 'Webové služby & Audit'] },
-    { icon: '🔧', title: 'Provoz & Bezpečí', color: '#a89bc8', items: ['PO & BOZP Servis', 'Stavební činnost', 'Kryté parkování (VIP)'] },
-    { icon: '🎾', title: 'Lifestyle & Volný čas', color: '#c8a87b', items: ['Tenis Aréna (Praha 4)', 'Hodinový manžel domů'] },
+    { icon: Building2, title: 'Pronájem', color: 'var(--steel)', items: ['Pronájem ploch', 'Pronájem hal', 'Pronájem kanceláří', 'Zajištění akcí', 'Ubytovna'] },
+    { icon: UtensilsCrossed, title: 'Gastro & Eventy', color: '#e8a87c', items: ['Meeting Boxy do zasedačky', 'Firemní stravování', 'Večírky a Eventy'] },
+    { icon: Rocket, title: 'Růst & Technologie', color: '#7bc8a4', items: ['AI Školení & Workshopy', 'Správa sociálních sítí', 'Webové služby & Audit'] },
+    { icon: ShieldCheck, title: 'Provoz & Bezpečí', color: '#a89bc8', items: ['PO & BOZP Servis', 'Stavební činnost', 'Kryté parkování (VIP)'] },
+    { icon: Heart, title: 'Lifestyle & Volný čas', color: '#c8a87b', items: ['Tenis Aréna (Praha 4)', 'Hodinový manžel domů'] },
   ];
 
   return (
@@ -175,8 +167,8 @@ function ServicesSection() {
             return (
             <Link href={anchor} key={i} className="group bg-[var(--bg)] hover:bg-[var(--surface2)] border border-[var(--border)] rounded-xl p-7 md:p-6 cursor-pointer hover:-translate-y-1 transition-all duration-250" style={{ '--col-hover': `${c.color}40`, '--col-bg': `${c.color}18`, '--col-border': `${c.color}30` } as React.CSSProperties}>
               <style jsx>{` a:hover { border-color: var(--col-hover) !important; } `}</style>
-              <div className="w-11 h-11 rounded-lg flex items-center justify-center text-[22px] mb-4.5" style={{ background: 'var(--col-bg)', border: '1px solid var(--col-border)' }}>
-                {c.icon}
+              <div className="w-11 h-11 rounded-lg flex items-center justify-center mb-4.5" style={{ background: 'var(--col-bg)', border: '1px solid var(--col-border)' }}>
+                <c.icon size={20} style={{ color: c.color }} />
               </div>
               <h3 className="font-barlow font-bold text-2xl text-[var(--white)] mb-3.5 leading-none">{c.title}</h3>
               <ul className="list-none flex flex-col gap-2">

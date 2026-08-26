@@ -4,7 +4,15 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Contact, { SectionLabel } from "@/components/Contact";
 import { motion } from "framer-motion";
+import { UtensilsCrossed, Rocket, ShieldCheck, Heart } from "lucide-react";
 import { serviceCategories } from "@/lib/data";
+
+const iconMap: Record<string, typeof UtensilsCrossed> = {
+  'Gastro & Eventy': UtensilsCrossed,
+  'Růst & Technologie': Rocket,
+  'Provoz & Bezpečí': ShieldCheck,
+  'Lifestyle & Volný čas': Heart,
+};
 
 export default function SluzbyPage() {
   const extendedServices = serviceCategories.filter(cat => cat.name !== "Pronájem");
@@ -39,6 +47,7 @@ export default function SluzbyPage() {
                  'Lifestyle & Volný čas': '#c8a87b'
                };
                const col = colMap[category.name] || 'var(--steel)';
+               const Icon = iconMap[category.name] || ShieldCheck;
 
                return (
                   <motion.div
@@ -63,8 +72,8 @@ export default function SluzbyPage() {
                        
                        <div className="flex flex-col flex-grow justify-center">
                          <div className="flex items-center gap-5 mb-6">
-                            <div className="w-14 h-14 rounded-lg flex items-center justify-center text-2xl border" style={{ background: `${col}18`, borderColor: `${col}30` }}>
-                               {category.name === 'Gastro & Eventy' ? '🍽' : category.name === 'Růst & Technologie' ? '⚡' : category.name === 'Provoz & Bezpečí' ? '🔧' : '🎾'}
+                            <div className="w-14 h-14 rounded-lg flex items-center justify-center border" style={{ background: `${col}18`, borderColor: `${col}30` }}>
+                               <Icon size={24} style={{ color: col }} />
                             </div>
                             <h2 className="font-barlow font-bold text-3xl md:text-4xl text-[var(--white)]">{category.name}</h2>
                          </div>

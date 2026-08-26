@@ -184,26 +184,6 @@ export const availableSpaces: AvailableSpace[] = [
     available: true
   },
   {
-    id: "hala-5",
-    title: "Skladová hala č.5",
-    type: "hala",
-    area: 800,
-    price: "na dotaz",
-    location: "Hala č.5",
-    description: "Velká skladová hala vhodná pro výrobu, skladování nebo logistiku. Vysoké stropy, možnost instalace jeřábu, přímý přístup pro nákladní vozy.",
-    features: [
-      "Výška stropu 7m",
-      "Přístup pro nákladní vozy",
-      "Kancelářské zázemí",
-      "Parkování pro zaměstnance",
-      "24/7 přístup"
-    ],
-    images: [
-      "/images/areal/hala-5.jpg"
-    ],
-    available: true
-  },
-  {
     id: "univerzalni-poptavka",
     title: "Máte poptávku?",
     type: "univerzální",

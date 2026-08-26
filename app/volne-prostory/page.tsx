@@ -25,7 +25,7 @@ export default function VolneProstoryPage() {
                 VOLNÉ PROSTORY V AREÁLU
               </h1>
               <p className="text-[17px] text-[var(--text-muted)] max-w-2xl mx-auto font-light leading-relaxed">
-                Najděte ideální prostor pro vaši firmu. Nabízíme skladové, výrobní i kancelářské prostory s flexibilními podmínkami.
+                Najděte ideální prostor pro vaši firmu. Aktuálně máme volné kancelářské prostory a rádi probereme i vaši poptávku na sklad či výrobu.
               </p>
             </motion.div>
           </div>
